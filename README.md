@@ -1,4 +1,4 @@
-# Mystery Planning
+# Lexical‑Prior‑Free Planning: A Symbol‑Agnostic Pipeline that Enables LLMs and LRMs to Plan under Obfuscated Interfaces
 
 A symbol-agnostic closed-loop planning pipeline for evaluating large language models' structural reasoning capabilities under lexical-prior-free conditions. The system implements a complete "generate→verify→repair" cycle for PDDL planning tasks in Mystery domains, where all predicates and action names are replaced with semantically irrelevant random symbols while preserving logical structures. This design eliminates vocabulary-based priors, enabling pure evaluation of models' structural reasoning abilities.
 
