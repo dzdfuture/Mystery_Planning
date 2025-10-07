@@ -13,7 +13,6 @@ The content in the `data/` folder is sourced from the [PlanBench paper](https://
 Other folders contain our implementations:
 - `src/`: Core implementation code
 - `results/`: Experimental results and analyses
-- `agent_workspace/`: Agent workspace
 
 ## Installation
 
