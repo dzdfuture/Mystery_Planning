@@ -1,0 +1,293 @@
+# Error Analysis (Main Experiments Only)
+
+Note: Failure attribution priority = Simulation -> Translate -> VAL -> Unknown.
+
+## Model: gpt-4
+### Subset 500
+- count: 500
+- success: 195
+- success_rate: 0.3900
+- time.p50: 37.49s, p90: 49.86s, mean: 38.03s
+- attempts.mean: 1.99
+- signals: sim=305, translate=0, val=305
+- overlaps: sim&trans=0, sim&val=305, trans&val=0, all3=0
+- fail_reason_top:
+  - sim.precondition_missing: 299
+  - sim.goal_not_satisfied: 5
+  - sim.arity_mismatch: 1
+- sim_step_top:
+  - step 1: 165
+  - step 3: 86
+  - step 2: 34
+  - step 5: 11
+  - step 4: 4
+- sim_action_top:
+  - attack: 177
+  - overcome: 63
+  - feast: 50
+  - succumb: 10
+- sim_missing_pred_top:
+  - province: 200
+  - planet: 42
+  - pain: 30
+  - craves: 27
+- plan_len_fail_stats: count=305, p50=6.0, p90=6.0, mean=5.413114754098361
+
+### Subset 100
+- count: 100
+- success: 82
+- success_rate: 0.8200
+- time.p50: 26.84s, p90: 40.55s, mean: 26.15s
+- attempts.mean: 1.51
+- signals: sim=17, translate=0, val=18
+- overlaps: sim&trans=0, sim&val=17, trans&val=0, all3=0
+- fail_reason_top:
+  - sim.precondition_missing: 15
+  - sim.goal_not_satisfied: 2
+  - val.fail: 1
+- sim_step_top:
+  - step 5: 6
+  - step 2: 3
+  - step 6: 3
+  - step 1: 1
+  - step 3: 1
+  - step 4: 1
+- sim_action_top:
+  - stack: 9
+  - pick-up: 5
+  - unstack: 1
+- sim_missing_pred_top:
+  - clear: 10
+  - holding: 3
+  - handempty: 1
+  - ontable: 1
+- plan_len_fail_stats: count=18, p50=5.5, p90=6.0, mean=5.111111111111111
+
+### Combined 600
+- count: 600
+- success: 277
+- success_rate: 0.4617
+- time.p50: 36.25s, p90: 49.21s, mean: 36.05s
+- attempts.mean: 1.91
+- signals: sim=322, translate=0, val=323
+- overlaps: sim&trans=0, sim&val=322, trans&val=0, all3=0
+- fail_reason_top:
+  - sim.precondition_missing: 314
+  - sim.goal_not_satisfied: 7
+  - sim.arity_mismatch: 1
+  - val.fail: 1
+- sim_step_top:
+  - step 1: 166
+  - step 3: 87
+  - step 2: 37
+  - step 5: 17
+  - step 4: 5
+  - step 6: 3
+- sim_action_top:
+  - attack: 177
+  - overcome: 63
+  - feast: 50
+  - succumb: 10
+  - stack: 9
+  - pick-up: 5
+  - unstack: 1
+- sim_missing_pred_top:
+  - province: 200
+  - planet: 42
+  - pain: 30
+  - craves: 27
+  - clear: 10
+  - holding: 3
+  - handempty: 1
+  - ontable: 1
+- plan_len_fail_stats: count=323, p50=6.0, p90=6.0, mean=5.396284829721362
+
+## Model: gpt-4o
+### Subset 500
+- count: 500
+- success: 195
+- success_rate: 0.3900
+- time.p50: 14.16s, p90: 20.32s, mean: 15.24s
+- attempts.mean: 2.00
+- signals: sim=305, translate=0, val=305
+- overlaps: sim&trans=0, sim&val=305, trans&val=0, all3=0
+- fail_reason_top:
+  - sim.precondition_missing: 296
+  - sim.goal_not_satisfied: 9
+- sim_step_top:
+  - step 3: 170
+  - step 5: 45
+  - step 1: 44
+  - step 2: 28
+  - step 4: 9
+- sim_action_top:
+  - overcome: 213
+  - feast: 42
+  - attack: 41
+- sim_missing_pred_top:
+  - pain: 157
+  - province: 92
+  - planet: 36
+  - craves: 9
+  - harmony: 2
+- plan_len_fail_stats: count=305, p50=5.0, p90=6.0, mean=4.675409836065573
+
+### Subset 100
+- count: 100
+- success: 82
+- success_rate: 0.8200
+- time.p50: 11.25s, p90: 17.42s, mean: 11.64s
+- attempts.mean: 1.61
+- signals: sim=15, translate=0, val=18
+- overlaps: sim&trans=0, sim&val=15, trans&val=0, all3=0
+- fail_reason_top:
+  - sim.precondition_missing: 12
+  - sim.goal_not_satisfied: 3
+  - val.fail: 3
+- sim_step_top:
+  - step 5: 4
+  - step 1: 2
+  - step 2: 2
+  - step 4: 2
+  - step 3: 1
+  - step 6: 1
+- sim_action_top:
+  - pick-up: 5
+  - stack: 5
+  - unstack: 2
+- sim_missing_pred_top:
+  - clear: 11
+  - holding: 1
+- plan_len_fail_stats: count=18, p50=5.0, p90=6.0, mean=4.666666666666667
+
+### Combined 600
+- count: 600
+- success: 277
+- success_rate: 0.4617
+- time.p50: 13.79s, p90: 19.93s, mean: 14.64s
+- attempts.mean: 1.94
+- signals: sim=320, translate=0, val=323
+- overlaps: sim&trans=0, sim&val=320, trans&val=0, all3=0
+- fail_reason_top:
+  - sim.precondition_missing: 308
+  - sim.goal_not_satisfied: 12
+  - val.fail: 3
+- sim_step_top:
+  - step 3: 171
+  - step 5: 49
+  - step 1: 46
+  - step 2: 30
+  - step 4: 11
+  - step 6: 1
+- sim_action_top:
+  - overcome: 213
+  - feast: 42
+  - attack: 41
+  - pick-up: 5
+  - stack: 5
+  - unstack: 2
+- sim_missing_pred_top:
+  - pain: 157
+  - province: 92
+  - planet: 36
+  - clear: 11
+  - craves: 9
+  - harmony: 2
+  - holding: 1
+- plan_len_fail_stats: count=323, p50=5.0, p90=6.0, mean=4.674922600619195
+
+## Model: o1-mini
+### Subset 500
+- count: 500
+- success: 201
+- success_rate: 0.4020
+- time.p50: 57.95s, p90: 80.33s, mean: 55.86s
+- attempts.mean: 1.86
+- signals: sim=298, translate=0, val=299
+- overlaps: sim&trans=0, sim&val=298, trans&val=0, all3=0
+- fail_reason_top:
+  - sim.goal_not_satisfied: 208
+  - sim.precondition_missing: 90
+  - val.fail: 1
+- sim_step_top:
+  - step 3: 32
+  - step 5: 30
+  - step 1: 11
+  - step 4: 8
+  - step 2: 6
+  - step 6: 3
+- sim_action_top:
+  - overcome: 45
+  - attack: 27
+  - feast: 12
+  - succumb: 6
+- sim_missing_pred_top:
+  - province: 58
+  - pain: 22
+  - planet: 6
+  - craves: 4
+- plan_len_fail_stats: count=299, p50=0.0, p90=6.0, mean=2.2274247491638794
+
+### Subset 100
+- count: 100
+- success: 87
+- success_rate: 0.8700
+- time.p50: 11.69s, p90: 31.99s, mean: 17.40s
+- attempts.mean: 1.30
+- signals: sim=13, translate=0, val=13
+- overlaps: sim&trans=0, sim&val=13, trans&val=0, all3=0
+- fail_reason_top:
+  - sim.precondition_missing: 10
+  - sim.goal_not_satisfied: 3
+- sim_step_top:
+  - step 3: 3
+  - step 2: 2
+  - step 4: 2
+  - step 5: 2
+  - step 6: 1
+- sim_action_top:
+  - pick-up: 6
+  - stack: 3
+  - put-down: 1
+- sim_missing_pred_top:
+  - clear: 6
+  - handempty: 2
+  - holding: 2
+- plan_len_fail_stats: count=13, p50=6.0, p90=6.0, mean=5.461538461538462
+
+### Combined 600
+- count: 600
+- success: 288
+- success_rate: 0.4800
+- time.p50: 53.74s, p90: 78.54s, mean: 49.45s
+- attempts.mean: 1.77
+- signals: sim=311, translate=0, val=312
+- overlaps: sim&trans=0, sim&val=311, trans&val=0, all3=0
+- fail_reason_top:
+  - sim.goal_not_satisfied: 211
+  - sim.precondition_missing: 100
+  - val.fail: 1
+- sim_step_top:
+  - step 3: 35
+  - step 5: 32
+  - step 1: 11
+  - step 4: 10
+  - step 2: 8
+  - step 6: 4
+- sim_action_top:
+  - overcome: 45
+  - attack: 27
+  - feast: 12
+  - pick-up: 6
+  - succumb: 6
+  - stack: 3
+  - put-down: 1
+- sim_missing_pred_top:
+  - province: 58
+  - pain: 22
+  - clear: 6
+  - planet: 6
+  - craves: 4
+  - handempty: 2
+  - holding: 2
+- plan_len_fail_stats: count=312, p50=0.0, p90=6.0, mean=2.3621794871794872

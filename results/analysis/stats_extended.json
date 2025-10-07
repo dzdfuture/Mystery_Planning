@@ -1,0 +1,567 @@
+{
+  "per_model": {
+    "gpt-4": {
+      "n": 600,
+      "success": 277,
+      "success_rate": 0.46166666666666667,
+      "success_rate_ci95": [
+        0.42214702401068854,
+        0.5016740397336954
+      ],
+      "time": {
+        "median": 36.251827120780945,
+        "p90": 49.212290096282956,
+        "trimmed_mean_5pct": 36.09253756955818
+      },
+      "retry_benefit_curve": [
+        {
+          "budget": 1,
+          "success_within": 0.08833333333333333
+        },
+        {
+          "budget": 2,
+          "success_within": 0.46166666666666667
+        }
+      ],
+      "plan_structure_failed": {
+        "empty_len0": 0,
+        "near_empty_len1": 0,
+        "empty_rate": 0.0,
+        "near_empty_rate": 0.0
+      }
+    },
+    "gpt-4o": {
+      "n": 600,
+      "success": 277,
+      "success_rate": 0.46166666666666667,
+      "success_rate_ci95": [
+        0.42214702401068854,
+        0.5016740397336954
+      ],
+      "time": {
+        "median": 13.788382768630981,
+        "p90": 19.929650449752806,
+        "trimmed_mean_5pct": 14.284147620642626
+      },
+      "retry_benefit_curve": [
+        {
+          "budget": 1,
+          "success_within": 0.065
+        },
+        {
+          "budget": 2,
+          "success_within": 0.46166666666666667
+        }
+      ],
+      "plan_structure_failed": {
+        "empty_len0": 0,
+        "near_empty_len1": 0,
+        "empty_rate": 0.0,
+        "near_empty_rate": 0.0
+      }
+    },
+    "o1-mini": {
+      "n": 600,
+      "success": 288,
+      "success_rate": 0.48,
+      "success_rate_ci95": [
+        0.4402788116987365,
+        0.5199756563418116
+      ],
+      "time": {
+        "median": 53.74209654331207,
+        "p90": 78.53876330852509,
+        "trimmed_mean_5pct": 49.036823801199596
+      },
+      "retry_benefit_curve": [
+        {
+          "budget": 1,
+          "success_within": 0.23333333333333334
+        },
+        {
+          "budget": 2,
+          "success_within": 0.48
+        }
+      ],
+      "plan_structure_failed": {
+        "empty_len0": 165,
+        "near_empty_len1": 0,
+        "empty_rate": 0.5288461538461539,
+        "near_empty_rate": 0.0
+      }
+    }
+  },
+  "per_model_failure_chain": {
+    "gpt-4": {
+      "failure_step_counts": [
+        [
+          1,
+          255
+        ],
+        [
+          2,
+          60
+        ],
+        [
+          3,
+          160
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          28
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "hazard_per_step": [
+        [
+          1,
+          0.4913294797687861
+        ],
+        [
+          2,
+          0.22727272727272727
+        ],
+        [
+          3,
+          0.7843137254901961
+        ],
+        [
+          4,
+          0.20454545454545456
+        ],
+        [
+          5,
+          0.8
+        ],
+        [
+          6,
+          1.0
+        ]
+      ],
+      "top_npmi_action_pred_pairs": [
+        {
+          "action": "unstack",
+          "predicate": "handempty",
+          "npmi": 0.9270329937572251,
+          "count": 2
+        },
+        {
+          "action": "feast",
+          "predicate": "craves",
+          "npmi": 0.8068196959118372,
+          "count": 48
+        },
+        {
+          "action": "stack",
+          "predicate": "clear",
+          "npmi": 0.7821958359672898,
+          "count": 11
+        },
+        {
+          "action": "pick-up",
+          "predicate": "ontable",
+          "npmi": 0.7632575259058747,
+          "count": 5
+        },
+        {
+          "action": "stack",
+          "predicate": "holding",
+          "npmi": 0.7009635984293948,
+          "count": 3
+        },
+        {
+          "action": "pick-up",
+          "predicate": "clear",
+          "npmi": 0.6769272456662399,
+          "count": 9
+        },
+        {
+          "action": "succumb",
+          "predicate": "pain",
+          "npmi": 0.6610514852074982,
+          "count": 16
+        },
+        {
+          "action": "overcome",
+          "predicate": "pain",
+          "npmi": 0.460645130479565,
+          "count": 36
+        },
+        {
+          "action": "pick-up",
+          "predicate": "handempty",
+          "npmi": 0.39093158900393493,
+          "count": 1
+        },
+        {
+          "action": "attack",
+          "predicate": "planet",
+          "npmi": 0.2819424409336522,
+          "count": 67
+        },
+        {
+          "action": "attack",
+          "predicate": "province",
+          "npmi": 0.2556975121985932,
+          "count": 223
+        },
+        {
+          "action": "overcome",
+          "predicate": "province",
+          "npmi": 0.030656956850417867,
+          "count": 69
+        },
+        {
+          "action": "feast",
+          "predicate": "province",
+          "npmi": -0.17714708628864506,
+          "count": 28
+        }
+      ]
+    },
+    "gpt-4o": {
+      "failure_step_counts": [
+        [
+          1,
+          76
+        ],
+        [
+          2,
+          54
+        ],
+        [
+          3,
+          290
+        ],
+        [
+          4,
+          29
+        ],
+        [
+          5,
+          68
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ]
+      ],
+      "hazard_per_step": [
+        [
+          1,
+          0.1464354527938343
+        ],
+        [
+          2,
+          0.12189616252821671
+        ],
+        [
+          3,
+          0.7455012853470437
+        ],
+        [
+          4,
+          0.29292929292929293
+        ],
+        [
+          5,
+          0.9714285714285714
+        ],
+        [
+          6,
+          0.5
+        ],
+        [
+          7,
+          1.0
+        ]
+      ],
+      "top_npmi_action_pred_pairs": [
+        {
+          "action": "attack",
+          "predicate": "planet",
+          "npmi": 0.9167294578034257,
+          "count": 62
+        },
+        {
+          "action": "pick-up",
+          "predicate": "clear",
+          "npmi": 0.7952211540424031,
+          "count": 16
+        },
+        {
+          "action": "stack",
+          "predicate": "holding",
+          "npmi": 0.7494541011046959,
+          "count": 5
+        },
+        {
+          "action": "stack",
+          "predicate": "clear",
+          "npmi": 0.6512477935355382,
+          "count": 11
+        },
+        {
+          "action": "feast",
+          "predicate": "craves",
+          "npmi": 0.6282855874444587,
+          "count": 15
+        },
+        {
+          "action": "pick-up",
+          "predicate": "handempty",
+          "npmi": 0.604727334774483,
+          "count": 2
+        },
+        {
+          "action": "overcome",
+          "predicate": "pain",
+          "npmi": 0.5999635345827475,
+          "count": 273
+        },
+        {
+          "action": "unstack",
+          "predicate": "clear",
+          "npmi": 0.518930438520871,
+          "count": 2
+        },
+        {
+          "action": "feast",
+          "predicate": "harmony",
+          "npmi": 0.45761012724135597,
+          "count": 4
+        },
+        {
+          "action": "feast",
+          "predicate": "province",
+          "npmi": 0.37018663167140853,
+          "count": 37
+        },
+        {
+          "action": "overcome",
+          "predicate": "province",
+          "npmi": -0.04938823846800609,
+          "count": 80
+        },
+        {
+          "action": "attack",
+          "predicate": "province",
+          "npmi": -0.11337066054396061,
+          "count": 12
+        }
+      ]
+    },
+    "o1-mini": {
+      "failure_step_counts": [
+        [
+          1,
+          20
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          48
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          5,
+          36
+        ],
+        [
+          6,
+          9
+        ]
+      ],
+      "hazard_per_step": [
+        [
+          1,
+          0.145985401459854
+        ],
+        [
+          2,
+          0.09401709401709402
+        ],
+        [
+          3,
+          0.4528301886792453
+        ],
+        [
+          4,
+          0.22413793103448276
+        ],
+        [
+          5,
+          0.8
+        ],
+        [
+          6,
+          1.0
+        ]
+      ],
+      "top_npmi_action_pred_pairs": [
+        {
+          "action": "pick-up",
+          "predicate": "handempty",
+          "npmi": 0.7400862312488076,
+          "count": 2
+        },
+        {
+          "action": "put-down",
+          "predicate": "holding",
+          "npmi": 0.7182317610737231,
+          "count": 1
+        },
+        {
+          "action": "stack",
+          "predicate": "holding",
+          "npmi": 0.7029912472275082,
+          "count": 3
+        },
+        {
+          "action": "pick-up",
+          "predicate": "clear",
+          "npmi": 0.6557715852757392,
+          "count": 4
+        },
+        {
+          "action": "feast",
+          "predicate": "craves",
+          "npmi": 0.6303399694087994,
+          "count": 5
+        },
+        {
+          "action": "stack",
+          "predicate": "clear",
+          "npmi": 0.6121483954409996,
+          "count": 4
+        },
+        {
+          "action": "succumb",
+          "predicate": "pain",
+          "npmi": 0.5719786880180384,
+          "count": 7
+        },
+        {
+          "action": "unstack",
+          "predicate": "clear",
+          "npmi": 0.5534079073913274,
+          "count": 1
+        },
+        {
+          "action": "attack",
+          "predicate": "planet",
+          "npmi": 0.5055703983380123,
+          "count": 12
+        },
+        {
+          "action": "overcome",
+          "predicate": "pain",
+          "npmi": 0.2616434024356217,
+          "count": 18
+        },
+        {
+          "action": "overcome",
+          "predicate": "province",
+          "npmi": 0.1351559871757664,
+          "count": 40
+        },
+        {
+          "action": "attack",
+          "predicate": "province",
+          "npmi": 0.11417183517136373,
+          "count": 28
+        },
+        {
+          "action": "feast",
+          "predicate": "province",
+          "npmi": 0.07788164769911897,
+          "count": 12
+        }
+      ]
+    }
+  },
+  "per_model_signal_overlaps": {
+    "gpt-4": {
+      "failed_n": 323,
+      "signals": {
+        "sim": 322,
+        "translate": 0,
+        "val": 323
+      },
+      "overlaps": {
+        "sim_and_translate": 0,
+        "sim_and_val": 322,
+        "translate_and_val": 0,
+        "all_three": 0
+      }
+    },
+    "gpt-4o": {
+      "failed_n": 323,
+      "signals": {
+        "sim": 320,
+        "translate": 0,
+        "val": 323
+      },
+      "overlaps": {
+        "sim_and_translate": 0,
+        "sim_and_val": 320,
+        "translate_and_val": 0,
+        "all_three": 0
+      }
+    },
+    "o1-mini": {
+      "failed_n": 312,
+      "signals": {
+        "sim": 311,
+        "translate": 0,
+        "val": 312
+      },
+      "overlaps": {
+        "sim_and_translate": 0,
+        "sim_and_val": 311,
+        "translate_and_val": 0,
+        "all_three": 0
+      }
+    }
+  },
+  "pairwise_success_rate_tests": {
+    "gpt-4_vs_gpt-4o": {
+      "p1": 0.46166666666666667,
+      "p2": 0.46166666666666667,
+      "diff": 0.0,
+      "z": 0.0,
+      "p_value": 0.9999999989503827
+    },
+    "gpt-4_vs_o1-mini": {
+      "p1": 0.46166666666666667,
+      "p2": 0.48,
+      "diff": -0.018333333333333313,
+      "z": -0.6361685886129238,
+      "p_value": 0.5246664157277796
+    },
+    "gpt-4o_vs_o1-mini": {
+      "p1": 0.46166666666666667,
+      "p2": 0.48,
+      "diff": -0.018333333333333313,
+      "z": -0.6361685886129238,
+      "p_value": 0.5246664157277796
+    }
+  }
+}

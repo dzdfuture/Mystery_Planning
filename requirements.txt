@@ -1,0 +1,17 @@
+# Core dependencies for our LLM abstract reasoning system
+openai>=1.0.0
+
+# Standard library extensions used in the codebase
+numpy>=1.24.0
+pyyaml>=6.0
+
+# Required for PlanBench data processing (used in our pipeline)
+pddl>=1.0.0
+tarski>=1.0.0
+transformers>=4.21.0
+tqdm>=4.65.0
+
+# Analysis and visualization (used for results processing)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+pandas>=1.5.0

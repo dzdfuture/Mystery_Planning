@@ -1,0 +1,1227 @@
+{
+  "gpt-4": {
+    "model": "gpt-4",
+    "subsets": {
+      "gb500": {
+        "count": 500,
+        "success": 195,
+        "success_rate": 0.39,
+        "time": {
+          "p50": 37.48687124252319,
+          "p90": 49.86129236221314,
+          "mean": 38.02885977888107
+        },
+        "attempts_mean": 1.992,
+        "fail_reason_top": [
+          [
+            "sim.precondition_missing",
+            299
+          ],
+          [
+            "sim.goal_not_satisfied",
+            5
+          ],
+          [
+            "sim.arity_mismatch",
+            1
+          ]
+        ],
+        "sim_step_top": [
+          [
+            "1",
+            165
+          ],
+          [
+            "3",
+            86
+          ],
+          [
+            "2",
+            34
+          ],
+          [
+            "5",
+            11
+          ],
+          [
+            "4",
+            4
+          ]
+        ],
+        "sim_action_top": [
+          [
+            "attack",
+            177
+          ],
+          [
+            "overcome",
+            63
+          ],
+          [
+            "feast",
+            50
+          ],
+          [
+            "succumb",
+            10
+          ]
+        ],
+        "sim_missing_pred_top": [
+          [
+            "province",
+            200
+          ],
+          [
+            "planet",
+            42
+          ],
+          [
+            "pain",
+            30
+          ],
+          [
+            "craves",
+            27
+          ]
+        ],
+        "plan_len_fail_stats": {
+          "count": 305,
+          "p50": 6.0,
+          "p90": 6.0,
+          "mean": 5.413114754098361,
+          "hist_top": [
+            [
+              "6",
+              186
+            ],
+            [
+              "4",
+              69
+            ],
+            [
+              "5",
+              37
+            ],
+            [
+              "3",
+              5
+            ],
+            [
+              "7",
+              5
+            ],
+            [
+              "8",
+              3
+            ]
+          ]
+        },
+        "signals": {
+          "sim": 305,
+          "translate": 0,
+          "val": 305
+        },
+        "overlaps": {
+          "sim_and_translate": 0,
+          "sim_and_val": 305,
+          "translate_and_val": 0,
+          "all_three": 0
+        }
+      },
+      "gb3_100": {
+        "count": 100,
+        "success": 82,
+        "success_rate": 0.82,
+        "time": {
+          "p50": 26.840931296348572,
+          "p90": 40.54737629890442,
+          "mean": 26.15073640823364
+        },
+        "attempts_mean": 1.51,
+        "fail_reason_top": [
+          [
+            "sim.precondition_missing",
+            15
+          ],
+          [
+            "sim.goal_not_satisfied",
+            2
+          ],
+          [
+            "val.fail",
+            1
+          ]
+        ],
+        "sim_step_top": [
+          [
+            "5",
+            6
+          ],
+          [
+            "2",
+            3
+          ],
+          [
+            "6",
+            3
+          ],
+          [
+            "1",
+            1
+          ],
+          [
+            "3",
+            1
+          ],
+          [
+            "4",
+            1
+          ]
+        ],
+        "sim_action_top": [
+          [
+            "stack",
+            9
+          ],
+          [
+            "pick-up",
+            5
+          ],
+          [
+            "unstack",
+            1
+          ]
+        ],
+        "sim_missing_pred_top": [
+          [
+            "clear",
+            10
+          ],
+          [
+            "holding",
+            3
+          ],
+          [
+            "handempty",
+            1
+          ],
+          [
+            "ontable",
+            1
+          ]
+        ],
+        "plan_len_fail_stats": {
+          "count": 18,
+          "p50": 5.5,
+          "p90": 6.0,
+          "mean": 5.111111111111111,
+          "hist_top": [
+            [
+              "6",
+              9
+            ],
+            [
+              "4",
+              4
+            ],
+            [
+              "5",
+              4
+            ],
+            [
+              "2",
+              1
+            ]
+          ]
+        },
+        "signals": {
+          "sim": 17,
+          "translate": 0,
+          "val": 18
+        },
+        "overlaps": {
+          "sim_and_translate": 0,
+          "sim_and_val": 17,
+          "translate_and_val": 0,
+          "all_three": 0
+        }
+      }
+    },
+    "combined_600": {
+      "count": 600,
+      "success": 277,
+      "success_rate": 0.46166666666666667,
+      "time": {
+        "p50": 36.251827120780945,
+        "p90": 49.212290096282956,
+        "mean": 36.049172550439835
+      },
+      "attempts_mean": 1.9116666666666666,
+      "fail_reason_top": [
+        [
+          "sim.precondition_missing",
+          314
+        ],
+        [
+          "sim.goal_not_satisfied",
+          7
+        ],
+        [
+          "sim.arity_mismatch",
+          1
+        ],
+        [
+          "val.fail",
+          1
+        ]
+      ],
+      "sim_step_top": [
+        [
+          "1",
+          166
+        ],
+        [
+          "3",
+          87
+        ],
+        [
+          "2",
+          37
+        ],
+        [
+          "5",
+          17
+        ],
+        [
+          "4",
+          5
+        ],
+        [
+          "6",
+          3
+        ]
+      ],
+      "sim_action_top": [
+        [
+          "attack",
+          177
+        ],
+        [
+          "overcome",
+          63
+        ],
+        [
+          "feast",
+          50
+        ],
+        [
+          "succumb",
+          10
+        ],
+        [
+          "stack",
+          9
+        ],
+        [
+          "pick-up",
+          5
+        ],
+        [
+          "unstack",
+          1
+        ]
+      ],
+      "sim_missing_pred_top": [
+        [
+          "province",
+          200
+        ],
+        [
+          "planet",
+          42
+        ],
+        [
+          "pain",
+          30
+        ],
+        [
+          "craves",
+          27
+        ],
+        [
+          "clear",
+          10
+        ],
+        [
+          "holding",
+          3
+        ],
+        [
+          "handempty",
+          1
+        ],
+        [
+          "ontable",
+          1
+        ]
+      ],
+      "plan_len_fail_stats": {
+        "count": 323,
+        "p50": 6.0,
+        "p90": 6.0,
+        "mean": 5.396284829721362,
+        "hist_top": [
+          [
+            "6",
+            195
+          ],
+          [
+            "4",
+            73
+          ],
+          [
+            "5",
+            41
+          ],
+          [
+            "3",
+            5
+          ],
+          [
+            "7",
+            5
+          ],
+          [
+            "8",
+            3
+          ],
+          [
+            "2",
+            1
+          ]
+        ]
+      },
+      "signals": {
+        "sim": 322,
+        "translate": 0,
+        "val": 323
+      },
+      "overlaps": {
+        "sim_and_translate": 0,
+        "sim_and_val": 322,
+        "translate_and_val": 0,
+        "all_three": 0
+      }
+    }
+  },
+  "gpt-4o": {
+    "model": "gpt-4o",
+    "subsets": {
+      "gb500": {
+        "count": 500,
+        "success": 195,
+        "success_rate": 0.39,
+        "time": {
+          "p50": 14.161238551139832,
+          "p90": 20.32369275093079,
+          "mean": 15.241818103790283
+        },
+        "attempts_mean": 2.0,
+        "fail_reason_top": [
+          [
+            "sim.precondition_missing",
+            296
+          ],
+          [
+            "sim.goal_not_satisfied",
+            9
+          ]
+        ],
+        "sim_step_top": [
+          [
+            "3",
+            170
+          ],
+          [
+            "5",
+            45
+          ],
+          [
+            "1",
+            44
+          ],
+          [
+            "2",
+            28
+          ],
+          [
+            "4",
+            9
+          ]
+        ],
+        "sim_action_top": [
+          [
+            "overcome",
+            213
+          ],
+          [
+            "feast",
+            42
+          ],
+          [
+            "attack",
+            41
+          ]
+        ],
+        "sim_missing_pred_top": [
+          [
+            "pain",
+            157
+          ],
+          [
+            "province",
+            92
+          ],
+          [
+            "planet",
+            36
+          ],
+          [
+            "craves",
+            9
+          ],
+          [
+            "harmony",
+            2
+          ]
+        ],
+        "plan_len_fail_stats": {
+          "count": 305,
+          "p50": 5.0,
+          "p90": 6.0,
+          "mean": 4.675409836065573,
+          "hist_top": [
+            [
+              "6",
+              88
+            ],
+            [
+              "5",
+              83
+            ],
+            [
+              "3",
+              67
+            ],
+            [
+              "4",
+              59
+            ],
+            [
+              "2",
+              3
+            ],
+            [
+              "7",
+              2
+            ],
+            [
+              "9",
+              2
+            ],
+            [
+              "8",
+              1
+            ]
+          ]
+        },
+        "signals": {
+          "sim": 305,
+          "translate": 0,
+          "val": 305
+        },
+        "overlaps": {
+          "sim_and_translate": 0,
+          "sim_and_val": 305,
+          "translate_and_val": 0,
+          "all_three": 0
+        }
+      },
+      "gb3_100": {
+        "count": 100,
+        "success": 82,
+        "success_rate": 0.82,
+        "time": {
+          "p50": 11.252925157546997,
+          "p90": 17.418992424011233,
+          "mean": 11.64322991847992
+        },
+        "attempts_mean": 1.61,
+        "fail_reason_top": [
+          [
+            "sim.precondition_missing",
+            12
+          ],
+          [
+            "sim.goal_not_satisfied",
+            3
+          ],
+          [
+            "val.fail",
+            3
+          ]
+        ],
+        "sim_step_top": [
+          [
+            "5",
+            4
+          ],
+          [
+            "1",
+            2
+          ],
+          [
+            "2",
+            2
+          ],
+          [
+            "4",
+            2
+          ],
+          [
+            "3",
+            1
+          ],
+          [
+            "6",
+            1
+          ]
+        ],
+        "sim_action_top": [
+          [
+            "pick-up",
+            5
+          ],
+          [
+            "stack",
+            5
+          ],
+          [
+            "unstack",
+            2
+          ]
+        ],
+        "sim_missing_pred_top": [
+          [
+            "clear",
+            11
+          ],
+          [
+            "holding",
+            1
+          ]
+        ],
+        "plan_len_fail_stats": {
+          "count": 18,
+          "p50": 5.0,
+          "p90": 6.0,
+          "mean": 4.666666666666667,
+          "hist_top": [
+            [
+              "6",
+              8
+            ],
+            [
+              "4",
+              5
+            ],
+            [
+              "2",
+              3
+            ],
+            [
+              "5",
+              2
+            ]
+          ]
+        },
+        "signals": {
+          "sim": 15,
+          "translate": 0,
+          "val": 18
+        },
+        "overlaps": {
+          "sim_and_translate": 0,
+          "sim_and_val": 15,
+          "translate_and_val": 0,
+          "all_three": 0
+        }
+      }
+    },
+    "combined_600": {
+      "count": 600,
+      "success": 277,
+      "success_rate": 0.46166666666666667,
+      "time": {
+        "p50": 13.788382768630981,
+        "p90": 19.929650449752806,
+        "mean": 14.642053406238556
+      },
+      "attempts_mean": 1.935,
+      "fail_reason_top": [
+        [
+          "sim.precondition_missing",
+          308
+        ],
+        [
+          "sim.goal_not_satisfied",
+          12
+        ],
+        [
+          "val.fail",
+          3
+        ]
+      ],
+      "sim_step_top": [
+        [
+          "3",
+          171
+        ],
+        [
+          "5",
+          49
+        ],
+        [
+          "1",
+          46
+        ],
+        [
+          "2",
+          30
+        ],
+        [
+          "4",
+          11
+        ],
+        [
+          "6",
+          1
+        ]
+      ],
+      "sim_action_top": [
+        [
+          "overcome",
+          213
+        ],
+        [
+          "feast",
+          42
+        ],
+        [
+          "attack",
+          41
+        ],
+        [
+          "pick-up",
+          5
+        ],
+        [
+          "stack",
+          5
+        ],
+        [
+          "unstack",
+          2
+        ]
+      ],
+      "sim_missing_pred_top": [
+        [
+          "pain",
+          157
+        ],
+        [
+          "province",
+          92
+        ],
+        [
+          "planet",
+          36
+        ],
+        [
+          "clear",
+          11
+        ],
+        [
+          "craves",
+          9
+        ],
+        [
+          "harmony",
+          2
+        ],
+        [
+          "holding",
+          1
+        ]
+      ],
+      "plan_len_fail_stats": {
+        "count": 323,
+        "p50": 5.0,
+        "p90": 6.0,
+        "mean": 4.674922600619195,
+        "hist_top": [
+          [
+            "6",
+            96
+          ],
+          [
+            "5",
+            85
+          ],
+          [
+            "3",
+            67
+          ],
+          [
+            "4",
+            64
+          ],
+          [
+            "2",
+            6
+          ],
+          [
+            "7",
+            2
+          ],
+          [
+            "9",
+            2
+          ],
+          [
+            "8",
+            1
+          ]
+        ]
+      },
+      "signals": {
+        "sim": 320,
+        "translate": 0,
+        "val": 323
+      },
+      "overlaps": {
+        "sim_and_translate": 0,
+        "sim_and_val": 320,
+        "translate_and_val": 0,
+        "all_three": 0
+      }
+    }
+  },
+  "o1-mini": {
+    "model": "o1-mini",
+    "subsets": {
+      "gb500": {
+        "count": 500,
+        "success": 201,
+        "success_rate": 0.402,
+        "time": {
+          "p50": 57.94639754295349,
+          "p90": 80.32640676498414,
+          "mean": 55.855731212615964
+        },
+        "attempts_mean": 1.86,
+        "fail_reason_top": [
+          [
+            "sim.goal_not_satisfied",
+            208
+          ],
+          [
+            "sim.precondition_missing",
+            90
+          ],
+          [
+            "val.fail",
+            1
+          ]
+        ],
+        "sim_step_top": [
+          [
+            "3",
+            32
+          ],
+          [
+            "5",
+            30
+          ],
+          [
+            "1",
+            11
+          ],
+          [
+            "4",
+            8
+          ],
+          [
+            "2",
+            6
+          ],
+          [
+            "6",
+            3
+          ]
+        ],
+        "sim_action_top": [
+          [
+            "overcome",
+            45
+          ],
+          [
+            "attack",
+            27
+          ],
+          [
+            "feast",
+            12
+          ],
+          [
+            "succumb",
+            6
+          ]
+        ],
+        "sim_missing_pred_top": [
+          [
+            "province",
+            58
+          ],
+          [
+            "pain",
+            22
+          ],
+          [
+            "planet",
+            6
+          ],
+          [
+            "craves",
+            4
+          ]
+        ],
+        "plan_len_fail_stats": {
+          "count": 299,
+          "p50": 0.0,
+          "p90": 6.0,
+          "mean": 2.2274247491638794,
+          "hist_top": [
+            [
+              "0",
+              165
+            ],
+            [
+              "6",
+              68
+            ],
+            [
+              "4",
+              29
+            ],
+            [
+              "3",
+              20
+            ],
+            [
+              "5",
+              14
+            ],
+            [
+              "2",
+              2
+            ],
+            [
+              "8",
+              1
+            ]
+          ]
+        },
+        "signals": {
+          "sim": 298,
+          "translate": 0,
+          "val": 299
+        },
+        "overlaps": {
+          "sim_and_translate": 0,
+          "sim_and_val": 298,
+          "translate_and_val": 0,
+          "all_three": 0
+        }
+      },
+      "gb3_100": {
+        "count": 100,
+        "success": 87,
+        "success_rate": 0.87,
+        "time": {
+          "p50": 11.69296145439148,
+          "p90": 31.985378980636607,
+          "mean": 17.4046467256546
+        },
+        "attempts_mean": 1.3,
+        "fail_reason_top": [
+          [
+            "sim.precondition_missing",
+            10
+          ],
+          [
+            "sim.goal_not_satisfied",
+            3
+          ]
+        ],
+        "sim_step_top": [
+          [
+            "3",
+            3
+          ],
+          [
+            "2",
+            2
+          ],
+          [
+            "4",
+            2
+          ],
+          [
+            "5",
+            2
+          ],
+          [
+            "6",
+            1
+          ]
+        ],
+        "sim_action_top": [
+          [
+            "pick-up",
+            6
+          ],
+          [
+            "stack",
+            3
+          ],
+          [
+            "put-down",
+            1
+          ]
+        ],
+        "sim_missing_pred_top": [
+          [
+            "clear",
+            6
+          ],
+          [
+            "handempty",
+            2
+          ],
+          [
+            "holding",
+            2
+          ]
+        ],
+        "plan_len_fail_stats": {
+          "count": 13,
+          "p50": 6.0,
+          "p90": 6.0,
+          "mean": 5.461538461538462,
+          "hist_top": [
+            [
+              "6",
+              9
+            ],
+            [
+              "3",
+              2
+            ],
+            [
+              "4",
+              1
+            ],
+            [
+              "7",
+              1
+            ]
+          ]
+        },
+        "signals": {
+          "sim": 13,
+          "translate": 0,
+          "val": 13
+        },
+        "overlaps": {
+          "sim_and_translate": 0,
+          "sim_and_val": 13,
+          "translate_and_val": 0,
+          "all_three": 0
+        }
+      }
+    },
+    "combined_600": {
+      "count": 600,
+      "success": 288,
+      "success_rate": 0.48,
+      "time": {
+        "p50": 53.74209654331207,
+        "p90": 78.53876330852509,
+        "mean": 49.44721713145574
+      },
+      "attempts_mean": 1.7666666666666666,
+      "fail_reason_top": [
+        [
+          "sim.goal_not_satisfied",
+          211
+        ],
+        [
+          "sim.precondition_missing",
+          100
+        ],
+        [
+          "val.fail",
+          1
+        ]
+      ],
+      "sim_step_top": [
+        [
+          "3",
+          35
+        ],
+        [
+          "5",
+          32
+        ],
+        [
+          "1",
+          11
+        ],
+        [
+          "4",
+          10
+        ],
+        [
+          "2",
+          8
+        ],
+        [
+          "6",
+          4
+        ]
+      ],
+      "sim_action_top": [
+        [
+          "overcome",
+          45
+        ],
+        [
+          "attack",
+          27
+        ],
+        [
+          "feast",
+          12
+        ],
+        [
+          "pick-up",
+          6
+        ],
+        [
+          "succumb",
+          6
+        ],
+        [
+          "stack",
+          3
+        ],
+        [
+          "put-down",
+          1
+        ]
+      ],
+      "sim_missing_pred_top": [
+        [
+          "province",
+          58
+        ],
+        [
+          "pain",
+          22
+        ],
+        [
+          "clear",
+          6
+        ],
+        [
+          "planet",
+          6
+        ],
+        [
+          "craves",
+          4
+        ],
+        [
+          "handempty",
+          2
+        ],
+        [
+          "holding",
+          2
+        ]
+      ],
+      "plan_len_fail_stats": {
+        "count": 312,
+        "p50": 0.0,
+        "p90": 6.0,
+        "mean": 2.3621794871794872,
+        "hist_top": [
+          [
+            "0",
+            165
+          ],
+          [
+            "6",
+            77
+          ],
+          [
+            "4",
+            30
+          ],
+          [
+            "3",
+            22
+          ],
+          [
+            "5",
+            14
+          ],
+          [
+            "2",
+            2
+          ],
+          [
+            "7",
+            1
+          ],
+          [
+            "8",
+            1
+          ]
+        ]
+      },
+      "signals": {
+        "sim": 311,
+        "translate": 0,
+        "val": 312
+      },
+      "overlaps": {
+        "sim_and_translate": 0,
+        "sim_and_val": 311,
+        "translate_and_val": 0,
+        "all_three": 0
+      }
+    }
+  }
+}
