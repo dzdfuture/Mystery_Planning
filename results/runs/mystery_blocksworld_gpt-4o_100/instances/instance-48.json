@@ -1,0 +1,112 @@
+{
+  "problem_id": "instance-48",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178238.4308925,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00032138824462890625,
+  "language_planning_time": 4.188863277435303,
+  "natural_language_plan": "The plan starts by picking up 'a' from the table, which is possible because 'a' is clear and the hand is empty. Next, 'a' is stacked on 'b', which is possible because 'b' is clear and 'a' is being held. The goal state is achieved with 'a' on 'b' and 'b' on 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has 'handempty', 'ontable a', 'on b c', 'ontable c', 'clear a', and 'clear b'. To achieve the goal, we need to place 'a' on 'b' and 'b' on 'c'.",
+      "Step 2: Pick up 'a' from the table since it is clear and the hand is empty.",
+      "Step 3: Stack 'a' on 'b' since 'b' is clear and 'a' is being held.",
+      "Step 4: Now, 'a' is on 'b', and we need to ensure 'b' is on 'c'. Since 'b' is already on 'c', the goal is achieved."
+    ],
+    "rationale": [
+      "The plan starts by picking up 'a' from the table, which is possible because 'a' is clear and the hand is empty.",
+      "Next, 'a' is stacked on 'b', which is possible because 'b' is clear and 'a' is being held.",
+      "The goal state is achieved with 'a' on 'b' and 'b' on 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "pick-up",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 10.569863080978394
+}

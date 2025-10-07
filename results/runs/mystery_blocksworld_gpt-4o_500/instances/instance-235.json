@@ -1,0 +1,250 @@
+{
+  "problem_id": "instance-235",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179127.0271792,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002532005310058594,
+  "language_planning_time": 8.495755195617676,
+  "natural_language_plan": "The plan uses 'attack' and 'succumb' to toggle 'pain' and 'harmony' states, allowing 'overcome' to establish 'craves' relationships. Each 'overcome' action establishes a necessary 'craves' relationship while maintaining harmony. The sequence ensures all goal conditions are met by the end of the plan.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'attack' on 'd' to induce pain and remove 'province' and 'planet' status, breaking harmony.",
+      "Step 2: Use 'succumb' on 'd' to restore 'province' and 'planet' status, and re-establish harmony.",
+      "Step 3: Use 'overcome' on 'd' and 'b' to establish 'craves d b', remove 'province' from 'b', and restore harmony.",
+      "Step 4: Use 'attack' on 'b' to induce pain and remove 'province' and 'planet' status, breaking harmony.",
+      "Step 5: Use 'succumb' on 'b' to restore 'province' and 'planet' status, and re-establish harmony.",
+      "Step 6: Use 'overcome' on 'b' and 'c' to establish 'craves b c', remove 'province' from 'c', and restore harmony.",
+      "Step 7: Use 'attack' on 'c' to induce pain and remove 'province' and 'planet' status, breaking harmony.",
+      "Step 8: Use 'succumb' on 'c' to restore 'province' and 'planet' status, and re-establish harmony.",
+      "Step 9: Use 'overcome' on 'c' and 'd' to establish 'craves c d', remove 'province' from 'd', and restore harmony."
+    ],
+    "rationale": [
+      "The plan uses 'attack' and 'succumb' to toggle 'pain' and 'harmony' states, allowing 'overcome' to establish 'craves' relationships.",
+      "Each 'overcome' action establishes a necessary 'craves' relationship while maintaining harmony.",
+      "The sequence ensures all goal conditions are met by the end of the plan."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('d',))",
+        "length": 9
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('d',))",
+        "length": 9
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 15.638286828994751
+}

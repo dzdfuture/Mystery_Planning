@@ -1,0 +1,185 @@
+{
+  "problem_id": "instance-71",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758089080.590993,
+  "success": true,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00031065940856933594,
+  "language_planning_time": 22.16596007347107,
+  "natural_language_plan": "The 'attack' action is used to introduce 'pain' to an object and remove 'province' and 'planet' from it. The 'overcome' action is used to introduce 'craves' between two objects and remove 'pain' from the first object. It also introduces 'harmony' and 'province' to the first object and removes 'province' from the second object. The 'succumb' action is used to remove 'pain' from an object and introduce 'province', 'planet', and 'harmony' to it. By carefully choosing the objects for these actions, we can achieve the goal of having 'craves' between 'c' and 'b' and between 'd' and 'a'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a' to introduce 'pain' to 'a' and remove 'province' and 'planet' from 'a'. This also removes 'harmony'.",
+      "Step 2: Overcome 'a' with 'd' to introduce 'craves' between 'd' and 'a', and remove 'pain' from 'a'. This also introduces 'harmony' and 'province' to 'a' and removes 'province' from 'd'.",
+      "Step 3: Attack 'c' to introduce 'pain' to 'c' and remove 'province' and 'planet' from 'c'. This also removes 'harmony'.",
+      "Step 4: Succumb 'c' to remove 'pain' from 'c' and introduce 'province', 'planet', and 'harmony' to 'c'."
+    ],
+    "rationale": [
+      "The 'attack' action is used to introduce 'pain' to an object and remove 'province' and 'planet' from it.",
+      "The 'overcome' action is used to introduce 'craves' between two objects and remove 'pain' from the first object. It also introduces 'harmony' and 'province' to the first object and removes 'province' from the second object.",
+      "The 'succumb' action is used to remove 'pain' from an object and introduce 'province', 'planet', and 'harmony' to it.",
+      "By carefully choosing the objects for these actions, we can achieve the goal of having 'craves' between 'c' and 'b' and between 'd' and 'a'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'succumb': missing precondition: ('pain', ('a',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'attack': missing precondition: ('planet', ('c',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "attack(a)",
+    "overcome(a,c)",
+    "attack(d)",
+    "overcome(d,a)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpvdps90ln.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack a)\n \n2:\n(overcome a c)\n \n3:\n(attack d)\n \n4:\n(overcome d a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 2)\nDeleting (province c)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a c)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpvdps90ln.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 36.13159203529358
+}

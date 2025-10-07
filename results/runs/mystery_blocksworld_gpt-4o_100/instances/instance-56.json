@@ -1,0 +1,148 @@
+{
+  "problem_id": "instance-56",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178248.926567,
+  "success": true,
+  "concept_modeling_time": 2.1457672119140625e-06,
+  "pddl_parsing_time": 0.0004105567932128906,
+  "language_planning_time": 6.627332925796509,
+  "natural_language_plan": "The plan first clears 'a' by unstacking 'b' from it. Then, 'b' is put down on the table to free the hand. Next, 'a' is unstacked from 'c' to prepare for stacking. Finally, 'a' is stacked on 'b', achieving the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has 'handempty', 'on a c', 'on b a', 'ontable c', and 'clear b'. To achieve the goal 'on a b', we need to first clear 'a' by unstacking 'b' from 'a'.",
+      "Step 2: Unstack 'b' from 'a'. Preconditions 'on b a', 'clear b', and 'handempty' are satisfied. After this action, 'holding b', 'clear a', and 'not on b a' are true.",
+      "Step 3: Put 'b' down on the table. Preconditions 'holding b' are satisfied. After this action, 'handempty', 'ontable b', and 'clear b' are true.",
+      "Step 4: Unstack 'a' from 'c'. Preconditions 'on a c', 'clear a', and 'handempty' are satisfied. After this action, 'holding a', 'clear c', and 'not on a c' are true.",
+      "Step 5: Stack 'a' on 'b'. Preconditions 'clear b' and 'holding a' are satisfied. After this action, 'handempty', 'clear a', and 'on a b' are true, achieving the goal."
+    ],
+    "rationale": [
+      "The plan first clears 'a' by unstacking 'b' from it.",
+      "Then, 'b' is put down on the table to free the hand.",
+      "Next, 'a' is unstacked from 'c' to prepare for stacking.",
+      "Finally, 'a' is stacked on 'b', achieving the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "pddl_translation_time": 5.14984130859375e-05,
+  "pddl_plan": [
+    "unstack(b,a)",
+    "put-down(b)",
+    "unstack(a,c)",
+    "stack(a,b)"
+  ],
+  "validation_time": 0.006474971771240234,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpmmau1rs6.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(unstack b a)\n \n2:\n(put-down b)\n \n3:\n(unstack a c)\n \n4:\n(stack a b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (on b a)\nDeleting (clear b)\nDeleting (handempty)\nAdding (holding b)\nAdding (clear a)\n\nChecking next happening (time 2)\nDeleting (holding b)\nAdding (clear b)\nAdding (handempty)\nAdding (ontable b)\n\nChecking next happening (time 3)\nDeleting (on a c)\nDeleting (clear a)\nDeleting (handempty)\nAdding (holding a)\nAdding (clear c)\n\nChecking next happening (time 4)\nDeleting (clear b)\nDeleting (holding a)\nAdding (handempty)\nAdding (clear a)\nAdding (on a b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpmmau1rs6.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 4
+      },
+      "pddl_plan": [
+        "unstack(b,a)",
+        "put-down(b)",
+        "unstack(a,c)",
+        "stack(a,b)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmpmmau1rs6.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(unstack b a)\n \n2:\n(put-down b)\n \n3:\n(unstack a c)\n \n4:\n(stack a b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (on b a)\nDeleting (clear b)\nDeleting (handempty)\nAdding (holding b)\nAdding (clear a)\n\nChecking next happening (time 2)\nDeleting (holding b)\nAdding (clear b)\nAdding (handempty)\nAdding (ontable b)\n\nChecking next happening (time 3)\nDeleting (on a c)\nDeleting (clear a)\nDeleting (handempty)\nAdding (holding a)\nAdding (clear c)\n\nChecking next happening (time 4)\nDeleting (clear b)\nDeleting (holding a)\nAdding (handempty)\nAdding (clear a)\nAdding (on a b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpmmau1rs6.plan 4 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 6.635088920593262
+}

@@ -1,0 +1,144 @@
+{
+  "problem_id": "instance-170",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183094.912952,
+  "success": true,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00026702880859375,
+  "language_planning_time": 12.0546875,
+  "natural_language_plan": "Attacking 'd' introduces (pain d) necessary for 'overcome'. Succumbing 'd' restores (province d) and (harmony), allowing repeated actions. Re-attacking 'd' reintroduces (pain d) after restoration. Overcoming 'd' and 'b' achieves the goal by establishing (craves d b).",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'attack' on object 'd'. Preconditions satisfied: (province d), (planet d), (harmony). Effects: adds (pain d), removes (province d), removes (planet d), removes (harmony).",
+      "Step 2: Perform 'succumb' on object 'd'. Preconditions satisfied: (pain d). Effects: adds (province d), adds (harmony), adds (planet d), removes (pain d).",
+      "Step 3: Perform 'attack' on object 'd'. Preconditions satisfied: (province d), (planet d), (harmony). Effects: adds (pain d), removes (province d), removes (planet d), removes (harmony).",
+      "Step 4: Perform 'overcome' with objects 'd' and 'b'. Preconditions satisfied: (province b), (pain d). Effects: adds (harmony), adds (province d), adds (craves d b), removes (province b), removes (pain d)."
+    ],
+    "rationale": [
+      "Attacking 'd' introduces (pain d) necessary for 'overcome'.",
+      "Succumbing 'd' restores (province d) and (harmony), allowing repeated actions.",
+      "Re-attacking 'd' reintroduces (pain d) after restoration.",
+      "Overcoming 'd' and 'b' achieves the goal by establishing (craves d b)."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "pddl_translation_time": 2.7418136596679688e-05,
+  "pddl_plan": [
+    "attack(d)",
+    "succumb(d)",
+    "attack(d)",
+    "overcome(d,b)"
+  ],
+  "validation_time": 0.005727052688598633,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmppo8mb4ue.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack d)\n \n2:\n(succumb d)\n \n3:\n(attack d)\n \n4:\n(overcome d b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmppo8mb4ue.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 4
+      },
+      "pddl_plan": [
+        "attack(d)",
+        "succumb(d)",
+        "attack(d)",
+        "overcome(d,b)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmppo8mb4ue.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack d)\n \n2:\n(succumb d)\n \n3:\n(attack d)\n \n4:\n(overcome d b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmppo8mb4ue.plan 4 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 12.061195135116577
+}

@@ -1,0 +1,64 @@
+{
+  "problem_id": "instance-298",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184016.7895432,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002760887145996094,
+  "language_planning_time": 38.60549449920654,
+  "natural_language_plan": "After analyzing the available actions and their preconditions, it's determined that there is no valid sequence of actions within the given constraints that can achieve both goal predicates: (craves c d) and (craves d a).",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "After analyzing the available actions and their preconditions, it's determined that there is no valid sequence of actions within the given constraints that can achieve both goal predicates: (craves c d) and (craves d a)."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 62.143951416015625
+}

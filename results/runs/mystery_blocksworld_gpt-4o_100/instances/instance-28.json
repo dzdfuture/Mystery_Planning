@@ -1,0 +1,154 @@
+{
+  "problem_id": "instance-28",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178206.8388426,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.0003955364227294922,
+  "language_planning_time": 6.509025573730469,
+  "natural_language_plan": "The plan starts by unstacking c from a to clear a and hold c. Putting down c on the table clears the hand and makes c available for stacking. Picking up b from the table prepares it for stacking on c. Stacking b on c achieves the goal state (on b c) while maintaining (on a b).",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has (handempty), (on a b), (ontable b), (on c a), and (clear c). To achieve the goal, we need (on a b) and (on b c).",
+      "Step 2: To place b on c, we need to clear b. We unstack c from a to free up a.",
+      "Step 3: After unstacking c from a, we have (holding c), (clear a), (clear b), and (handempty) is not true anymore.",
+      "Step 4: We put down c on the table to free the hand and make c clear.",
+      "Step 5: Now, we can pick up b from the table.",
+      "Step 6: Finally, we stack b on c to achieve the goal state."
+    ],
+    "rationale": [
+      "The plan starts by unstacking c from a to clear a and hold c.",
+      "Putting down c on the table clears the hand and makes c available for stacking.",
+      "Picking up b from the table prepares it for stacking on c.",
+      "Stacking b on c achieves the goal state (on b c) while maintaining (on a b)."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'pick-up': missing precondition: ('clear', ('b',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'pick-up': missing precondition: ('clear', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 15.189594984054565
+}

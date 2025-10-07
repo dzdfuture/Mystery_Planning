@@ -1,0 +1,128 @@
+{
+  "problem_id": "instance-94",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182546.753998,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00030517578125,
+  "language_planning_time": 27.23930811882019,
+  "natural_language_plan": "- The 'feast' action is used to manipulate existing 'craves' relationships by removing and adding specific predicates. - The 'overcome' action helps in establishing new 'craves' relationships required by the goal. - The sequence attempts to systematically achieve all goal predicates within the allowed number of steps.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempt to use 'feast' on 'b' and 'c' to transform existing cravings.",
+      "Step 2: Use 'overcome' to establish a new craving relationship between 'b' and 'd'.",
+      "Step 3: Attempt to create additional cravings using 'feast' and 'overcome' actions."
+    ],
+    "rationale": [
+      "- The 'feast' action is used to manipulate existing 'craves' relationships by removing and adding specific predicates.",
+      "- The 'overcome' action helps in establishing new 'craves' relationships required by the goal.",
+      "- The sequence attempts to systematically achieve all goal predicates within the allowed number of steps."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 49.25399422645569
+}

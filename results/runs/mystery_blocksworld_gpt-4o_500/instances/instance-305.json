@@ -1,0 +1,159 @@
+{
+  "problem_id": "instance-305",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179262.5813365,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002269744873046875,
+  "language_planning_time": 5.758291482925415,
+  "natural_language_plan": "The plan uses 'feast' to transfer province status and create pain, allowing 'succumb' to restore harmony and province status. Each action's preconditions are satisfied before execution, ensuring a valid sequence. The final state satisfies the goal conditions: 'b' craves 'a' and 'd' craves 'b'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Check initial state. Harmony is present, and 'c' craves 'b', 'd' craves 'c'.",
+      "Step 2: Use 'feast' action with 'c' and 'b'. Preconditions are satisfied: 'c' craves 'b', 'c' is a province, and harmony is present.",
+      "Step 3: After 'feast', 'c' is in pain, 'b' becomes a province, 'c' no longer craves 'b', and harmony is lost.",
+      "Step 4: Use 'succumb' action on 'c'. Preconditions are satisfied: 'c' is in pain.",
+      "Step 5: After 'succumb', 'c' becomes a province and planet again, harmony is restored, and 'c' is no longer in pain.",
+      "Step 6: Use 'feast' action with 'd' and 'c'. Preconditions are satisfied: 'd' craves 'c', 'd' is a province, and harmony is present.",
+      "Step 7: After 'feast', 'd' is in pain, 'c' becomes a province, 'd' no longer craves 'c', and harmony is lost.",
+      "Step 8: Use 'succumb' action on 'd'. Preconditions are satisfied: 'd' is in pain.",
+      "Step 9: After 'succumb', 'd' becomes a province and planet again, harmony is restored, and 'd' is no longer in pain.",
+      "Step 10: Check goal state. 'b' craves 'a' and 'd' craves 'b' are satisfied."
+    ],
+    "rationale": [
+      "The plan uses 'feast' to transfer province status and create pain, allowing 'succumb' to restore harmony and province status.",
+      "Each action's preconditions are satisfied before execution, ensuring a valid sequence.",
+      "The final state satisfies the goal conditions: 'b' craves 'a' and 'd' craves 'b'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'feast': missing precondition: ('province', ('c',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'feast': missing precondition: ('province', ('c',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 12.196431398391724
+}

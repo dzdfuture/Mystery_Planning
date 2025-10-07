@@ -1,0 +1,146 @@
+{
+  "problem_id": "instance-111",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178876.0117054,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00029778480529785156,
+  "language_planning_time": 7.822991371154785,
+  "natural_language_plan": "The plan manipulates the state of c to allow the creation of necessary cravings. By attacking and succumbing c, we can toggle its province status and harmony. The overcome action is used to create the required craving between d and c.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony and province c. We can attack c to create pain in c and remove its province and harmony status.",
+      "Step 2: With c in pain, we can use succumb on c to restore its province and harmony status, allowing us to manipulate cravings.",
+      "Step 3: Now that c is a province again, we can use overcome with d and c to make d crave c, as d is a planet and c is a province."
+    ],
+    "rationale": [
+      "The plan manipulates the state of c to allow the creation of necessary cravings.",
+      "By attacking and succumbing c, we can toggle its province status and harmony.",
+      "The overcome action is used to create the required craving between d and c."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('craves', ('c', 'b'))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('c',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 13.916085004806519
+}

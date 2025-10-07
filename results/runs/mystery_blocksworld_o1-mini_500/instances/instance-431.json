@@ -1,0 +1,181 @@
+{
+  "problem_id": "instance-431",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184958.063279,
+  "success": true,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002741813659667969,
+  "language_planning_time": 18.676404237747192,
+  "natural_language_plan": "- 'feast' creates 'pain b' and 'province d' while removing unwanted preconditions. - 'succumb' restores 'province b' and 'harmony', enabling further actions. - 'attack d' induces 'pain d', necessary for the final 'overcome' action. - 'overcome d b' achieves the goal by establishing 'craves d b'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast b d'. Preconditions (craves b d, province b, harmony) are satisfied. Effects: Adds 'pain b' and 'province d'; removes 'craves b d', 'province b', and 'harmony'.",
+      "Step 2: Perform 'succumb b'. Preconditions (pain b) are satisfied. Effects: Adds 'province b', 'harmony', and 'planet b'; removes 'pain b'.",
+      "Step 3: Perform 'attack d'. Preconditions (province d, planet d, harmony) are satisfied. Effects: Adds 'pain d'; removes 'province d', 'planet d', and 'harmony'.",
+      "Step 4: Perform 'overcome d b'. Preconditions (province b, pain d) are satisfied. Effects: Adds 'harmony', 'province d', and 'craves d b'; removes 'province b' and 'pain d'."
+    ],
+    "rationale": [
+      "- 'feast' creates 'pain b' and 'province d' while removing unwanted preconditions.",
+      "- 'succumb' restores 'province b' and 'harmony', enabling further actions.",
+      "- 'attack d' induces 'pain d', necessary for the final 'overcome' action.",
+      "- 'overcome d b' achieves the goal by establishing 'craves d b'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "pddl_translation_time": 5.1021575927734375e-05,
+  "pddl_plan": [
+    "feast(b,d)",
+    "succumb(b)",
+    "attack(d)",
+    "overcome(d,b)"
+  ],
+  "validation_time": 0.00619816780090332,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp_a103vsk.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast b d)\n \n2:\n(succumb b)\n \n3:\n(attack d)\n \n4:\n(overcome d b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves b d)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province d)\n\nChecking next happening (time 2)\nDeleting (pain b)\nAdding (province b)\nAdding (harmony)\nAdding (planet b)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp_a103vsk.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('d',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 4
+      },
+      "pddl_plan": [
+        "feast(b,d)",
+        "succumb(b)",
+        "attack(d)",
+        "overcome(d,b)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmp_a103vsk.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast b d)\n \n2:\n(succumb b)\n \n3:\n(attack d)\n \n4:\n(overcome d b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves b d)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province d)\n\nChecking next happening (time 2)\nDeleting (pain b)\nAdding (province b)\nAdding (harmony)\nAdding (planet b)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp_a103vsk.plan 4 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 28.594056367874146
+}

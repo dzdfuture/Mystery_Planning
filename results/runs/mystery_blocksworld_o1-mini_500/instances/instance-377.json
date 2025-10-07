@@ -1,0 +1,70 @@
+{
+  "problem_id": "instance-377",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184569.6490812,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0003132820129394531,
+  "language_planning_time": 26.35504698753357,
+  "natural_language_plan": "The goal predicate 'craves b a' cannot be achieved because there is no available action sequence that can create 'pain b', which is necessary to use the 'overcome' action to establish 'craves b a'. All possible actions either revert the state without progress towards the goal or have unmet preconditions, making it impossible to satisfy the goal with the provided actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempting to use 'feast a c' which requires 'craves a c', 'province a', and 'harmony'.",
+      "Step 2: Executing 'feast a c' results in 'pain a', 'province c', and removes 'craves a c' and 'harmony'.",
+      "Step 3: Attempting to execute 'succumb a' restores 'province a', 'planet a', and 'harmony' while removing 'pain a'.",
+      "Step 4: Attempting to execute 'overcome b a' requires 'province a' and 'pain b', but 'pain b' is not achievable with the given actions and objects."
+    ],
+    "rationale": [
+      "The goal predicate 'craves b a' cannot be achieved because there is no available action sequence that can create 'pain b', which is necessary to use the 'overcome' action to establish 'craves b a'.",
+      "All possible actions either revert the state without progress towards the goal or have unmet preconditions, making it impossible to satisfy the goal with the provided actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 56.30798006057739
+}

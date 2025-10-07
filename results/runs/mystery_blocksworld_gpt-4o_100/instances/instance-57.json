@@ -1,0 +1,160 @@
+{
+  "problem_id": "instance-57",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178249.0140915,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.000301361083984375,
+  "language_planning_time": 6.192188739776611,
+  "natural_language_plan": "The plan rearranges the blocks to achieve the goal state. Unstacking b from a makes b available to be stacked onto c. Stacking b onto c achieves part of the goal (on b c). Unstacking a from c makes a available to be stacked onto b. Stacking a onto b completes the goal (on a b) and (on b c).",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has (handempty), (on a c), (on b a), (ontable c), and (clear b). To achieve the goal, we need (on a b) and (on b c).",
+      "Step 2: Unstack b from a. Preconditions (on b a), (clear b), and (handempty) are satisfied. Effects: (holding b), (clear a), (not (on b a)), (not (clear b)), (not (handempty)).",
+      "Step 3: Stack b onto c. Preconditions (clear c) and (holding b) are satisfied. Effects: (handempty), (clear b), (on b c), (not (clear c)), (not (holding b)).",
+      "Step 4: Unstack a from c. Preconditions (on a c), (clear a), and (handempty) are satisfied. Effects: (holding a), (clear c), (not (on a c)), (not (clear a)), (not (handempty)).",
+      "Step 5: Stack a onto b. Preconditions (clear b) and (holding a) are satisfied. Effects: (handempty), (clear a), (on a b), (not (clear b)), (not (holding a))."
+    ],
+    "rationale": [
+      "The plan rearranges the blocks to achieve the goal state.",
+      "Unstacking b from a makes b available to be stacked onto c.",
+      "Stacking b onto c achieves part of the goal (on b c).",
+      "Unstacking a from c makes a available to be stacked onto b.",
+      "Stacking a onto b completes the goal (on a b) and (on b c)."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'stack': missing precondition: ('clear', ('c',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'stack': missing precondition: ('clear', ('c',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 13.453720808029175
+}

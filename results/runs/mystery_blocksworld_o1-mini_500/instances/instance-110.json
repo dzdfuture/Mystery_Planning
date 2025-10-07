@@ -1,0 +1,196 @@
+{
+  "problem_id": "instance-110",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182666.2554913,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00023055076599121094,
+  "language_planning_time": 28.871005058288574,
+  "natural_language_plan": "- The first 'feast' action consumes the craves between 'a' and 'c', introducing pain to 'a' and establishing province(c). - 'Succumb' allows 'a' to recover from pain, restoring harmony and the necessary provinces. - 'Attack' reintroduces pain to 'a', setting up the conditions to overcome 'a' and 'c' again. - 'Overcome' between 'a' and 'c' establishes the desired craves relationship between 'a' and 'd'. - The second 'feast' consumes the craves between 'd' and 'b', introducing pain to 'd' and establishing province(b). - Finally, 'succumb' allows 'd' to recover from pain, restoring harmony and achieving the craves relationship between 'b' and 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' with objects 'a' and 'c' to consume the existing craves between them, resulting in pain(a) and province(c).",
+      "Step 2: Perform 'succumb' with object 'a' to recover from pain(a), restoring province(a), planet(a), and harmony.",
+      "Step 3: Perform 'attack' on object 'a' to induce pain(a) again, removing province(a) and planet(a), and disrupting harmony.",
+      "Step 4: Perform 'overcome' with objects 'a' and 'c' to establish a new craves relationship between 'a' and 'd'.",
+      "Step 5: Perform 'feast' with objects 'd' and 'b' to consume the existing craves between them, resulting in pain(d) and province(b).",
+      "Step 6: Perform 'succumb' with object 'd' to recover from pain(d), restoring province(d), planet(d), and harmony."
+    ],
+    "rationale": [
+      "- The first 'feast' action consumes the craves between 'a' and 'c', introducing pain to 'a' and establishing province(c).",
+      "- 'Succumb' allows 'a' to recover from pain, restoring harmony and the necessary provinces.",
+      "- 'Attack' reintroduces pain to 'a', setting up the conditions to overcome 'a' and 'c' again.",
+      "- 'Overcome' between 'a' and 'c' establishes the desired craves relationship between 'a' and 'd'.",
+      "- The second 'feast' consumes the craves between 'd' and 'b', introducing pain to 'd' and establishing province(b).",
+      "- Finally, 'succumb' allows 'd' to recover from pain, restoring harmony and achieving the craves relationship between 'b' and 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'feast': missing precondition: ('province', ('d',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 62.23971128463745
+}

@@ -1,0 +1,167 @@
+{
+  "problem_id": "instance-382",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758091325.92209,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00023174285888671875,
+  "language_planning_time": 16.124770641326904,
+  "natural_language_plan": "The plan starts by attacking 'b' to disrupt the harmony and put 'b' in pain. Then, 'b' succumbs to restore harmony and its status as a province and planet. Next, 'b' overcomes 'c' to satisfy the first part of the goal (b craves c). Then, 'c' is attacked to disrupt the harmony and put 'c' in pain. Finally, 'c' overcomes 'd' to satisfy the second part of the goal (c craves d).",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'b'. Preconditions are satisfied as 'b' is both a province and a planet and there is harmony. This will result in 'b' being in pain and no longer being a province or a planet. Harmony will also be disrupted.",
+      "Step 2: Succumb 'b'. Preconditions are satisfied as 'b' is in pain. This will result in 'b' becoming a province and a planet again and harmony will be restored.",
+      "Step 3: Overcome 'b' with 'c'. Preconditions are satisfied as 'c' is a province and 'b' is in pain. This will result in 'b' becoming a province and craving 'c'. 'c' will no longer be a province and 'b' will no longer be in pain. Harmony will be restored.",
+      "Step 4: Attack 'c'. Preconditions are satisfied as 'c' is both a province and a planet and there is harmony. This will result in 'c' being in pain and no longer being a province or a planet. Harmony will also be disrupted.",
+      "Step 5: Overcome 'c' with 'd'. Preconditions are satisfied as 'd' is a province and 'c' is in pain. This will result in 'c' becoming a province and craving 'd'. 'd' will no longer be a province and 'c' will no longer be in pain. Harmony will be restored."
+    ],
+    "rationale": [
+      "The plan starts by attacking 'b' to disrupt the harmony and put 'b' in pain.",
+      "Then, 'b' succumbs to restore harmony and its status as a province and planet.",
+      "Next, 'b' overcomes 'c' to satisfy the first part of the goal (b craves c).",
+      "Then, 'c' is attacked to disrupt the harmony and put 'c' in pain.",
+      "Finally, 'c' overcomes 'd' to satisfy the second part of the goal (c craves d)."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('b',))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 37.3055362701416
+}

@@ -1,0 +1,112 @@
+{
+  "problem_id": "instance-24",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182101.2224932,
+  "success": false,
+  "concept_modeling_time": 2.1457672119140625e-06,
+  "pddl_parsing_time": 0.00042819976806640625,
+  "language_planning_time": 20.273614406585693,
+  "natural_language_plan": "- 'feast a b' modifies the craving relationships and changes the provinces, initiating state changes towards the goal. - 'succumb a' restores harmony and re-establishes necessary predicates to allow further actions. - 'feast b d' further adjusts the craving relationships and provinces in alignment with the goal requirements.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects 'a' and 'b' to create pain for 'a' and establish 'b' as a province, while removing the existing craving of 'a' for 'b' and disrupting harmony.",
+      "Step 2: Perform 'succumb' on object 'a' to restore harmony, re-establish 'a' as a province, and reintroduce its planet, removing the pain previously inflicted.",
+      "Step 3: Perform 'feast' on objects 'b' and 'd' to create pain for 'b' and establish 'd' as a province, while removing the existing craving of 'b' for 'd' and disrupting harmony."
+    ],
+    "rationale": [
+      "- 'feast a b' modifies the craving relationships and changes the provinces, initiating state changes towards the goal.",
+      "- 'succumb a' restores harmony and re-establishes necessary predicates to allow further actions.",
+      "- 'feast b d' further adjusts the craving relationships and provinces in alignment with the goal requirements."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 53.73993682861328
+}

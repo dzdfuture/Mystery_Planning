@@ -1,0 +1,152 @@
+{
+  "problem_id": "instance-22",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758088407.1031148,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002899169921875,
+  "language_planning_time": 10.136353254318237,
+  "natural_language_plan": "The goal is to make 'b' crave 'c' and 'd' crave 'a'. To achieve this, we first attack 'b' and 'd' to cause them 'pain'. Then we use 'overcome' to make them 'province' again and make them crave the desired objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'b' to cause 'pain' to 'b' and remove 'province' and 'planet' from 'b'. This will also remove 'harmony'.",
+      "Step 2: Overcome 'b' with 'c' to make 'b' a 'province' again and make 'b' crave 'c'. This will also remove 'pain' from 'b' and 'province' from 'c', and restore 'harmony'.",
+      "Step 3: Attack 'd' to cause 'pain' to 'd' and remove 'province' and 'planet' from 'd'. This will also remove 'harmony'.",
+      "Step 4: Overcome 'd' with 'a' to make 'd' a 'province' again and make 'd' crave 'a'. This will also remove 'pain' from 'd' and 'province' from 'a', and restore 'harmony'."
+    ],
+    "rationale": [
+      "The goal is to make 'b' crave 'c' and 'd' crave 'a'.",
+      "To achieve this, we first attack 'b' and 'd' to cause them 'pain'.",
+      "Then we use 'overcome' to make them 'province' again and make them crave the desired objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('c',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('c',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 18.623489379882812
+}

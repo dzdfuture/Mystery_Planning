@@ -1,0 +1,80 @@
+{
+  "problem_id": "instance-361",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184451.429599,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00029778480529785156,
+  "language_planning_time": 22.629371166229248,
+  "natural_language_plan": "No valid plan within 3-6 steps can achieve the goal. Initial state lacks 'province a', making actions to create 'craves a c' unattainable. Necessary preconditions for required actions cannot be satisfied with the available objects and actions.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "No valid plan within 3-6 steps can achieve the goal.",
+      "Initial state lacks 'province a', making actions to create 'craves a c' unattainable.",
+      "Necessary preconditions for required actions cannot be satisfied with the available objects and actions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 42.32623481750488
+}

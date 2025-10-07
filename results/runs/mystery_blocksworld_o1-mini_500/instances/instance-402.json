@@ -1,0 +1,91 @@
+{
+  "problem_id": "instance-402",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184743.5349483,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00021719932556152344,
+  "language_planning_time": 32.871317863464355,
+  "natural_language_plan": "The goal requires establishing (craves a d), but there is no available action sequence that allows 'a' to attain the necessary preconditions (such as 'pain a') to perform actions that can establish this predicate. Therefore, the goal is unachievable with the given actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "The goal requires establishing (craves a d), but there is no available action sequence that allows 'a' to attain the necessary preconditions (such as 'pain a') to perform actions that can establish this predicate. Therefore, the goal is unachievable with the given actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('a',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 58.04248571395874
+}

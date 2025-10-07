@@ -1,0 +1,193 @@
+{
+  "problem_id": "instance-264",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758088605.4123652,
+  "success": false,
+  "concept_modeling_time": 2.1457672119140625e-06,
+  "pddl_parsing_time": 0.00044608116149902344,
+  "language_planning_time": 23.968401193618774,
+  "natural_language_plan": "The 'attack' action is used to cause 'pain' to an object and remove its 'province' and 'planet' status. The 'overcome' action is used to remove 'pain' from an object, make it a 'province', make it crave another object, and remove 'province' from the other object. The sequence of actions is designed to make 'a' crave 'c', 'b' crave 'd', and 'd' crave 'a', which is the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a' to cause 'pain' to 'a' and remove 'province' and 'planet' from 'a'. This also removes 'harmony'.",
+      "Step 2: Overcome 'a' with 'b'. This will remove 'pain' from 'a', make 'a' a 'province', make 'a' crave 'b', and remove 'province' from 'b'. This also brings back 'harmony'.",
+      "Step 3: Attack 'b' to cause 'pain' to 'b' and remove 'province' and 'planet' from 'b'. This also removes 'harmony'.",
+      "Step 4: Overcome 'b' with 'd'. This will remove 'pain' from 'b', make 'b' a 'province', make 'b' crave 'd', and remove 'province' from 'd'. This also brings back 'harmony'.",
+      "Step 5: Attack 'd' to cause 'pain' to 'd' and remove 'province' and 'planet' from 'd'. This also removes 'harmony'.",
+      "Step 6: Overcome 'd' with 'a'. This will remove 'pain' from 'd', make 'd' a 'province', make 'd' crave 'a', and remove 'province' from 'a'. This also brings back 'harmony'."
+    ],
+    "rationale": [
+      "The 'attack' action is used to cause 'pain' to an object and remove its 'province' and 'planet' status.",
+      "The 'overcome' action is used to remove 'pain' from an object, make it a 'province', make it crave another object, and remove 'province' from the other object.",
+      "The sequence of actions is designed to make 'a' crave 'c', 'b' crave 'd', and 'd' crave 'a', which is the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('c',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'attack': missing precondition: ('province', ('b',)); missing precondition: ('planet', ('b',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 51.8494987487793
+}

@@ -1,0 +1,154 @@
+{
+  "problem_id": "instance-247",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179148.3633354,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00042057037353515625,
+  "language_planning_time": 9.365199327468872,
+  "natural_language_plan": "The plan manipulates the state to achieve the goal (craves c b) by using the available actions and objects. Each action's preconditions are satisfied before execution, ensuring a valid sequence. The final state satisfies the goal condition, making the plan successful.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Check initial state. The goal (craves c b) is not satisfied. We need to manipulate the state to achieve this.",
+      "Step 2: Use the 'feast' action with objects 'c' and 'a'. Preconditions are satisfied: 'craves c a', 'province c', and 'harmony' are true.",
+      "Step 3: After 'feast', 'pain c' is added, 'province a' is added, 'craves c a' is removed, 'province c' is removed, and 'harmony' is removed.",
+      "Step 4: Use the 'succumb' action with object 'c'. Preconditions are satisfied: 'pain c' is true.",
+      "Step 5: After 'succumb', 'province c', 'harmony', and 'planet c' are added, 'pain c' is removed.",
+      "Step 6: Use the 'overcome' action with objects 'd' and 'c'. Preconditions are satisfied: 'province c' and 'pain d' are true.",
+      "Step 7: After 'overcome', 'harmony', 'province d', and 'craves d c' are added, 'province c' and 'pain d' are removed.",
+      "Step 8: Use the 'feast' action with objects 'd' and 'b'. Preconditions are satisfied: 'craves d b', 'province d', and 'harmony' are true.",
+      "Step 9: After 'feast', 'pain d' is added, 'province b' is added, 'craves d b' is removed, 'province d' is removed, and 'harmony' is removed.",
+      "Step 10: The goal (craves c b) is now satisfied."
+    ],
+    "rationale": [
+      "The plan manipulates the state to achieve the goal (craves c b) by using the available actions and objects.",
+      "Each action's preconditions are satisfied before execution, ensuring a valid sequence.",
+      "The final state satisfies the goal condition, making the plan successful."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('d',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('d',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 16.15456485748291
+}

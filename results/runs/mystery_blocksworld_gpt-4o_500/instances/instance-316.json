@@ -1,0 +1,179 @@
+{
+  "problem_id": "instance-316",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179280.472772,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00030350685119628906,
+  "language_planning_time": 5.2224791049957275,
+  "natural_language_plan": "The plan uses 'attack' to induce pain and remove provinces, setting up for 'overcome' actions. 'Overcome' actions are used to create the required 'craves' relationships and restore harmony. The sequence ensures all goal conditions are met by the end of the plan.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'attack' on 'b' to induce pain and remove 'b' from being a province and planet, breaking harmony.",
+      "Step 2: Use 'overcome' with 'a' and 'b' to make 'a' crave 'b', restore harmony, and make 'a' a province.",
+      "Step 3: Use 'attack' on 'c' to induce pain and remove 'c' from being a province and planet, breaking harmony.",
+      "Step 4: Use 'overcome' with 'b' and 'c' to make 'b' crave 'c', restore harmony, and make 'b' a province.",
+      "Step 5: Use 'overcome' with 'c' and 'd' to make 'c' crave 'd', restore harmony, and make 'c' a province."
+    ],
+    "rationale": [
+      "The plan uses 'attack' to induce pain and remove provinces, setting up for 'overcome' actions.",
+      "'Overcome' actions are used to create the required 'craves' relationships and restore harmony.",
+      "The sequence ensures all goal conditions are met by the end of the plan."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 10.79426121711731
+}

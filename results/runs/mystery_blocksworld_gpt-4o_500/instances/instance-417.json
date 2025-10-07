@@ -1,0 +1,161 @@
+{
+  "problem_id": "instance-417",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179468.7090669,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00024008750915527344,
+  "language_planning_time": 9.932282447814941,
+  "natural_language_plan": "The plan uses 'feast' actions to manipulate the province and pain states of objects. Each 'feast' action is followed by 'succumb' to restore harmony and province status. The final 'feast' action achieves the goal by making d crave c.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony, and b is a province. We can use the 'feast' action with b and c, as b craves c and harmony is present.",
+      "Step 2: After 'feast', b is in pain and c becomes a province. Harmony is lost. We can now use 'succumb' on b to restore harmony and make b a province again.",
+      "Step 3: With b as a province and harmony restored, we can use 'feast' again, this time with c and a, as c craves a.",
+      "Step 4: After the second 'feast', c is in pain and a becomes a province. Harmony is lost again. We use 'succumb' on c to restore harmony and make c a province again.",
+      "Step 5: Now, with c as a province and harmony present, we can use 'feast' with d and c, as d is a planet and craves c. This satisfies the goal."
+    ],
+    "rationale": [
+      "The plan uses 'feast' actions to manipulate the province and pain states of objects.",
+      "Each 'feast' action is followed by 'succumb' to restore harmony and province status.",
+      "The final 'feast' action achieves the goal by making d crave c."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('d',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'feast': missing precondition: ('craves', ('d', 'c')); missing precondition: ('province', ('d',))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 17.09657335281372
+}

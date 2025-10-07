@@ -1,0 +1,229 @@
+{
+  "problem_id": "instance-278",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179218.8624644,
+  "success": true,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002415180206298828,
+  "language_planning_time": 4.864887714385986,
+  "natural_language_plan": "The plan uses 'attack' to induce pain and remove province and planet status, breaking harmony. 'succumb' restores the province and planet status, and harmony. 'overcome' establishes the craving relationships needed to achieve the goal. The sequence ensures preconditions are met at each step, leading to the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'attack' on 'b' to make it feel pain and remove its province and planet status, breaking harmony.",
+      "Step 2: Use 'succumb' on 'b' to restore its province and planet status, and bring back harmony.",
+      "Step 3: Use 'overcome' with 'b' and 'a' to make 'b' crave 'a', achieving part of the goal.",
+      "Step 4: Use 'attack' on 'a' to make it feel pain and remove its province and planet status, breaking harmony.",
+      "Step 5: Use 'succumb' on 'a' to restore its province and planet status, and bring back harmony.",
+      "Step 6: Use 'overcome' with 'a' and 'd' to make 'a' crave 'd', achieving the full goal."
+    ],
+    "rationale": [
+      "The plan uses 'attack' to induce pain and remove province and planet status, breaking harmony.",
+      "'succumb' restores the province and planet status, and harmony.",
+      "'overcome' establishes the craving relationships needed to achieve the goal.",
+      "The sequence ensures preconditions are met at each step, leading to the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(b,d)",
+    "succumb(b)",
+    "attack(a)",
+    "overcome(a,d)",
+    "attack(b)",
+    "overcome(b,a)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmptmj6ffta.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast b d)\n \n2:\n(succumb b)\n \n3:\n(attack a)\n \n4:\n(overcome a d)\n \n5:\n(attack b)\n \n6:\n(overcome b a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves b d)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province d)\n\nChecking next happening (time 2)\nDeleting (pain b)\nAdding (province b)\nAdding (harmony)\nAdding (planet b)\n\nChecking next happening (time 3)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 4)\nDeleting (province d)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a d)\n\nChecking next happening (time 5)\nDeleting (province b)\nDeleting (planet b)\nDeleting (harmony)\nAdding (pain b)\n\nChecking next happening (time 6)\nDeleting (province a)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmptmj6ffta.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 10.306084156036377
+}

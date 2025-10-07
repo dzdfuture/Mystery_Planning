@@ -1,0 +1,155 @@
+{
+  "problem_id": "instance-212",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179076.1536784,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0004906654357910156,
+  "language_planning_time": 7.679497241973877,
+  "natural_language_plan": "The plan ensures that all preconditions are met before executing each action. Each action's effects are used to transition the symbolic state towards the goal. The final state satisfies all goal predicates: 'a' craves 'b', 'b' craves 'd', and 'd' craves 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use the 'feast' action with 'c' and 'b'. Preconditions: 'c' craves 'b', 'c' is a province, and harmony is present. Effects: 'c' is in pain, 'b' becomes a province, 'c' no longer craves 'b', and harmony is lost.",
+      "Step 2: Use the 'succumb' action with 'c'. Preconditions: 'c' is in pain. Effects: 'c' becomes a province and a planet, harmony is restored, and 'c' is no longer in pain.",
+      "Step 3: Use the 'overcome' action with 'b' and 'd'. Preconditions: 'd' is a province and 'b' is in pain. Effects: 'b' becomes a province, 'b' craves 'd', 'd' is no longer a province, and 'b' is no longer in pain.",
+      "Step 4: Use the 'overcome' action with 'd' and 'c'. Preconditions: 'c' is a province and 'd' is in pain. Effects: 'd' becomes a province, 'd' craves 'c', 'c' is no longer a province, and 'd' is no longer in pain."
+    ],
+    "rationale": [
+      "The plan ensures that all preconditions are met before executing each action.",
+      "Each action's effects are used to transition the symbolic state towards the goal.",
+      "The final state satisfies all goal predicates: 'a' craves 'b', 'b' craves 'd', and 'd' craves 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('b',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 17.76815390586853
+}

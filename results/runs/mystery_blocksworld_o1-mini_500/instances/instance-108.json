@@ -1,0 +1,112 @@
+{
+  "problem_id": "instance-108",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182657.2421112,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00026917457580566406,
+  "language_planning_time": 29.08845353126526,
+  "natural_language_plan": "Attacking 'c' induces pain and removes its province and planet, allowing further actions to modify relationships. Overcoming 'c' with 'a' establishes a new craves relationship and restores harmony. Overcoming 'b' with 'c' creates the desired craves relationship from 'b' to 'a' indirectly by establishing 'b' craves 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'attack' on 'c' to create pain in 'c' and remove its province and planet, disrupting harmony.",
+      "Step 2: Perform 'overcome' with 'c' overcoming 'a' to establish that 'c' craves 'a' and restore harmony.",
+      "Step 3: Perform 'overcome' with 'b' overcoming 'c' to establish that 'b' craves 'c' and maintain harmony."
+    ],
+    "rationale": [
+      "Attacking 'c' induces pain and removes its province and planet, allowing further actions to modify relationships.",
+      "Overcoming 'c' with 'a' establishes a new craves relationship and restores harmony.",
+      "Overcoming 'b' with 'c' creates the desired craves relationship from 'b' to 'a' indirectly by establishing 'b' craves 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('b',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 57.95905542373657
+}

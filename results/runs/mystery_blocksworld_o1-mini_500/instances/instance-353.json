@@ -1,0 +1,166 @@
+{
+  "problem_id": "instance-353",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184406.322317,
+  "success": true,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002391338348388672,
+  "language_planning_time": 31.044447898864746,
+  "natural_language_plan": "The action 'overcome(a, b)' removes 'province(b)', which is necessary to perform 'overcome(b, c)'. Without 'province(b)', it's impossible to generate 'craves(b, c)'. Hence, no valid plan exists within the given constraints to achieve all the goal predicates.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempt to use 'attack' on 'a' to create 'pain(a)' and remove 'province(a)'.",
+      "Step 2: Use 'overcome' with 'a' and 'b' to achieve 'craves(a, b)', which removes 'province(b)'.",
+      "Step 3: Attempting to use 'attack' on 'b' fails because 'province(b)' has been removed in Step 2."
+    ],
+    "rationale": [
+      "The action 'overcome(a, b)' removes 'province(b)', which is necessary to perform 'overcome(b, c)'.",
+      "Without 'province(b)', it's impossible to generate 'craves(b, c)'.",
+      "Hence, no valid plan exists within the given constraints to achieve all the goal predicates."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'attack': missing precondition: ('province', ('b',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "attack(c)",
+    "overcome(c,d)",
+    "attack(b)",
+    "overcome(b,c)",
+    "attack(a)",
+    "overcome(a,b)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpnrcyrk1v.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(attack c)\n \n2:\n(overcome c d)\n \n3:\n(attack b)\n \n4:\n(overcome b c)\n \n5:\n(attack a)\n \n6:\n(overcome a b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 2)\nDeleting (province d)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c d)\n\nChecking next happening (time 3)\nDeleting (province b)\nDeleting (planet b)\nDeleting (harmony)\nAdding (pain b)\n\nChecking next happening (time 4)\nDeleting (province c)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b c)\n\nChecking next happening (time 5)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 6)\nDeleting (province b)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpnrcyrk1v.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 45.09256887435913
+}

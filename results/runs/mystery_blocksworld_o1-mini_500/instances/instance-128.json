@@ -1,0 +1,160 @@
+{
+  "problem_id": "instance-128",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182796.1656127,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0003190040588378906,
+  "language_planning_time": 38.67226958274841,
+  "natural_language_plan": "Feasting on 'a' and 'b' generates pain in 'a', enabling overcoming actions. Overcoming 'd' with 'a's pain establishes the first goal predicate 'craves a d'. Feasting again prepares 'a' for further overcoming actions to create more craves. Succumbing restores harmony, allowing subsequent actions to maintain harmony when required. Overcoming 'c' with 'b's pain establishes the goal predicate 'craves b c'. Finally, overcoming 'a' with 'c's pain establishes the goal predicate 'craves c a'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast a b' to create pain in 'a' and prepare for overcoming.",
+      "Step 2: Perform 'overcome a d' to establish 'craves a d' by overcoming 'd' with the pain in 'a'.",
+      "Step 3: Perform 'feast a d' to create pain in 'a' again, allowing further actions to establish additional craves.",
+      "Step 4: Perform 'succumb a' to restore harmony and enable more actions.",
+      "Step 5: Perform 'overcome b c' to establish 'craves b c' by overcoming 'c' with the pain in 'b'.",
+      "Step 6: Perform 'overcome c a' to establish 'craves c a' by overcoming 'a' with the pain in 'c'."
+    ],
+    "rationale": [
+      "Feasting on 'a' and 'b' generates pain in 'a', enabling overcoming actions.",
+      "Overcoming 'd' with 'a's pain establishes the first goal predicate 'craves a d'.",
+      "Feasting again prepares 'a' for further overcoming actions to create more craves.",
+      "Succumbing restores harmony, allowing subsequent actions to maintain harmony when required.",
+      "Overcoming 'c' with 'b's pain establishes the goal predicate 'craves b c'.",
+      "Finally, overcoming 'a' with 'c's pain establishes the goal predicate 'craves c a'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'overcome': missing precondition: ('province', ('c',)); missing precondition: ('pain', ('b',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 71.47931504249573
+}

@@ -1,0 +1,170 @@
+{
+  "problem_id": "instance-16",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178189.221546,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00034046173095703125,
+  "language_planning_time": 4.276692152023315,
+  "natural_language_plan": "The plan rearranges the blocks to achieve the goal state. Unstacking b from c allows b to be placed on a, achieving part of the goal. Unstacking c from a allows c to be placed on b, completing the goal. Each action's preconditions are satisfied, and the effects lead to the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Unstack b from c. Preconditions: b is on c, b is clear, hand is empty. Effects: holding b, c becomes clear.",
+      "Step 2: Stack b on a. Preconditions: a is clear, holding b. Effects: b is on a, hand becomes empty, a is no longer clear.",
+      "Step 3: Unstack c from a. Preconditions: c is on a, c is clear, hand is empty. Effects: holding c, a becomes clear.",
+      "Step 4: Stack c on b. Preconditions: b is clear, holding c. Effects: c is on b, hand becomes empty, b is no longer clear."
+    ],
+    "rationale": [
+      "The plan rearranges the blocks to achieve the goal state.",
+      "Unstacking b from c allows b to be placed on a, achieving part of the goal.",
+      "Unstacking c from a allows c to be placed on b, completing the goal.",
+      "Each action's preconditions are satisfied, and the effects lead to the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "unstack",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'stack': missing precondition: ('clear', ('c',)); missing precondition: ('holding', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'stack': missing precondition: ('clear', ('a',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 13.500170707702637
+}

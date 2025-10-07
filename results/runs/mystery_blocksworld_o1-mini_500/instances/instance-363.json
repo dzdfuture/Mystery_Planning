@@ -1,0 +1,69 @@
+{
+  "problem_id": "instance-363",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184475.031804,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0003345012664794922,
+  "language_planning_time": 23.332711458206177,
+  "natural_language_plan": "The goal requires adding the predicate (craves b c), which cannot be achieved with the available actions. No sequence of allowed actions can generate the necessary preconditions to satisfy all goal predicates.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempted to attack object 'c' to generate pain, but it disrupts harmony and removes necessary provinces.",
+      "Step 2: Tried to overcome using 'c' and 'a', but unable to create the required 'craves b c' predicate.",
+      "Step 3: No further actions can satisfy the goal predicates within the allowed actions and objects."
+    ],
+    "rationale": [
+      "The goal requires adding the predicate (craves b c), which cannot be achieved with the available actions.",
+      "No sequence of allowed actions can generate the necessary preconditions to satisfy all goal predicates."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 51.18637132644653
+}

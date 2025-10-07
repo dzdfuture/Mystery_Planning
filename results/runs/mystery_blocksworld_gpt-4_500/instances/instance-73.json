@@ -1,0 +1,234 @@
+{
+  "problem_id": "instance-73",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090432.8799045,
+  "success": true,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00026607513427734375,
+  "language_planning_time": 13.77501916885376,
+  "natural_language_plan": "The 'attack' action is used to create pain in 'a' and 'b' and remove their province and planet status. The 'overcome' action is used to create a craving in 'a' for 'd' and in 'b' for 'c', which are the goal conditions. It also removes the province status of 'd' and 'c'. The 'succumb' action is used to remove the pain from 'a' and 'b' and restore their province and planet status.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a' to create pain and remove its province and planet status.",
+      "Step 2: Overcome 'a' with 'd' to create a craving in 'a' for 'd' and remove the province status of 'd'.",
+      "Step 3: Succumb 'a' to remove its pain and restore its province and planet status.",
+      "Step 4: Attack 'b' to create pain and remove its province and planet status.",
+      "Step 5: Overcome 'b' with 'c' to create a craving in 'b' for 'c' and remove the province status of 'c'.",
+      "Step 6: Succumb 'b' to remove its pain and restore its province and planet status."
+    ],
+    "rationale": [
+      "The 'attack' action is used to create pain in 'a' and 'b' and remove their province and planet status.",
+      "The 'overcome' action is used to create a craving in 'a' for 'd' and in 'b' for 'c', which are the goal conditions. It also removes the province status of 'd' and 'c'.",
+      "The 'succumb' action is used to remove the pain from 'a' and 'b' and restore their province and planet status."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'overcome': missing precondition: ('province', ('c',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'succumb': missing precondition: ('pain', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(d,c)",
+    "succumb(d)",
+    "attack(a)",
+    "overcome(a,d)",
+    "attack(b)",
+    "overcome(b,c)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpy_bhvuuj.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast d c)\n \n2:\n(succumb d)\n \n3:\n(attack a)\n \n4:\n(overcome a d)\n \n5:\n(attack b)\n \n6:\n(overcome b c)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves d c)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province c)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 4)\nDeleting (province d)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a d)\n\nChecking next happening (time 5)\nDeleting (province b)\nDeleting (planet b)\nDeleting (harmony)\nAdding (pain b)\n\nChecking next happening (time 6)\nDeleting (province c)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b c)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpy_bhvuuj.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 37.49304699897766
+}

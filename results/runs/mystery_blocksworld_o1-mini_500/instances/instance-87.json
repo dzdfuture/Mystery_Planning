@@ -1,0 +1,69 @@
+{
+  "problem_id": "instance-87",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182497.9707704,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.000240325927734375,
+  "language_planning_time": 26.431807279586792,
+  "natural_language_plan": "Cannot achieve 'craves b d' and 'craves d a' due to unmet preconditions. No sequence of allowed actions can establish the required predicates without violating constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Examined the initial state and available actions.",
+      "Identified that necessary predicates for the goal cannot be achieved with the given actions and objects.",
+      "Concluded that no valid action sequence exists to satisfy the goal under the current constraints."
+    ],
+    "rationale": [
+      "Cannot achieve 'craves b d' and 'craves d a' due to unmet preconditions.",
+      "No sequence of allowed actions can establish the required predicates without violating constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 48.76837348937988
+}

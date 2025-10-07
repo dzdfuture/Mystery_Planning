@@ -1,0 +1,192 @@
+{
+  "problem_id": "instance-11",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178182.910921,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0004253387451171875,
+  "language_planning_time": 6.264997959136963,
+  "natural_language_plan": "The plan begins by clearing the path to achieve the goal configuration. Unstacking c from a and putting it on the table allows access to a. Unstacking a from b clears b and allows a to be placed on c. Stacking a on c sets up the base for the final configuration. Picking up b and stacking it on a completes the goal configuration. Each action is chosen to satisfy preconditions and move towards the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Unstack c from a. Preconditions: c is on a, c is clear, hand is empty. Effects: holding c, a is clear, c is not on a, hand is not empty.",
+      "Step 2: Put down c on the table. Preconditions: holding c. Effects: c is clear, hand is empty, c is on the table, not holding c.",
+      "Step 3: Unstack a from b. Preconditions: a is on b, a is clear, hand is empty. Effects: holding a, b is clear, a is not on b, hand is not empty.",
+      "Step 4: Stack a on c. Preconditions: c is clear, holding a. Effects: hand is empty, a is clear, a is on c, c is not clear, not holding a.",
+      "Step 5: Pick up b from the table. Preconditions: b is clear, b is on the table, hand is empty. Effects: holding b, b is not clear, b is not on the table, hand is not empty.",
+      "Step 6: Stack b on a. Preconditions: a is clear, holding b. Effects: hand is empty, b is clear, b is on a, a is not clear, not holding b."
+    ],
+    "rationale": [
+      "The plan begins by clearing the path to achieve the goal configuration.",
+      "Unstacking c from a and putting it on the table allows access to a.",
+      "Unstacking a from b clears b and allows a to be placed on c.",
+      "Stacking a on c sets up the base for the final configuration.",
+      "Picking up b and stacking it on a completes the goal configuration.",
+      "Each action is chosen to satisfy preconditions and move towards the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'stack': missing precondition: ('clear', ('a',)); missing precondition: ('holding', ('b',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 15.305567741394043
+}

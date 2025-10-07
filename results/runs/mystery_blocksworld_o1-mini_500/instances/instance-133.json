@@ -1,0 +1,148 @@
+{
+  "problem_id": "instance-133",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182856.006597,
+  "success": true,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.000324249267578125,
+  "language_planning_time": 11.647948265075684,
+  "natural_language_plan": "Feasting removes existing craves relation and induces pain to prepare for overcoming. Overcoming a with d establishes craves(a, d) and restores harmony. Attacking c induces pain on c to enable creating craves(c, b). Overcoming c with b establishes craves(c, b), achieving the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform feast(a, b) to remove craves(a, b) and gain pain(a), making province(b) available.",
+      "Step 2: Perform overcome(a, d) to create craves(a, d) by overcoming d with a's pain, restoring harmony.",
+      "Step 3: Perform attack(c) to induce pain(c), removing province(c) and harmony.",
+      "Step 4: Perform overcome(c, b) to create craves(c, b) by overcoming b with c's pain, restoring harmony."
+    ],
+    "rationale": [
+      "Feasting removes existing craves relation and induces pain to prepare for overcoming.",
+      "Overcoming a with d establishes craves(a, d) and restores harmony.",
+      "Attacking c induces pain on c to enable creating craves(c, b).",
+      "Overcoming c with b establishes craves(c, b), achieving the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "pddl_translation_time": 2.2172927856445312e-05,
+  "pddl_plan": [
+    "feast(a,b)",
+    "overcome(a,d)",
+    "attack(c)",
+    "overcome(c,b)"
+  ],
+  "validation_time": 0.006380796432495117,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp13w9mytw.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast a b)\n \n2:\n(overcome a d)\n \n3:\n(attack c)\n \n4:\n(overcome c b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a b)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (province d)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a d)\n\nChecking next happening (time 3)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp13w9mytw.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 4
+      },
+      "pddl_plan": [
+        "feast(a,b)",
+        "overcome(a,d)",
+        "attack(c)",
+        "overcome(c,b)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmp13w9mytw.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast a b)\n \n2:\n(overcome a d)\n \n3:\n(attack c)\n \n4:\n(overcome c b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a b)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (province d)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a d)\n\nChecking next happening (time 3)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp13w9mytw.plan 4 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 11.655188798904419
+}

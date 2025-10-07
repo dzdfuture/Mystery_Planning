@@ -1,0 +1,99 @@
+{
+  "problem_id": "instance-481",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185296.4762802,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.000225067138671875,
+  "language_planning_time": 39.8627610206604,
+  "natural_language_plan": "No sequence of allowed actions satisfies all goal predicates. Necessary preconditions for achieving 'craves a c' and 'craves e b' cannot be fulfilled with the available actions and objects. Attempting actions either disrupts required initial conditions or fails to progress towards the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempted to perform 'feast d a' to manipulate 'craves d a', but this action removes 'craves d a', which is required in the goal.",
+      "Step 2: Tried to restore 'harmony' using 'succumb d', but achieving 'craves a c' and 'craves e b' remains infeasible due to unmet preconditions.",
+      "Conclusion: No valid action sequence within the given constraints can achieve the desired goal."
+    ],
+    "rationale": [
+      "No sequence of allowed actions satisfies all goal predicates.",
+      "Necessary preconditions for achieving 'craves a c' and 'craves e b' cannot be fulfilled with the available actions and objects.",
+      "Attempting actions either disrupts required initial conditions or fails to progress towards the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "e"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "e",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "e",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',)); missing precondition: ('pain', ('a',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 55.61670231819153
+}

@@ -1,0 +1,157 @@
+{
+  "problem_id": "instance-25",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182102.9376638,
+  "success": true,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0003159046173095703,
+  "language_planning_time": 36.555113315582275,
+  "natural_language_plan": "Step 1 transforms the initial state by converting the craving from (craves d b) to (province b) and introduces (pain d). Step 2 restores harmony and re-establishes (province d) by remedying (pain d). Step 3 changes the craving from (craves b a) to (pain b) and (province a), setting up the conditions needed for the final action. Step 4 achieves the goal by establishing (craves b d) while ensuring all action preconditions are met and the final state satisfies the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Apply 'feast d b'. Preconditions met: (craves d b), (province d), (harmony). Effects: Adds (pain d), (province b); Removes (craves d b), (province d), (harmony).",
+      "Step 2: Apply 'succumb d'. Preconditions met: (pain d). Effects: Adds (province d), (harmony), (planet d); Removes (pain d).",
+      "Step 3: Apply 'feast b a'. Preconditions met: (craves b a), (province b), (harmony). Effects: Adds (pain b), (province a); Removes (craves b a), (province b), (harmony).",
+      "Step 4: Apply 'overcome b d'. Preconditions met: (province d), (pain b). Effects: Adds (harmony), (craves b d), (province b); Removes (province d), (pain b)."
+    ],
+    "rationale": [
+      "Step 1 transforms the initial state by converting the craving from (craves d b) to (province b) and introduces (pain d).",
+      "Step 2 restores harmony and re-establishes (province d) by remedying (pain d).",
+      "Step 3 changes the craving from (craves b a) to (pain b) and (province a), setting up the conditions needed for the final action.",
+      "Step 4 achieves the goal by establishing (craves b d) while ensuring all action preconditions are met and the final state satisfies the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "pddl_translation_time": 5.14984130859375e-05,
+  "pddl_plan": [
+    "feast(d,b)",
+    "succumb(d)",
+    "feast(b,a)",
+    "overcome(b,d)"
+  ],
+  "validation_time": 0.00637364387512207,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp8_rk3xiz.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast d b)\n \n2:\n(succumb d)\n \n3:\n(feast b a)\n \n4:\n(overcome b d)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves d b)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (craves b a)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province a)\n\nChecking next happening (time 4)\nDeleting (province d)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b d)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp8_rk3xiz.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 4
+      },
+      "pddl_plan": [
+        "feast(d,b)",
+        "succumb(d)",
+        "feast(b,a)",
+        "overcome(b,d)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmp8_rk3xiz.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast d b)\n \n2:\n(succumb d)\n \n3:\n(feast b a)\n \n4:\n(overcome b d)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves d b)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (craves b a)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province a)\n\nChecking next happening (time 4)\nDeleting (province d)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b d)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp8_rk3xiz.plan 4 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 74.34756636619568
+}

@@ -1,0 +1,127 @@
+{
+  "problem_id": "instance-411",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184792.9488297,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.00042510032653808594,
+  "language_planning_time": 28.05849003791809,
+  "natural_language_plan": "The goal requires establishing (craves b d) and (craves c b). Creating these craves necessitates actions that depend on predicates which cannot be satisfied with the current initial state and available actions. Therefore, no valid action sequence exists within the provided constraints to achieve the desired goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Analyzed the initial state and identified the required changes to achieve the goal.",
+      "Step 2: Evaluated available actions and their preconditions to determine feasibility.",
+      "Step 3: Concluded that the necessary preconditions to achieve the goal cannot be met with the given actions and objects."
+    ],
+    "rationale": [
+      "The goal requires establishing (craves b d) and (craves c b).",
+      "Creating these craves necessitates actions that depend on predicates which cannot be satisfied with the current initial state and available actions.",
+      "Therefore, no valid action sequence exists within the provided constraints to achieve the desired goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(d,b)",
+    "succumb(d)",
+    "feast(b,c)",
+    "overcome(b,d)",
+    "attack(c)",
+    "overcome(c,b)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpgdwox22r.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast d b)\n \n2:\n(succumb d)\n \n3:\n(feast b c)\n \n4:\n(overcome b d)\n \n5:\n(attack c)\n \n6:\n(overcome c b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves d b)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (craves b c)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province c)\n\nChecking next happening (time 4)\nDeleting (province d)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b d)\n\nChecking next happening (time 5)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 6)\nDeleting (province b)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpgdwox22r.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 55.23710632324219
+}

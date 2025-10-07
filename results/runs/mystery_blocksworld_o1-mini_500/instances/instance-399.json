@@ -1,0 +1,93 @@
+{
+  "problem_id": "instance-399",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184719.3703034,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0004360675811767578,
+  "language_planning_time": 37.37720346450806,
+  "natural_language_plan": "The goal predicates require establishing craves relationships that depend on prerequisites which cannot be met due to circular dependencies in action preconditions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed possible action sequences but found that the goal requires predicates that cannot be achieved with the available actions and objects."
+    ],
+    "rationale": [
+      "The goal predicates require establishing craves relationships that depend on prerequisites which cannot be met due to circular dependencies in action preconditions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 73.09362649917603
+}

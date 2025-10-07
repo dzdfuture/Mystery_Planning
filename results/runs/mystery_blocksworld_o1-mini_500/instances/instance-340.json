@@ -1,0 +1,118 @@
+{
+  "problem_id": "instance-340",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184306.085145,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00023126602172851562,
+  "language_planning_time": 28.978679418563843,
+  "natural_language_plan": "The initial action leads to a state that forces a loop between 'feast' and 'succumb' actions. There is no feasible way to achieve the goal predicates with the given actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Identify available actions in the initial state.",
+      "Step 2: Only the 'feast d c' action meets the preconditions initially.",
+      "Step 3: Performing 'feast d c' removes harmony, requiring 'succumb d' to restore it.",
+      "Step 4: Subsequent actions cycle between 'feast' and 'succumb' without progressing towards the goal.",
+      "Step 5: No sequence of 3-6 actions can establish the required 'craves a c' and 'craves c d' predicates."
+    ],
+    "rationale": [
+      "The initial action leads to a state that forces a loop between 'feast' and 'succumb' actions.",
+      "There is no feasible way to achieve the goal predicates with the given actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 6: preconditions not satisfied for 'attack': missing precondition: ('harmony', ())",
+        "length": 7
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 72.16030788421631
+}

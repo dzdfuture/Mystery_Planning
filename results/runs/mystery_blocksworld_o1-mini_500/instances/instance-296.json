@@ -1,0 +1,152 @@
+{
+  "problem_id": "instance-296",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184002.3509064,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0002524852752685547,
+  "language_planning_time": 28.572054386138916,
+  "natural_language_plan": "Attacking 'b' creates pain and removes its province and planet, setting up for overcoming. Overcoming 'b' with 'a' restores harmony and establishes a new craves relationship between 'b' and 'a'. Feasting on 'a' by 'b' modifies the craves relationships, moving closer to achieving the goal predicates.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'attack' on object 'b'. Preconditions (province b, planet b, harmony) are satisfied.",
+      "Step 2: Perform 'overcome' with objects 'b' and 'a'. Preconditions (province a, pain b) are satisfied after Step 1.",
+      "Step 3: Perform 'feast' with objects 'b' and 'a'. Preconditions (craves b a, province b, harmony) are satisfied after Step 2."
+    ],
+    "rationale": [
+      "Attacking 'b' creates pain and removes its province and planet, setting up for overcoming.",
+      "Overcoming 'b' with 'a' restores harmony and establishes a new craves relationship between 'b' and 'a'.",
+      "Feasting on 'a' by 'b' modifies the craves relationships, moving closer to achieving the goal predicates."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 62.964760065078735
+}

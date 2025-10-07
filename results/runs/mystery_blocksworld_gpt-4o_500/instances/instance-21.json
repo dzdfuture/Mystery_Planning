@@ -1,0 +1,124 @@
+{
+  "problem_id": "instance-21",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178727.6550496,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0003261566162109375,
+  "language_planning_time": 5.30873966217041,
+  "natural_language_plan": "The plan starts by attacking d to put it in pain, which is necessary for the succumb action. Succumb is used to restore d as a province and planet, and to regain harmony. Feast is used to satisfy the craving of d for a, which is part of the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony, and both b and d are provinces. We can attack d since it is both a province and a planet, and harmony exists.",
+      "Step 2: After attacking d, it is in pain, and harmony is lost. We can now use succumb on d to restore it as a province and planet, and regain harmony.",
+      "Step 3: With d restored as a province and harmony present, we can use feast on d and a, since d craves a, d is a province, and harmony exists."
+    ],
+    "rationale": [
+      "The plan starts by attacking d to put it in pain, which is necessary for the succumb action.",
+      "Succumb is used to restore d as a province and planet, and to regain harmony.",
+      "Feast is used to satisfy the craving of d for a, which is part of the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('d',))",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('d',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 12.557274580001831
+}

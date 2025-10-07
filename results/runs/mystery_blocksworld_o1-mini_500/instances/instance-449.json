@@ -1,0 +1,112 @@
+{
+  "problem_id": "instance-449",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185056.8179483,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.0003910064697265625,
+  "language_planning_time": 40.36397647857666,
+  "natural_language_plan": "After Step 2, 'province a' is no longer available, making it impossible to satisfy the preconditions for Step 4. There are no alternative actions or objects that can fulfill the remaining goal predicates within the allowed actions and objects. Therefore, no valid action sequence between 3 and 6 steps can achieve the specified goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempt to attack 'b'. Preconditions met: (province b), (planet b), (harmony). Effect: (pain b), remove (province b), remove (planet b), remove (harmony).",
+      "Step 2: Attempt to overcome 'b' with 'a'. Preconditions met: (province a), (pain b). Effect: (harmony), (province b), (craves b a), remove (province a), remove (pain b).",
+      "Step 3: Attempt to attack 'e'. Preconditions met: (province e), (planet e), (harmony). Effect: (pain e), remove (province e), remove (planet e), remove (harmony).",
+      "Step 4: Attempt to overcome 'e' with 'a'. Preconditions met: (province a is removed in Step 2), therefore precondition not satisfied."
+    ],
+    "rationale": [
+      "After Step 2, 'province a' is no longer available, making it impossible to satisfy the preconditions for Step 4.",
+      "There are no alternative actions or objects that can fulfill the remaining goal predicates within the allowed actions and objects.",
+      "Therefore, no valid action sequence between 3 and 6 steps can achieve the specified goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "e"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "e",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 77.31470561027527
+}

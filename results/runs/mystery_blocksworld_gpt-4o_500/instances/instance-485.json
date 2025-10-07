@@ -1,0 +1,168 @@
+{
+  "problem_id": "instance-485",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179605.3258824,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0002918243408203125,
+  "language_planning_time": 10.919867753982544,
+  "natural_language_plan": "The plan starts by creating 'pain' on 'a' to allow 'b' to overcome 'a', establishing 'craves b a'. Next, 'd' is attacked to create 'pain', allowing 'e' to overcome 'd', establishing 'craves e d'. Finally, 'a' overcomes 'e' to establish 'craves a e', achieving the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'attack' on 'a' to create 'pain' on 'a' and remove 'harmony'.",
+      "Step 2: Use 'overcome' with 'b' and 'a' to establish 'craves b a', restore 'harmony', and remove 'pain' from 'b'.",
+      "Step 3: Use 'attack' on 'd' to create 'pain' on 'd' and remove 'harmony'.",
+      "Step 4: Use 'overcome' with 'e' and 'd' to establish 'craves e d', restore 'harmony', and remove 'pain' from 'e'.",
+      "Step 5: Use 'overcome' with 'a' and 'e' to establish 'craves a e', restore 'harmony', and remove 'pain' from 'a'."
+    ],
+    "rationale": [
+      "The plan starts by creating 'pain' on 'a' to allow 'b' to overcome 'a', establishing 'craves b a'.",
+      "Next, 'd' is attacked to create 'pain', allowing 'e' to overcome 'd', establishing 'craves e d'.",
+      "Finally, 'a' overcomes 'e' to establish 'craves a e', achieving the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "e",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "e"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "e"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'feast': missing precondition: ('harmony', ())",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "e",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "e"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',)); missing precondition: ('pain', ('b',))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 16.72117257118225
+}

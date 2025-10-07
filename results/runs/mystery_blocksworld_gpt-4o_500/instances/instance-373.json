@@ -1,0 +1,176 @@
+{
+  "problem_id": "instance-373",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179388.0263035,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.00031113624572753906,
+  "language_planning_time": 6.859030246734619,
+  "natural_language_plan": "The plan ensures that b craves a and b craves d by the end. Each action is chosen to satisfy preconditions based on the current state. The sequence of actions manipulates the predicates to achieve the goal state. The plan respects the constraints of the domain and problem definitions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Initial state has harmony, craves(a, c), craves(b, a), craves(c, d), planet(d), and province(b).",
+      "Step 2: Use 'feast' with (b, a) since b craves a, b is a province, and harmony exists. This will cause pain to b, make a a province, and remove harmony.",
+      "Step 3: Use 'succumb' on b to restore harmony and make b a province and planet again.",
+      "Step 4: Use 'overcome' with (a, b) since a is a province and b is in pain. This will make a crave b and remove pain from b.",
+      "Step 5: Use 'feast' with (c, d) since c craves d, c is a province, and harmony exists. This will cause pain to c, make d a province, and remove harmony.",
+      "Step 6: Use 'succumb' on c to restore harmony and make c a province and planet again."
+    ],
+    "rationale": [
+      "The plan ensures that b craves a and b craves d by the end.",
+      "Each action is chosen to satisfy preconditions based on the current state.",
+      "The sequence of actions manipulates the predicates to achieve the goal state.",
+      "The plan respects the constraints of the domain and problem definitions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'overcome': missing precondition: ('province', ('d',)); missing precondition: ('pain', ('b',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('a',))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 13.704087018966675
+}

@@ -1,0 +1,113 @@
+{
+  "problem_id": "instance-365",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184488.9758532,
+  "success": true,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0002853870391845703,
+  "language_planning_time": 38.91150498390198,
+  "natural_language_plan": "The goal 'craves b c' requires 'province c' to be present. None of the available actions can introduce 'province c' without already having it. Actions like 'attack' and 'feast' either remove provinces or require existing provinces that cannot lead to 'province c'. Therefore, it's impossible to achieve the desired goal with the given domain and problem specifications.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial state and the goal.",
+      "Determined that achieving 'craves b c' requires 'province c' and 'pain b'.",
+      "Found that 'province c' cannot be established with the available actions and objects.",
+      "Concluded that no valid plan exists within the given constraints."
+    ],
+    "rationale": [
+      "The goal 'craves b c' requires 'province c' to be present.",
+      "None of the available actions can introduce 'province c' without already having it.",
+      "Actions like 'attack' and 'feast' either remove provinces or require existing provinces that cannot lead to 'province c'.",
+      "Therefore, it's impossible to achieve the desired goal with the given domain and problem specifications."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(d,c)",
+    "succumb(d)",
+    "attack(b)",
+    "overcome(b,c)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpvrpc_woj.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast d c)\n \n2:\n(succumb d)\n \n3:\n(attack b)\n \n4:\n(overcome b c)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves d c)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province c)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (province b)\nDeleting (planet b)\nDeleting (harmony)\nAdding (pain b)\n\nChecking next happening (time 4)\nDeleting (province c)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b c)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpvrpc_woj.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 65.42239952087402
+}

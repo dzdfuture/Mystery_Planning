@@ -1,0 +1,159 @@
+{
+  "problem_id": "instance-309",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758088738.4681306,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00032591819763183594,
+  "language_planning_time": 13.205930948257446,
+  "natural_language_plan": "The 'attack' action causes 'a' to be in pain and removes the province and planet status of 'a'. The 'succumb' action removes the pain from 'a' and makes 'a' a province and a planet. The 'overcome' action makes 'a' crave 'b' and removes the province status of 'b' and the pain of 'a'. The 'feast' action causes 'a' to be in pain and makes 'b' a province, and removes the craving of 'a' for 'b' and the province status of 'a'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: 'a' is a province and 'b' is a planet, and there is harmony. So, 'a' can attack.",
+      "Step 2: After the attack, 'a' is in pain. So, 'a' can succumb.",
+      "Step 3: After succumbing, 'a' is a province and 'b' is in pain. So, 'a' can overcome 'b'.",
+      "Step 4: After overcoming, 'a' craves 'b' and 'a' is a province, and there is harmony. So, 'a' can feast on 'b'."
+    ],
+    "rationale": [
+      "The 'attack' action causes 'a' to be in pain and removes the province and planet status of 'a'.",
+      "The 'succumb' action removes the pain from 'a' and makes 'a' a province and a planet.",
+      "The 'overcome' action makes 'a' crave 'b' and removes the province status of 'b' and the pain of 'a'.",
+      "The 'feast' action causes 'a' to be in pain and makes 'b' a province, and removes the craving of 'a' for 'b' and the province status of 'a'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 26.08512568473816
+}

@@ -1,0 +1,126 @@
+{
+  "problem_id": "instance-410",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184792.478543,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.00030350685119628906,
+  "language_planning_time": 47.71883153915405,
+  "natural_language_plan": "The actions required to add (craves d b) inherently disrupt (craves c d). There is no sequence of allowed actions that can satisfy both (craves d b) and retain (craves c d). Hence, no valid plan exists within the given constraints to achieve the desired goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempted to use 'feast c d' to create necessary conditions for adding (craves d b).",
+      "Step 2: 'feast c d' removes (craves c d) from the state, making it impossible to re-establish and satisfy the goal alongside (craves d b).",
+      "Step 3: No further actions can re-add (craves c d) without violating action preconditions or objectives."
+    ],
+    "rationale": [
+      "The actions required to add (craves d b) inherently disrupt (craves c d).",
+      "There is no sequence of allowed actions that can satisfy both (craves d b) and retain (craves c d).",
+      "Hence, no valid plan exists within the given constraints to achieve the desired goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(c,d)",
+    "succumb(c)",
+    "attack(d)",
+    "overcome(d,b)",
+    "attack(c)",
+    "overcome(c,d)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpsg415p9t.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast c d)\n \n2:\n(succumb c)\n \n3:\n(attack d)\n \n4:\n(overcome d b)\n \n5:\n(attack c)\n \n6:\n(overcome c d)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves c d)\nDeleting (province c)\nDeleting (harmony)\nAdding (pain c)\nAdding (province d)\n\nChecking next happening (time 2)\nDeleting (pain c)\nAdding (province c)\nAdding (harmony)\nAdding (planet c)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\n\nChecking next happening (time 5)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 6)\nDeleting (province d)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c d)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpsg415p9t.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 62.68669080734253
+}

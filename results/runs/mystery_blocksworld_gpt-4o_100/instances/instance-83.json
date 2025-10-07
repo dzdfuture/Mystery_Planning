@@ -1,0 +1,112 @@
+{
+  "problem_id": "instance-83",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178288.2524345,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.00042366981506347656,
+  "language_planning_time": 4.510456800460815,
+  "natural_language_plan": "The plan involves picking up 'b' and stacking it on 'a', which achieves the goal state. Each action's preconditions are satisfied in the current state before execution. The final state satisfies the goal conditions: 'on a c' and 'on b a'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has 'handempty', 'on a c', 'ontable b', 'ontable c', 'clear a', and 'clear b'. To achieve the goal, we need to place 'b' on 'a'.",
+      "Step 2: First, pick up 'b' from the table. Preconditions for 'pick-up b' are satisfied: 'clear b', 'ontable b', and 'handempty'.",
+      "Step 3: Now, stack 'b' on 'a'. Preconditions for 'stack b a' are satisfied: 'clear a' and 'holding b'.",
+      "Step 4: The goal state 'on a c' and 'on b a' is now achieved."
+    ],
+    "rationale": [
+      "The plan involves picking up 'b' and stacking it on 'a', which achieves the goal state.",
+      "Each action's preconditions are satisfied in the current state before execution.",
+      "The final state satisfies the goal conditions: 'on a c' and 'on b a'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 10.26399040222168
+}

@@ -1,0 +1,111 @@
+{
+  "problem_id": "instance-466",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185175.965056,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0003020763397216797,
+  "language_planning_time": 32.91668939590454,
+  "natural_language_plan": "The goal requires adding 'craves d e'. Creating 'craves d e' requires 'province d' and 'pain d'. Obtaining 'pain d' necessitates attacking 'd', which requires 'province d'. There is no way to obtain 'province d' with the available actions, making the goal unattainable.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial state and goal requirements.",
+      "Determined that achieving 'craves d e' is not possible with the given actions and objects.",
+      "Concluded that the goal state cannot be reached under the current constraints."
+    ],
+    "rationale": [
+      "The goal requires adding 'craves d e'.",
+      "Creating 'craves d e' requires 'province d' and 'pain d'.",
+      "Obtaining 'pain d' necessitates attacking 'd', which requires 'province d'.",
+      "There is no way to obtain 'province d' with the available actions, making the goal unattainable."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "e"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('d',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 46.208224058151245
+}

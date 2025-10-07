@@ -1,0 +1,179 @@
+{
+  "problem_id": "instance-62",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758173820.0366237,
+  "success": true,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00042176246643066406,
+  "language_planning_time": 26.384960174560547,
+  "natural_language_plan": "The goal is to have 'a' on 'b' and 'b' on 'c'. Initially, 'a' is on 'b' and both 'b' and 'c' are on the table. First, we unstack 'a' from 'b' and put 'a' down on the table. Then, we pick up 'b' and stack it on 'c'. Finally, we pick up 'a' again and stack it on 'b'. This results in the desired configuration of 'a' on 'b' and 'b' on 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Unstack 'a' from 'b'. Preconditions: 'a' is on 'b', 'a' is clear, and hand is empty. Effects: 'a' is now being held, 'b' is clear, 'a' is not on 'b', 'a' is not clear, and hand is not empty.",
+      "Step 2: Put down 'a'. Preconditions: 'a' is being held. Effects: 'a' is clear, hand is empty, 'a' is on the table, and 'a' is not being held.",
+      "Step 3: Pick up 'b'. Preconditions: 'b' is clear, 'b' is on the table, and hand is empty. Effects: 'b' is being held, 'b' is not clear, 'b' is not on the table, and hand is not empty.",
+      "Step 4: Stack 'b' on 'c'. Preconditions: 'c' is clear and 'b' is being held. Effects: hand is empty, 'b' is clear, 'b' is on 'c', 'c' is not clear, and 'b' is not being held.",
+      "Step 5: Pick up 'a'. Preconditions: 'a' is clear, 'a' is on the table, and hand is empty. Effects: 'a' is being held, 'a' is not clear, 'a' is not on the table, and hand is not empty.",
+      "Step 6: Stack 'a' on 'b'. Preconditions: 'b' is clear and 'a' is being held. Effects: hand is empty, 'a' is clear, 'a' is on 'b', 'b' is not clear, and 'a' is not being held."
+    ],
+    "rationale": [
+      "The goal is to have 'a' on 'b' and 'b' on 'c'.",
+      "Initially, 'a' is on 'b' and both 'b' and 'c' are on the table.",
+      "First, we unstack 'a' from 'b' and put 'a' down on the table.",
+      "Then, we pick up 'b' and stack it on 'c'.",
+      "Finally, we pick up 'a' again and stack it on 'b'.",
+      "This results in the desired configuration of 'a' on 'b' and 'b' on 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "pddl_translation_time": 6.246566772460938e-05,
+  "pddl_plan": [
+    "unstack(a,b)",
+    "put-down(a)",
+    "pick-up(b)",
+    "stack(b,c)",
+    "pick-up(a)",
+    "stack(a,b)"
+  ],
+  "validation_time": 0.0065495967864990234,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpoq69rrdn.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(unstack a b)\n \n2:\n(put-down a)\n \n3:\n(pick-up b)\n \n4:\n(stack b c)\n \n5:\n(pick-up a)\n \n6:\n(stack a b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (on a b)\nDeleting (clear a)\nDeleting (handempty)\nAdding (holding a)\nAdding (clear b)\n\nChecking next happening (time 2)\nDeleting (holding a)\nAdding (clear a)\nAdding (handempty)\nAdding (ontable a)\n\nChecking next happening (time 3)\nDeleting (clear b)\nDeleting (ontable b)\nDeleting (handempty)\nAdding (holding b)\n\nChecking next happening (time 4)\nDeleting (clear c)\nDeleting (holding b)\nAdding (handempty)\nAdding (clear b)\nAdding (on b c)\n\nChecking next happening (time 5)\nDeleting (clear a)\nDeleting (ontable a)\nDeleting (handempty)\nAdding (holding a)\n\nChecking next happening (time 6)\nDeleting (clear b)\nDeleting (holding a)\nAdding (handempty)\nAdding (clear a)\nAdding (on a b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpoq69rrdn.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 6
+      },
+      "pddl_plan": [
+        "unstack(a,b)",
+        "put-down(a)",
+        "pick-up(b)",
+        "stack(b,c)",
+        "pick-up(a)",
+        "stack(a,b)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmpoq69rrdn.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(unstack a b)\n \n2:\n(put-down a)\n \n3:\n(pick-up b)\n \n4:\n(stack b c)\n \n5:\n(pick-up a)\n \n6:\n(stack a b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (on a b)\nDeleting (clear a)\nDeleting (handempty)\nAdding (holding a)\nAdding (clear b)\n\nChecking next happening (time 2)\nDeleting (holding a)\nAdding (clear a)\nAdding (handempty)\nAdding (ontable a)\n\nChecking next happening (time 3)\nDeleting (clear b)\nDeleting (ontable b)\nDeleting (handempty)\nAdding (holding b)\n\nChecking next happening (time 4)\nDeleting (clear c)\nDeleting (holding b)\nAdding (handempty)\nAdding (clear b)\nAdding (on b c)\n\nChecking next happening (time 5)\nDeleting (clear a)\nDeleting (ontable a)\nDeleting (handempty)\nAdding (holding a)\n\nChecking next happening (time 6)\nDeleting (clear b)\nDeleting (holding a)\nAdding (handempty)\nAdding (clear a)\nAdding (on a b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpoq69rrdn.plan 6 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 26.392955541610718
+}

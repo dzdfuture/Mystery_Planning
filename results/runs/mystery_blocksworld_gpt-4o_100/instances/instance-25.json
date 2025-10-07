@@ -1,0 +1,218 @@
+{
+  "problem_id": "instance-25",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178202.7425654,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0006191730499267578,
+  "language_planning_time": 10.443371772766113,
+  "natural_language_plan": "Unstacking 'c' from 'b' clears 'b' and allows 'b' to be moved. Putting 'c' down frees the hand to manipulate 'b'. Picking up 'b' allows it to be stacked on 'a', achieving part of the goal. Stacking 'b' on 'a' achieves the first part of the goal. Picking up 'c' allows it to be stacked on 'b', achieving the final goal. Stacking 'c' on 'b' completes the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has 'handempty', 'ontable a', 'ontable b', 'on c b', 'clear a', and 'clear c'. To achieve the goal, we need to stack b on a and c on b.",
+      "Step 2: 'b' is on the table and 'handempty' is true, but 'b' is not clear because 'c' is on it. We need to unstack 'c' from 'b'.",
+      "Step 3: Unstack 'c' from 'b'. Preconditions 'on c b', 'clear c', and 'handempty' are satisfied. After unstacking, 'holding c', 'clear b', and 'not handempty' are true.",
+      "Step 4: Put down 'c' on the table. Preconditions 'holding c' is satisfied. After putting down, 'handempty', 'ontable c', and 'clear c' are true.",
+      "Step 5: Pick up 'b' from the table. Preconditions 'clear b', 'ontable b', and 'handempty' are satisfied. After picking up, 'holding b' and 'not handempty' are true.",
+      "Step 6: Stack 'b' on 'a'. Preconditions 'clear a' and 'holding b' are satisfied. After stacking, 'handempty', 'on b a', and 'clear b' are true.",
+      "Step 7: Pick up 'c' from the table. Preconditions 'clear c', 'ontable c', and 'handempty' are satisfied. After picking up, 'holding c' and 'not handempty' are true.",
+      "Step 8: Stack 'c' on 'b'. Preconditions 'clear b' and 'holding c' are satisfied. After stacking, 'handempty', 'on c b', and 'clear c' are true."
+    ],
+    "rationale": [
+      "Unstacking 'c' from 'b' clears 'b' and allows 'b' to be moved.",
+      "Putting 'c' down frees the hand to manipulate 'b'.",
+      "Picking up 'b' allows it to be stacked on 'a', achieving part of the goal.",
+      "Stacking 'b' on 'a' achieves the first part of the goal.",
+      "Picking up 'c' allows it to be stacked on 'b', achieving the final goal.",
+      "Stacking 'c' on 'b' completes the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "pddl_translation_time": 6.699562072753906e-05,
+  "pddl_plan": [
+    "unstack(c,b)",
+    "put-down(c)",
+    "pick-up(b)",
+    "stack(b,a)",
+    "pick-up(c)",
+    "stack(c,b)"
+  ],
+  "validation_time": 0.006413698196411133,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpbxi52gys.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(unstack c b)\n \n2:\n(put-down c)\n \n3:\n(pick-up b)\n \n4:\n(stack b a)\n \n5:\n(pick-up c)\n \n6:\n(stack c b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (on c b)\nDeleting (clear c)\nDeleting (handempty)\nAdding (holding c)\nAdding (clear b)\n\nChecking next happening (time 2)\nDeleting (holding c)\nAdding (clear c)\nAdding (handempty)\nAdding (ontable c)\n\nChecking next happening (time 3)\nDeleting (clear b)\nDeleting (ontable b)\nDeleting (handempty)\nAdding (holding b)\n\nChecking next happening (time 4)\nDeleting (clear a)\nDeleting (holding b)\nAdding (handempty)\nAdding (clear b)\nAdding (on b a)\n\nChecking next happening (time 5)\nDeleting (clear c)\nDeleting (ontable c)\nDeleting (handempty)\nAdding (holding c)\n\nChecking next happening (time 6)\nDeleting (clear b)\nDeleting (holding c)\nAdding (handempty)\nAdding (clear c)\nAdding (on c b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpbxi52gys.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'pick-up': missing precondition: ('clear', ('b',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 6
+      },
+      "pddl_plan": [
+        "unstack(c,b)",
+        "put-down(c)",
+        "pick-up(b)",
+        "stack(b,a)",
+        "pick-up(c)",
+        "stack(c,b)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmpbxi52gys.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(unstack c b)\n \n2:\n(put-down c)\n \n3:\n(pick-up b)\n \n4:\n(stack b a)\n \n5:\n(pick-up c)\n \n6:\n(stack c b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (on c b)\nDeleting (clear c)\nDeleting (handempty)\nAdding (holding c)\nAdding (clear b)\n\nChecking next happening (time 2)\nDeleting (holding c)\nAdding (clear c)\nAdding (handempty)\nAdding (ontable c)\n\nChecking next happening (time 3)\nDeleting (clear b)\nDeleting (ontable b)\nDeleting (handempty)\nAdding (holding b)\n\nChecking next happening (time 4)\nDeleting (clear a)\nDeleting (holding b)\nAdding (handempty)\nAdding (clear b)\nAdding (on b a)\n\nChecking next happening (time 5)\nDeleting (clear c)\nDeleting (ontable c)\nDeleting (handempty)\nAdding (holding c)\n\nChecking next happening (time 6)\nDeleting (clear b)\nDeleting (holding c)\nAdding (handempty)\nAdding (clear c)\nAdding (on c b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpbxi52gys.plan 6 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 16.159318208694458
+}

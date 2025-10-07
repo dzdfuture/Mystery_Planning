@@ -1,0 +1,74 @@
+{
+  "problem_id": "instance-468",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185216.6392303,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0002579689025878906,
+  "language_planning_time": 26.928125143051147,
+  "natural_language_plan": "The goal requires establishing craves relations that are not achievable due to the constraints on action preconditions. Specifically, creating (craves a d) and (craves e b) is impossible because 'd' and 'e' cannot be made provinces required for attacks. Without being able to generate the necessary predicates through available actions, a valid plan cannot be formed.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "1. Identify the required craves in the goal: (craves a d), (craves c e), (craves e b).",
+      "2. Determine how to achieve each craves using available actions.",
+      "3. Recognize that creating (craves a d) requires overcoming with 'a' and 'd', but 'd' is not a province initially and cannot be made one.",
+      "4. Realize that creating (craves c e) is blocked because 'e' cannot be subjected to necessary actions to generate the required conditions.",
+      "5. Notice that creating (craves e b) is impossible since 'e' cannot be attacked to produce pain without it being a province.",
+      "6. Conclude that the necessary preconditions to achieve all goal craves cannot be satisfied with the given actions and objects."
+    ],
+    "rationale": [
+      "The goal requires establishing craves relations that are not achievable due to the constraints on action preconditions.",
+      "Specifically, creating (craves a d) and (craves e b) is impossible because 'd' and 'e' cannot be made provinces required for attacks.",
+      "Without being able to generate the necessary predicates through available actions, a valid plan cannot be formed."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 60.04434514045715
+}

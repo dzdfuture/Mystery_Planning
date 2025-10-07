@@ -1,0 +1,107 @@
+{
+  "problem_id": "instance-464",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185169.7487936,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00023055076599121094,
+  "language_planning_time": 28.79258918762207,
+  "natural_language_plan": "No valid plan exists within 3-6 steps to achieve the specified goal with the given actions and objects. The available actions do not provide a way to create the necessary 'craves' predicates without entering an infinite loop or violating preconditions. Attempted action sequences either do not progress towards the goal or revert the state, making it impossible to satisfy all goal conditions simultaneously.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "No valid plan exists within 3-6 steps to achieve the specified goal with the given actions and objects.",
+      "The available actions do not provide a way to create the necessary 'craves' predicates without entering an infinite loop or violating preconditions.",
+      "Attempted action sequences either do not progress towards the goal or revert the state, making it impossible to satisfy all goal conditions simultaneously."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "e"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 60.77863359451294
+}

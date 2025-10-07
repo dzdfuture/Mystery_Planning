@@ -1,0 +1,66 @@
+{
+  "problem_id": "instance-68",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182378.1113117,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00033664703369140625,
+  "language_planning_time": 24.78297185897827,
+  "natural_language_plan": "No valid plan exists within 6 steps to achieve the goal with the given actions and objects. The available actions cannot modify the 'craves' predicates from the initial state to the desired goal state. Preconditions for necessary actions cannot be satisfied to establish the required 'craves a c' and 'craves b d'.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "No valid plan exists within 6 steps to achieve the goal with the given actions and objects.",
+      "The available actions cannot modify the 'craves' predicates from the initial state to the desired goal state.",
+      "Preconditions for necessary actions cannot be satisfied to establish the required 'craves a c' and 'craves b d'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 47.49543642997742
+}

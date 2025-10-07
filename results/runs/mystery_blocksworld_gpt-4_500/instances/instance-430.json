@@ -1,0 +1,177 @@
+{
+  "problem_id": "instance-430",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758088362.3564687,
+  "success": true,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.0006670951843261719,
+  "language_planning_time": 18.945477724075317,
+  "natural_language_plan": "The first action 'feast' is chosen to make 'b' a province and to put 'a' in pain. The second action 'succumb' is chosen to remove the pain from 'a' and to make 'a' a planet. The third action 'feast' is chosen to make 'd' a province and to put 'c' in pain. The final action 'overcome' is chosen to make 'c' crave 'a', which is the goal of the problem.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The action 'feast' is chosen with 'a' and 'b' as parameters. The preconditions for this action are satisfied as 'a' craves 'b', 'a' is a province, and there is harmony. The effects of this action are that 'a' is in pain, 'b' becomes a province, 'a' no longer craves 'b', 'a' is no longer a province, and there is no harmony.",
+      "Step 2: The action 'succumb' is chosen with 'a' as the parameter. The precondition for this action is satisfied as 'a' is in pain. The effects of this action are that 'a' becomes a province, there is harmony, 'a' becomes a planet, and 'a' is no longer in pain.",
+      "Step 3: The action 'feast' is chosen with 'c' and 'd' as parameters. The preconditions for this action are satisfied as 'c' craves 'd', 'c' is a province, and there is harmony. The effects of this action are that 'c' is in pain, 'd' becomes a province, 'c' no longer craves 'd', 'c' is no longer a province, and there is no harmony.",
+      "Step 4: The action 'overcome' is chosen with 'c' and 'a' as parameters. The preconditions for this action are satisfied as 'a' is a province and 'c' is in pain. The effects of this action are that there is harmony, 'c' becomes a province, 'c' craves 'a', 'a' is no longer a province, and 'c' is no longer in pain."
+    ],
+    "rationale": [
+      "The first action 'feast' is chosen to make 'b' a province and to put 'a' in pain.",
+      "The second action 'succumb' is chosen to remove the pain from 'a' and to make 'a' a planet.",
+      "The third action 'feast' is chosen to make 'd' a province and to put 'c' in pain.",
+      "The final action 'overcome' is chosen to make 'c' crave 'a', which is the goal of the problem."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "pddl_translation_time": 5.078315734863281e-05,
+  "pddl_plan": [
+    "feast(a,b)",
+    "succumb(a)",
+    "feast(c,d)",
+    "overcome(c,a)"
+  ],
+  "validation_time": 0.006493806838989258,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpcevdlfez.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast a b)\n \n2:\n(succumb a)\n \n3:\n(feast c d)\n \n4:\n(overcome c a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a b)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (pain a)\nAdding (province a)\nAdding (harmony)\nAdding (planet a)\n\nChecking next happening (time 3)\nDeleting (craves c d)\nDeleting (province c)\nDeleting (harmony)\nAdding (pain c)\nAdding (province d)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpcevdlfez.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 4
+      },
+      "pddl_plan": [
+        "feast(a,b)",
+        "succumb(a)",
+        "feast(c,d)",
+        "overcome(c,a)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmpcevdlfez.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast a b)\n \n2:\n(succumb a)\n \n3:\n(feast c d)\n \n4:\n(overcome c a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a b)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (pain a)\nAdding (province a)\nAdding (harmony)\nAdding (planet a)\n\nChecking next happening (time 3)\nDeleting (craves c d)\nDeleting (province c)\nDeleting (harmony)\nAdding (pain c)\nAdding (province d)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpcevdlfez.plan 4 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 27.006619691848755
+}

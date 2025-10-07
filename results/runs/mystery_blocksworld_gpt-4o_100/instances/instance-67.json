@@ -1,0 +1,152 @@
+{
+  "problem_id": "instance-67",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178262.4863176,
+  "success": true,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.00043129920959472656,
+  "language_planning_time": 3.5655651092529297,
+  "natural_language_plan": "The plan picks up 'b' from the table, which is possible because 'b' is clear and on the table. Then, 'b' is stacked onto 'c', achieving the goal state 'on b c'. The plan is minimal and satisfies all preconditions for each action.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has 'handempty', 'on a c', 'ontable b', 'ontable c', 'clear a', and 'clear b'. The goal is to have 'on b c'.",
+      "Step 2: To achieve the goal, we need to move 'b' onto 'c'. First, we pick up 'b' from the table.",
+      "Step 3: After picking up 'b', we need to stack it onto 'c'. 'c' is clear, so we can proceed with the stack action."
+    ],
+    "rationale": [
+      "The plan picks up 'b' from the table, which is possible because 'b' is clear and on the table.",
+      "Then, 'b' is stacked onto 'c', achieving the goal state 'on b c'.",
+      "The plan is minimal and satisfies all preconditions for each action."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'stack': missing precondition: ('clear', ('c',))",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'stack': missing precondition: ('clear', ('c',))",
+        "length": 2
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "unstack(a,c)",
+    "put-down(a)",
+    "pick-up(b)",
+    "stack(b,c)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp75092nen.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(unstack a c)\n \n2:\n(put-down a)\n \n3:\n(pick-up b)\n \n4:\n(stack b c)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (on a c)\nDeleting (clear a)\nDeleting (handempty)\nAdding (holding a)\nAdding (clear c)\n\nChecking next happening (time 2)\nDeleting (holding a)\nAdding (clear a)\nAdding (handempty)\nAdding (ontable a)\n\nChecking next happening (time 3)\nDeleting (clear b)\nDeleting (ontable b)\nDeleting (handempty)\nAdding (holding b)\n\nChecking next happening (time 4)\nDeleting (clear c)\nDeleting (holding b)\nAdding (handempty)\nAdding (clear b)\nAdding (on b c)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp75092nen.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 8.848275661468506
+}

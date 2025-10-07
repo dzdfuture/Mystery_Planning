@@ -1,0 +1,70 @@
+{
+  "problem_id": "instance-258",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183713.5622044,
+  "success": false,
+  "concept_modeling_time": 2.1457672119140625e-06,
+  "pddl_parsing_time": 0.000453948974609375,
+  "language_planning_time": 28.098626136779785,
+  "natural_language_plan": "No valid sequence of allowed actions can achieve both (craves c d) and (craves d a) from the initial state. The necessary preconditions for creating (craves c d) cannot be satisfied with the given actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial state and the goal requirements.",
+      "Identified that to achieve (craves c d), the action 'overcome' would require 'c' to have pain and 'd' to be a province.",
+      "Determined that creating 'pain c' is not feasible since 'c' is not initially a province and cannot be attacked without being one.",
+      "Explored alternative action sequences but found that none can satisfy all goal predicates within the allowed action and object constraints."
+    ],
+    "rationale": [
+      "No valid sequence of allowed actions can achieve both (craves c d) and (craves d a) from the initial state.",
+      "The necessary preconditions for creating (craves c d) cannot be satisfied with the given actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 54.8224310874939
+}

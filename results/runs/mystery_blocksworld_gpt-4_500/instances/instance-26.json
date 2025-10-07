@@ -1,0 +1,206 @@
+{
+  "problem_id": "instance-26",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090507.1317184,
+  "success": true,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002846717834472656,
+  "language_planning_time": 10.930132865905762,
+  "natural_language_plan": "The 'attack' action is used to create a 'pain' state for the objects 'a' and 'c'. The 'overcome' action is used to create the 'craves' relationships required by the goal. The 'overcome' action also restores 'harmony', which is necessary for the 'attack' action to be used again.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a' to create a 'pain' state for 'a' and remove 'harmony'.",
+      "Step 2: Overcome 'a' with 'b' to create a 'craves' relationship between 'a' and 'b', and restore 'harmony'.",
+      "Step 3: Attack 'c' to create a 'pain' state for 'c' and remove 'harmony'.",
+      "Step 4: Overcome 'c' with 'a' to create a 'craves' relationship between 'c' and 'a', and restore 'harmony'."
+    ],
+    "rationale": [
+      "The 'attack' action is used to create a 'pain' state for the objects 'a' and 'c'.",
+      "The 'overcome' action is used to create the 'craves' relationships required by the goal.",
+      "The 'overcome' action also restores 'harmony', which is necessary for the 'attack' action to be used again."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'succumb': missing precondition: ('pain', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'attack': missing precondition: ('planet', ('c',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "attack(a)",
+    "overcome(a,b)",
+    "feast(c,d)",
+    "overcome(c,a)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmppxl553z_.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack a)\n \n2:\n(overcome a b)\n \n3:\n(feast c d)\n \n4:\n(overcome c a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 2)\nDeleting (province b)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a b)\n\nChecking next happening (time 3)\nDeleting (craves c d)\nDeleting (province c)\nDeleting (harmony)\nAdding (pain c)\nAdding (province d)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmppxl553z_.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 25.429182052612305
+}

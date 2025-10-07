@@ -1,0 +1,64 @@
+{
+  "problem_id": "instance-49",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182247.7670891,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0002837181091308594,
+  "language_planning_time": 31.026190042495728,
+  "natural_language_plan": "After analyzing the initial state and available actions, it's determined that no valid sequence of actions can achieve the goal predicates within 3-6 steps. The necessary preconditions to modify the 'craves' relationships required by the goal cannot be satisfied with the given actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "After analyzing the initial state and available actions, it's determined that no valid sequence of actions can achieve the goal predicates within 3-6 steps. The necessary preconditions to modify the 'craves' relationships required by the goal cannot be satisfied with the given actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 58.336803913116455
+}

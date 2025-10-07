@@ -1,0 +1,125 @@
+{
+  "problem_id": "instance-163",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183068.7022004,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0002727508544921875,
+  "language_planning_time": 35.84359669685364,
+  "natural_language_plan": "No valid sequence of allowed actions can be executed from the initial state to achieve the goal predicates. The necessary preconditions for actions that could lead to (craves c d) cannot be satisfied with the given objects and action definitions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempted to perform 'feast c a' which removes (craves c a) but does not lead towards achieving (craves c d).",
+      "Step 2: Tried 'succumb c' to restore harmony and planet status, but still couldn't create the necessary conditions for (craves c d).",
+      "Step 3: Attempted 'attack c' to generate (pain c), but this action leads back to the initial state without achieving the goal."
+    ],
+    "rationale": [
+      "No valid sequence of allowed actions can be executed from the initial state to achieve the goal predicates.",
+      "The necessary preconditions for actions that could lead to (craves c d) cannot be satisfied with the given objects and action definitions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(c,a)",
+    "succumb(c)",
+    "feast(a,d)",
+    "succumb(a)",
+    "attack(c)",
+    "overcome(c,d)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp93qc462e.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast c a)\n \n2:\n(succumb c)\n \n3:\n(feast a d)\n \n4:\n(succumb a)\n \n5:\n(attack c)\n \n6:\n(overcome c d)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves c a)\nDeleting (province c)\nDeleting (harmony)\nAdding (pain c)\nAdding (province a)\n\nChecking next happening (time 2)\nDeleting (pain c)\nAdding (province c)\nAdding (harmony)\nAdding (planet c)\n\nChecking next happening (time 3)\nDeleting (craves a d)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province d)\n\nChecking next happening (time 4)\nDeleting (pain a)\nAdding (province a)\nAdding (harmony)\nAdding (planet a)\n\nChecking next happening (time 5)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 6)\nDeleting (province d)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c d)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmp93qc462e.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 67.77662920951843
+}

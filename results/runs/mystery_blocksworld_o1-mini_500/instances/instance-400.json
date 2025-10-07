@@ -1,0 +1,70 @@
+{
+  "problem_id": "instance-400",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184738.3034713,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0003466606140136719,
+  "language_planning_time": 28.978885889053345,
+  "natural_language_plan": "The goal requires (craves c a), which necessitates performing 'overcome c a'. To perform 'overcome c a', 'c' must have pain, but there's no action sequence that can inflict pain on 'c' without already having (craves c a). All possible action sequences either loop without achieving the goal or fail to meet the necessary preconditions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial state and available actions.",
+      "Determined that creating the predicate (craves c a) is not achievable with the given actions and objects.",
+      "Concluded that no valid action sequence within 3-6 steps can satisfy all goal conditions."
+    ],
+    "rationale": [
+      "The goal requires (craves c a), which necessitates performing 'overcome c a'.",
+      "To perform 'overcome c a', 'c' must have pain, but there's no action sequence that can inflict pain on 'c' without already having (craves c a).",
+      "All possible action sequences either loop without achieving the goal or fail to meet the necessary preconditions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 53.44651985168457
+}

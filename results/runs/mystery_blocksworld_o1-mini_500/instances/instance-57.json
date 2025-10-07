@@ -1,0 +1,142 @@
+{
+  "problem_id": "instance-57",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182306.1217623,
+  "success": false,
+  "concept_modeling_time": 2.1457672119140625e-06,
+  "pddl_parsing_time": 0.0006880760192871094,
+  "language_planning_time": 9.419159650802612,
+  "natural_language_plan": "- Attacking 'c' introduces pain and removes its province and planet, allowing for state changes. - Succumbing 'c' restores its province and harmony, preparing it for new relationships. - Overcoming 'a' with 'd' establishes the desired craving from 'a' to 'd'. - Overcoming 'b' with 'c' establishes the desired craving from 'b' to 'c'. - Overcoming 'c' with 'a' establishes the desired craving from 'c' to 'a'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'attack' on object 'c' to disrupt its status.",
+      "Step 2: Use 'succumb' on object 'c' to restore its province and harmony.",
+      "Step 3: Use 'overcome' with objects 'a' and 'd' to establish the craving relationship between them.",
+      "Step 4: Use 'overcome' with objects 'b' and 'c' to establish the craving relationship between them.",
+      "Step 5: Use 'overcome' with objects 'c' and 'a' to establish the craving relationship between them."
+    ],
+    "rationale": [
+      "- Attacking 'c' introduces pain and removes its province and planet, allowing for state changes.",
+      "- Succumbing 'c' restores its province and harmony, preparing it for new relationships.",
+      "- Overcoming 'a' with 'd' establishes the desired craving from 'a' to 'd'.",
+      "- Overcoming 'b' with 'c' establishes the desired craving from 'b' to 'c'.",
+      "- Overcoming 'c' with 'a' establishes the desired craving from 'c' to 'a'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('c',))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 44.11776113510132
+}

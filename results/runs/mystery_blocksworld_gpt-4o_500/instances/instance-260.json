@@ -1,0 +1,233 @@
+{
+  "problem_id": "instance-260",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179176.1672525,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.00046324729919433594,
+  "language_planning_time": 9.183042526245117,
+  "natural_language_plan": "The plan starts by using 'feast' to create 'pain' in 'a' and allow 'b' to become a province. Then 'succumb' is used to restore 'a' to a province and harmony. Next, 'feast' is used on 'b' and 'c' to create 'pain' in 'b' and allow 'c' to become a province. Then 'succumb' is used to restore 'b' to a province and harmony. Finally, 'overcome' is used on 'd' and 'b' to achieve the goal of 'craves d b'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'feast' on 'a' and 'b'. Preconditions: 'craves a b', 'province a', 'harmony' are satisfied. Effects: 'pain a', 'province b', 'not craves a b', 'not province a', 'not harmony'.",
+      "Step 2: Use 'succumb' on 'a'. Preconditions: 'pain a' is satisfied. Effects: 'province a', 'harmony', 'planet a', 'not pain a'.",
+      "Step 3: Use 'feast' on 'b' and 'c'. Preconditions: 'craves b c', 'province b', 'harmony' are satisfied. Effects: 'pain b', 'province c', 'not craves b c', 'not province b', 'not harmony'.",
+      "Step 4: Use 'succumb' on 'b'. Preconditions: 'pain b' is satisfied. Effects: 'province b', 'harmony', 'planet b', 'not pain b'.",
+      "Step 5: Use 'overcome' on 'd' and 'b'. Preconditions: 'province b', 'pain d' are satisfied. Effects: 'harmony', 'province d', 'craves d b', 'not province b', 'not pain d'."
+    ],
+    "rationale": [
+      "The plan starts by using 'feast' to create 'pain' in 'a' and allow 'b' to become a province.",
+      "Then 'succumb' is used to restore 'a' to a province and harmony.",
+      "Next, 'feast' is used on 'b' and 'c' to create 'pain' in 'b' and allow 'c' to become a province.",
+      "Then 'succumb' is used to restore 'b' to a province and harmony.",
+      "Finally, 'overcome' is used on 'd' and 'b' to achieve the goal of 'craves d b'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('b',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('d',))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(a,b)",
+    "succumb(a)",
+    "feast(b,c)",
+    "overcome(b,a)",
+    "attack(d)",
+    "overcome(d,b)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp_gthcsk6.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast a b)\n \n2:\n(succumb a)\n \n3:\n(feast b c)\n \n4:\n(overcome b a)\n \n5:\n(attack d)\n \n6:\n(overcome d b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a b)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (pain a)\nAdding (province a)\nAdding (harmony)\nAdding (planet a)\n\nChecking next happening (time 3)\nDeleting (craves b c)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province c)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b a)\n\nChecking next happening (time 5)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 6)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmp_gthcsk6.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 17.808205604553223
+}

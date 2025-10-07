@@ -1,0 +1,158 @@
+{
+  "problem_id": "instance-280",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183878.3496208,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.00025272369384765625,
+  "language_planning_time": 31.448194980621338,
+  "natural_language_plan": "1. 'feast a c' meets initial preconditions to manipulate 'craves a c' and establish 'pain a'. 2. 'succumb a' restores 'harmony' and necessary predicates for further actions. 3. 'feast c d' targets 'craves c d' to introduce 'pain c' and expand provinces. 4. 'succumb c' restores 'harmony' and prepares the state for creating 'craves c a'. 5. 'overcome c a' establishes 'craves c a', aligning with the goal. 6. 'overcome a b' completes the goal by establishing 'craves a b' and 'craves b d'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast a c' to satisfy the preconditions by using the existing 'craves a c', 'province a', and 'harmony'. This action creates 'pain a' and establishes 'province c', while removing 'craves a c' and 'harmony'.",
+      "Step 2: Perform 'succumb a' to remove 'pain a' and restore 'harmony'. This action re-establishes 'province a' and adds 'planet a', ensuring the preconditions for subsequent actions are met.",
+      "Step 3: Perform 'feast c d' to use 'craves c d', 'province c', and 'harmony'. This action creates 'pain c' and establishes 'province d', while removing 'craves c d' and 'harmony'.",
+      "Step 4: Perform 'succumb c' to remove 'pain c' and restore 'harmony'. This action re-establishes 'province c' and adds 'planet c', setting up the necessary conditions for the next action.",
+      "Step 5: Perform 'overcome c a' using 'province a' and 'pain c'. This action creates 'craves c a' and re-establishes 'province a', while removing 'province c' and 'pain c'.",
+      "Step 6: Perform 'overcome a b' using 'province b' and 'pain a'. This final action creates 'craves a b' and 'craves b d', achieving all the goal predicates."
+    ],
+    "rationale": [
+      "1. 'feast a c' meets initial preconditions to manipulate 'craves a c' and establish 'pain a'.",
+      "2. 'succumb a' restores 'harmony' and necessary predicates for further actions.",
+      "3. 'feast c d' targets 'craves c d' to introduce 'pain c' and expand provinces.",
+      "4. 'succumb c' restores 'harmony' and prepares the state for creating 'craves c a'.",
+      "5. 'overcome c a' establishes 'craves c a', aligning with the goal.",
+      "6. 'overcome a b' completes the goal by establishing 'craves a b' and 'craves b d'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('c',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 59.05745482444763
+}

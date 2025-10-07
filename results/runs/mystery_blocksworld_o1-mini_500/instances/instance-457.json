@@ -1,0 +1,155 @@
+{
+  "problem_id": "instance-457",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185119.3431668,
+  "success": true,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00022411346435546875,
+  "language_planning_time": 28.874365091323853,
+  "natural_language_plan": "The initial state lacks 'province e', and there is no action sequence available to establish it. Without 'province e', the 'craves b e' predicate cannot be achieved. Therefore, it is impossible to meet all the goal conditions with the provided actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "1. Analyze the initial state and required goal predicates.",
+      "2. Determine that creating 'craves b e' requires 'province e', which is not present in the initial state.",
+      "3. Realize that there is no available action sequence to establish 'province e' due to action preconditions and constraints.",
+      "4. Conclude that achieving the goal is impossible with the given actions and objects."
+    ],
+    "rationale": [
+      "The initial state lacks 'province e', and there is no action sequence available to establish it.",
+      "Without 'province e', the 'craves b e' predicate cannot be achieved.",
+      "Therefore, it is impossible to meet all the goal conditions with the provided actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "e"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('e',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "e"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "e"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(d,e)",
+    "succumb(d)",
+    "attack(b)",
+    "overcome(b,e)",
+    "attack(d)",
+    "overcome(d,b)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp5inmd0fe.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast d e)\n \n2:\n(succumb d)\n \n3:\n(attack b)\n \n4:\n(overcome b e)\n \n5:\n(attack d)\n \n6:\n(overcome d b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves d e)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province e)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (province b)\nDeleting (planet b)\nDeleting (harmony)\nAdding (pain b)\n\nChecking next happening (time 4)\nDeleting (province e)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b e)\n\nChecking next happening (time 5)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 6)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmp5inmd0fe.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 42.05573391914368
+}

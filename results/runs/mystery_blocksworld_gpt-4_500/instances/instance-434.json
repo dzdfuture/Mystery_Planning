@@ -1,0 +1,238 @@
+{
+  "problem_id": "instance-434",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758088657.2738078,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0003218650817871094,
+  "language_planning_time": 17.863049745559692,
+  "natural_language_plan": "The plan starts by attacking 'b' to disrupt the harmony and put 'b' in pain. Then, 'b' succumbs to restore harmony and its status as a province and a planet. Next, 'c' overcomes 'b' to become a province and start craving 'b', while 'b' loses its province status. After that, 'c' feasts on 'a' to become in pain and stop craving 'a', while 'a' becomes a province and harmony is disrupted. Finally, 'd' overcomes 'c' to become a province and start craving 'c', while 'c' loses its province status and harmony is restored. This achieves the goal of having 'c' crave 'a' and 'd' crave 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'b'. Preconditions are satisfied as 'b' is a province and a planet, and there is harmony. This will result in 'b' being in pain, and no longer being a province or a planet, and harmony will be disrupted.",
+      "Step 2: Succumb 'b'. Preconditions are satisfied as 'b' is in pain. This will result in 'b' becoming a province and a planet again, and harmony will be restored.",
+      "Step 3: Overcome 'c' with 'b'. Preconditions are satisfied as 'b' is a province and 'c' is in pain. This will result in 'c' becoming a province and craving 'b', and 'b' will no longer be a province, and 'c' will no longer be in pain, and harmony will be restored.",
+      "Step 4: Feast 'c' on 'a'. Preconditions are satisfied as 'c' craves 'a', 'c' is a province, and there is harmony. This will result in 'c' being in pain, 'a' becoming a province, and 'c' will no longer crave 'a', and 'c' will no longer be a province, and harmony will be disrupted.",
+      "Step 5: Overcome 'd' with 'c'. Preconditions are satisfied as 'c' is a province and 'd' is in pain. This will result in 'd' becoming a province and craving 'c', and 'c' will no longer be a province, and 'd' will no longer be in pain, and harmony will be restored."
+    ],
+    "rationale": [
+      "The plan starts by attacking 'b' to disrupt the harmony and put 'b' in pain.",
+      "Then, 'b' succumbs to restore harmony and its status as a province and a planet.",
+      "Next, 'c' overcomes 'b' to become a province and start craving 'b', while 'b' loses its province status.",
+      "After that, 'c' feasts on 'a' to become in pain and stop craving 'a', while 'a' becomes a province and harmony is disrupted.",
+      "Finally, 'd' overcomes 'c' to become a province and start craving 'c', while 'c' loses its province status and harmony is restored. This achieves the goal of having 'c' crave 'a' and 'd' crave 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('c',))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(a,c)",
+    "succumb(a)",
+    "attack(c)",
+    "overcome(c,a)",
+    "attack(d)",
+    "overcome(d,c)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpvqsoiied.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast a c)\n \n2:\n(succumb a)\n \n3:\n(attack c)\n \n4:\n(overcome c a)\n \n5:\n(attack d)\n \n6:\n(overcome d c)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a c)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province c)\n\nChecking next happening (time 2)\nDeleting (pain a)\nAdding (province a)\nAdding (harmony)\nAdding (planet a)\n\nChecking next happening (time 3)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\n\nChecking next happening (time 5)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 6)\nDeleting (province c)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d c)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpvqsoiied.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 35.31787633895874
+}

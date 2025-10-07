@@ -1,0 +1,169 @@
+{
+  "problem_id": "instance-66",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758173832.1016843,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0004258155822753906,
+  "language_planning_time": 11.381541013717651,
+  "natural_language_plan": "The goal is to have 'a' on 'c' and 'b' on 'a'. Initially, 'a' is on 'b' and 'b' is on 'c'. So, we first unstack 'a' from 'b'. Then, we stack 'a' on 'c'. Next, we pick up 'b' and finally stack 'b' on 'a'. This sequence of actions achieves the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Unstack 'a' from 'b'. Preconditions are satisfied as 'a' is clear and on top of 'b', and the hand is empty. This action will result in 'a' being held, 'b' being clear, and 'a' no longer being on 'b'.",
+      "Step 2: Stack 'a' on 'c'. Preconditions are satisfied as 'c' is clear and 'a' is being held. This action will result in 'a' being on 'c', 'c' no longer being clear, and the hand being empty.",
+      "Step 3: Pick up 'b'. Preconditions are satisfied as 'b' is clear, on the table, and the hand is empty. This action will result in 'b' being held, 'b' no longer being clear, and 'b' no longer being on the table.",
+      "Step 4: Stack 'b' on 'a'. Preconditions are satisfied as 'a' is clear and 'b' is being held. This action will result in 'b' being on 'a', 'a' no longer being clear, and the hand being empty."
+    ],
+    "rationale": [
+      "The goal is to have 'a' on 'c' and 'b' on 'a'.",
+      "Initially, 'a' is on 'b' and 'b' is on 'c'. So, we first unstack 'a' from 'b'.",
+      "Then, we stack 'a' on 'c'.",
+      "Next, we pick up 'b' and finally stack 'b' on 'a'.",
+      "This sequence of actions achieves the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'pick-up': missing precondition: ('clear', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'stack': missing precondition: ('clear', ('c',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 29.9830379486084
+}

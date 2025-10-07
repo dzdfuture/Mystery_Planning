@@ -1,0 +1,196 @@
+{
+  "problem_id": "instance-230",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090307.863226,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00025177001953125,
+  "language_planning_time": 29.18549942970276,
+  "natural_language_plan": "The 'attack' action is used to cause 'pain' to an object and remove 'harmony', 'planet' and 'province' from it. The 'succumb' action is used to remove 'pain' from an object and add 'harmony', 'planet' and 'province' to it. The 'feast' action is used when an object craves another object, the first object is a 'province' and 'harmony' is present. It causes 'pain' to the first object, adds 'province' to the second object, removes 'craves' between the two objects, removes 'province' from the first object and removes 'harmony'. The 'overcome' action is used when the first object is in 'pain' and the second object is a 'province'. It adds 'harmony', 'province' to the first object, 'craves' between the two objects, removes 'province' from the second object and removes 'pain' from the first object.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: 'attack' action on 'a' as it is a 'planet' and 'harmony' is present. This will cause 'pain' to 'a' and remove 'harmony', 'planet' and 'province' from 'a'.",
+      "Step 2: 'succumb' action on 'a' as it is in 'pain'. This will remove 'pain' from 'a' and add 'harmony', 'planet' and 'province' to 'a'.",
+      "Step 3: 'feast' action on 'b' and 'a' as 'b' craves 'a', 'b' is a 'province' and 'harmony' is present. This will cause 'pain' to 'b', add 'province' to 'a', remove 'craves' from 'b' and 'a', remove 'province' from 'b' and remove 'harmony'.",
+      "Step 4: 'overcome' action on 'b' and 'd' as 'b' is in 'pain' and 'd' is a 'province'. This will add 'harmony', 'province' to 'b', 'craves' between 'b' and 'd', remove 'province' from 'd' and remove 'pain' from 'b'.",
+      "Step 5: 'feast' action on 'c' and 'd' as 'c' craves 'd', 'c' is a 'province' and 'harmony' is present. This will cause 'pain' to 'c', add 'province' to 'd', remove 'craves' from 'c' and 'd', remove 'province' from 'c' and remove 'harmony'.",
+      "Step 6: 'overcome' action on 'c' and 'b' as 'c' is in 'pain' and 'b' is a 'province'. This will add 'harmony', 'province' to 'c', 'craves' between 'c' and 'b', remove 'province' from 'b' and remove 'pain' from 'c'."
+    ],
+    "rationale": [
+      "The 'attack' action is used to cause 'pain' to an object and remove 'harmony', 'planet' and 'province' from it.",
+      "The 'succumb' action is used to remove 'pain' from an object and add 'harmony', 'planet' and 'province' to it.",
+      "The 'feast' action is used when an object craves another object, the first object is a 'province' and 'harmony' is present. It causes 'pain' to the first object, adds 'province' to the second object, removes 'craves' between the two objects, removes 'province' from the first object and removes 'harmony'.",
+      "The 'overcome' action is used when the first object is in 'pain' and the second object is a 'province'. It adds 'harmony', 'province' to the first object, 'craves' between the two objects, removes 'province' from the second object and removes 'pain' from the first object."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('c',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 45.43659210205078
+}

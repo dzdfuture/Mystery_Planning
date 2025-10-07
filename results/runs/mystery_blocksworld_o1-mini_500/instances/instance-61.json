@@ -1,0 +1,146 @@
+{
+  "problem_id": "instance-61",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182342.1509378,
+  "success": true,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00022983551025390625,
+  "language_planning_time": 10.127254247665405,
+  "natural_language_plan": "Attack 'a' to create pain and remove its province and planet. Overcome 'a' and 'd' to establish craves a d and restore harmony. Attack 'c' to create pain and remove its province and planet. Overcome 'c' and 'a' to establish craves c a and restore harmony.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'attack' on 'a'. Preconditions met: province a, planet a, harmony. Effects: pain a added; province a, planet a, harmony removed.",
+      "Step 2: Perform 'overcome' with 'a' and 'd'. Preconditions met: province d, pain a. Effects: harmony, province a, craves a d added; province d, pain a removed.",
+      "Step 3: Perform 'attack' on 'c'. Preconditions met: province c, planet c, harmony. Effects: pain c added; province c, planet c, harmony removed.",
+      "Step 4: Perform 'overcome' with 'c' and 'a'. Preconditions met: province a, pain c. Effects: harmony, province c, craves c a added; province a, pain c removed."
+    ],
+    "rationale": [
+      "Attack 'a' to create pain and remove its province and planet.",
+      "Overcome 'a' and 'd' to establish craves a d and restore harmony.",
+      "Attack 'c' to create pain and remove its province and planet.",
+      "Overcome 'c' and 'a' to establish craves c a and restore harmony."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "pddl_translation_time": 5.364418029785156e-05,
+  "pddl_plan": [
+    "attack(a)",
+    "overcome(a,d)",
+    "attack(c)",
+    "overcome(c,a)"
+  ],
+  "validation_time": 0.0065500736236572266,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpv9girywl.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack a)\n \n2:\n(overcome a d)\n \n3:\n(attack c)\n \n4:\n(overcome c a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 2)\nDeleting (province d)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a d)\n\nChecking next happening (time 3)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpv9girywl.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 4
+      },
+      "pddl_plan": [
+        "attack(a)",
+        "overcome(a,d)",
+        "attack(c)",
+        "overcome(c,a)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmpv9girywl.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack a)\n \n2:\n(overcome a d)\n \n3:\n(attack c)\n \n4:\n(overcome c a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 2)\nDeleting (province d)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a d)\n\nChecking next happening (time 3)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpv9girywl.plan 4 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 10.134779691696167
+}

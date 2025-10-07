@@ -1,0 +1,123 @@
+{
+  "problem_id": "instance-157",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182997.291379,
+  "success": false,
+  "concept_modeling_time": 2.384185791015625e-06,
+  "pddl_parsing_time": 0.0003082752227783203,
+  "language_planning_time": 30.00235152244568,
+  "natural_language_plan": "The plan successfully sets (craves c a) but cannot achieve (craves a c) and (craves b a) due to unmet preconditions with available actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempt to attack 'c' satisfies preconditions (province c, planet c, harmony). Effects include adding (pain c), removing (province c), (planet c), and (harmony).",
+      "Step 2: Use overcome on ('c', 'a') requires (province a) and (pain c). Effects include restoring (harmony), adding (province c) and (craves c a), and removing (province a) and (pain c).",
+      "Step 3: Unable to perform further actions to achieve (craves a c) and (craves b a) as necessary preconditions cannot be met with remaining objects and actions."
+    ],
+    "rationale": [
+      "The plan successfully sets (craves c a) but cannot achieve (craves a c) and (craves b a) due to unmet preconditions with available actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 2
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 71.39639139175415
+}

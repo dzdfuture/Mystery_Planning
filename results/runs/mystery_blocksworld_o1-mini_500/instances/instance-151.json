@@ -1,0 +1,67 @@
+{
+  "problem_id": "instance-151",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182960.8612182,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002353191375732422,
+  "language_planning_time": 41.72264814376831,
+  "natural_language_plan": "The goal requires establishing 'craves c d' and 'craves d b', but the necessary preconditions to generate these predicates cannot be satisfied with the given actions and objects. Actions like 'attack' and 'overcome' cannot be orchestrated to create the required 'craves' relations without violating the action or object constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "After analyzing the initial state and available actions, it is determined that no sequence of 3-6 actions can achieve the desired goal due to the constraints regarding preconditions and effects of the available actions."
+    ],
+    "rationale": [
+      "The goal requires establishing 'craves c d' and 'craves d b', but the necessary preconditions to generate these predicates cannot be satisfied with the given actions and objects.",
+      "Actions like 'attack' and 'overcome' cannot be orchestrated to create the required 'craves' relations without violating the action or object constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 74.35146141052246
+}

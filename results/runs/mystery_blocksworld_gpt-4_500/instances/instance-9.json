@@ -1,0 +1,199 @@
+{
+  "problem_id": "instance-9",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758088808.0963523,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0004265308380126953,
+  "language_planning_time": 24.715479373931885,
+  "natural_language_plan": "The plan starts by attacking 'b' to disrupt the harmony and put 'b' in pain. Then, 'b' is overcome by 'a', which results in 'a' craving 'b' and harmony being restored. Next, 'c' is attacked to disrupt the harmony again and put 'c' in pain. Then, 'c' is overcome by 'd', which results in 'd' craving 'c' and harmony being restored. Next, 'a' feasts on 'c', which results in 'a' being in pain, 'c' becoming a province, and 'a' no longer craving 'c'. Harmony is disrupted again. Finally, 'a' is overcome by 'b', which results in 'b' craving 'a', 'a' becoming a province, and harmony being restored. This fulfills the goal conditions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'b'. Preconditions are satisfied as 'b' is a province and a planet, and there is harmony. This will result in 'b' being in pain, and it will no longer be a province or a planet, and harmony will be disrupted.",
+      "Step 2: Overcome 'b' with 'a'. Preconditions are satisfied as 'b' is in pain and 'a' is a province. This will result in 'a' craving 'b', 'b' becoming a province, and harmony being restored. 'b' will no longer be in pain.",
+      "Step 3: Attack 'c'. Preconditions are satisfied as 'c' is a province and a planet, and there is harmony. This will result in 'c' being in pain, and it will no longer be a province or a planet, and harmony will be disrupted.",
+      "Step 4: Overcome 'c' with 'd'. Preconditions are satisfied as 'c' is in pain and 'd' is a province. This will result in 'd' craving 'c', 'c' becoming a province, and harmony being restored. 'c' will no longer be in pain.",
+      "Step 5: Feast 'a' on 'c'. Preconditions are satisfied as 'a' craves 'c', 'a' is a province, and there is harmony. This will result in 'a' being in pain, 'c' becoming a province, and 'a' no longer craving 'c'. 'a' will no longer be a province and harmony will be disrupted.",
+      "Step 6: Overcome 'a' with 'b'. Preconditions are satisfied as 'a' is in pain and 'b' is a province. This will result in 'b' craving 'a', 'a' becoming a province, and harmony being restored. 'a' will no longer be in pain."
+    ],
+    "rationale": [
+      "The plan starts by attacking 'b' to disrupt the harmony and put 'b' in pain.",
+      "Then, 'b' is overcome by 'a', which results in 'a' craving 'b' and harmony being restored.",
+      "Next, 'c' is attacked to disrupt the harmony again and put 'c' in pain.",
+      "Then, 'c' is overcome by 'd', which results in 'd' craving 'c' and harmony being restored.",
+      "Next, 'a' feasts on 'c', which results in 'a' being in pain, 'c' becoming a province, and 'a' no longer craving 'c'. Harmony is disrupted again.",
+      "Finally, 'a' is overcome by 'b', which results in 'b' craving 'a', 'a' becoming a province, and harmony being restored. This fulfills the goal conditions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 49.79640793800354
+}

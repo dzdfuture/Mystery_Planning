@@ -1,0 +1,219 @@
+{
+  "problem_id": "instance-58",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090610.9941592,
+  "success": true,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00022912025451660156,
+  "language_planning_time": 12.130292654037476,
+  "natural_language_plan": "The action 'feast' is used first to make 'a' crave 'b' and cause pain to 'a'. The action 'succumb' is used next to remove the pain from 'a' and make it a province again. The action 'overcome' is used next to make 'd' crave 'a' and remove the pain from 'd'. Finally, the action 'feast' is used to make 'd' crave 'a' and cause pain to 'd', achieving the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The action 'feast' is chosen with 'a' and 'b' as parameters. The preconditions for this action are satisfied as 'a' craves 'b', 'a' is a province and there is harmony.",
+      "Step 2: The action 'succumb' is chosen with 'a' as the parameter. The precondition for this action is satisfied as 'a' is in pain.",
+      "Step 3: The action 'overcome' is chosen with 'd' and 'a' as parameters. The preconditions for this action are satisfied as 'a' is a province and 'd' is in pain.",
+      "Step 4: The action 'feast' is chosen with 'd' and 'a' as parameters. The preconditions for this action are satisfied as 'd' craves 'a', 'd' is a province and there is harmony."
+    ],
+    "rationale": [
+      "The action 'feast' is used first to make 'a' crave 'b' and cause pain to 'a'.",
+      "The action 'succumb' is used next to remove the pain from 'a' and make it a province again.",
+      "The action 'overcome' is used next to make 'd' crave 'a' and remove the pain from 'd'.",
+      "Finally, the action 'feast' is used to make 'd' crave 'a' and cause pain to 'd', achieving the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('d',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(a,b)",
+    "succumb(a)",
+    "feast(b,d)",
+    "succumb(b)",
+    "feast(d,c)",
+    "overcome(d,a)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpin1z_koq.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast a b)\n \n2:\n(succumb a)\n \n3:\n(feast b d)\n \n4:\n(succumb b)\n \n5:\n(feast d c)\n \n6:\n(overcome d a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a b)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (pain a)\nAdding (province a)\nAdding (harmony)\nAdding (planet a)\n\nChecking next happening (time 3)\nDeleting (craves b d)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province d)\n\nChecking next happening (time 4)\nDeleting (pain b)\nAdding (province b)\nAdding (harmony)\nAdding (planet b)\n\nChecking next happening (time 5)\nDeleting (craves d c)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province c)\n\nChecking next happening (time 6)\nDeleting (province a)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpin1z_koq.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 35.38210320472717
+}

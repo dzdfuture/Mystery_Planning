@@ -1,0 +1,102 @@
+{
+  "problem_id": "instance-106",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182644.8662739,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00022602081298828125,
+  "language_planning_time": 35.0489866733551,
+  "natural_language_plan": "No sequence of allowed actions can create the required craves b d predicate. The necessary preconditions for achieving the goal cannot be satisfied with the given actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Initial state includes harmony, craves a d, craves c a, craves d b, planet b, and province c.",
+      "Attempting to perform actions to establish a sequence that results in craves b d.",
+      "After feasible actions, it's impossible to satisfy the preconditions required for the final action to achieve craves b d."
+    ],
+    "rationale": [
+      "No sequence of allowed actions can create the required craves b d predicate.",
+      "The necessary preconditions for achieving the goal cannot be satisfied with the given actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('c',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 62.924601793289185
+}

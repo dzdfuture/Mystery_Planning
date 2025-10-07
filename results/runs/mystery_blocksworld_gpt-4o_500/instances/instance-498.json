@@ -1,0 +1,161 @@
+{
+  "problem_id": "instance-498",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179631.4444544,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002677440643310547,
+  "language_planning_time": 6.761317253112793,
+  "natural_language_plan": "The plan uses the 'feast' action to create 'pain' in 'e' and remove 'craves e b'. The 'succumb' action restores 'province' and 'planet' to 'e', allowing further actions. The 'attack' action creates 'pain' in 'c', setting up for 'overcome'. The 'overcome' action establishes 'craves c b', satisfying part of the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'feast' action with objects 'e' and 'b'. Preconditions are satisfied as 'craves e b', 'province e', and 'harmony' are true in the initial state.",
+      "Step 2: Use 'succumb' action with object 'e'. Preconditions are satisfied as 'pain e' is true after Step 1.",
+      "Step 3: Use 'attack' action with object 'c'. Preconditions are satisfied as 'province c', 'planet c', and 'harmony' are true after Step 2.",
+      "Step 4: Use 'overcome' action with objects 'c' and 'e'. Preconditions are satisfied as 'province e' and 'pain c' are true after Step 3."
+    ],
+    "rationale": [
+      "The plan uses the 'feast' action to create 'pain' in 'e' and remove 'craves e b'.",
+      "The 'succumb' action restores 'province' and 'planet' to 'e', allowing further actions.",
+      "The 'attack' action creates 'pain' in 'c', setting up for 'overcome'.",
+      "The 'overcome' action establishes 'craves c b', satisfying part of the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "e",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "e"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "e"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "e",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "e"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('c',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "e",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "e"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "e"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'attack': missing precondition: ('planet', ('c',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 15.301239252090454
+}

@@ -1,0 +1,140 @@
+{
+  "problem_id": "instance-41",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178224.3484576,
+  "success": false,
+  "concept_modeling_time": 2.1457672119140625e-06,
+  "pddl_parsing_time": 0.00044608116149902344,
+  "language_planning_time": 8.236207723617554,
+  "natural_language_plan": "The plan unstacked 'b' from 'a' to make 'a' clear. Put 'b' down on the table to free the hand. Picked up 'c' from the table to position it for stacking. Stacked 'c' on 'b' to achieve the goal configuration.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has 'handempty', 'ontable a', 'on b a', 'ontable c', 'clear b', and 'clear c'. To achieve the goal, we need to stack 'c' on 'b'.",
+      "Step 2: First, we need to clear 'b' by moving 'b' from 'a'. We can unstack 'b' from 'a' since 'b' is clear and the hand is empty.",
+      "Step 3: After unstacking, we hold 'b' and 'a' becomes clear. We can now put 'b' on the table to free the hand.",
+      "Step 4: With 'b' on the table and 'c' clear, we pick up 'c' from the table.",
+      "Step 5: Finally, we stack 'c' on 'b', achieving the goal state where 'c' is on 'b' and 'b' is on 'a'."
+    ],
+    "rationale": [
+      "The plan unstacked 'b' from 'a' to make 'a' clear.",
+      "Put 'b' down on the table to free the hand.",
+      "Picked up 'c' from the table to position it for stacking.",
+      "Stacked 'c' on 'b' to achieve the goal configuration."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 16.419342517852783
+}

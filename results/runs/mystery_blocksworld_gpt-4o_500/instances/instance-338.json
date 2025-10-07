@@ -1,0 +1,121 @@
+{
+  "problem_id": "instance-338",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179323.3283634,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0002391338348388672,
+  "language_planning_time": 4.8440024852752686,
+  "natural_language_plan": "The plan uses 'feast' to transition b into a state of pain and make a a province. The 'overcome' action is then used to satisfy the goal condition where d craves b. The plan is minimal and respects all preconditions and effects, achieving the goal state efficiently.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony, and b is a province. We can use 'feast' with b and a, as b craves a and harmony exists.",
+      "Step 2: After 'feast', b is in pain and a becomes a province. Now, we can use 'overcome' with d and b, as d craves c and b is a province.",
+      "Step 3: After 'overcome', d craves b, and a is still a province. The goal is achieved."
+    ],
+    "rationale": [
+      "The plan uses 'feast' to transition b into a state of pain and make a a province.",
+      "The 'overcome' action is then used to satisfy the goal condition where d craves b.",
+      "The plan is minimal and respects all preconditions and effects, achieving the goal state efficiently."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'attack': missing precondition: ('province', ('c',)); missing precondition: ('harmony', ())",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',)); missing precondition: ('pain', ('d',))",
+        "length": 2
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 11.017258405685425
+}

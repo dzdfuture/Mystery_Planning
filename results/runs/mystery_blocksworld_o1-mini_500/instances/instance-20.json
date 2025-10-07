@@ -1,0 +1,197 @@
+{
+  "problem_id": "instance-20",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182065.684475,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0002994537353515625,
+  "language_planning_time": 41.4697482585907,
+  "natural_language_plan": "Feasting 'c' on 'a' creates 'pain c' and adds 'province a', setting up necessary conditions for subsequent actions. Succumbing 'c' restores 'harmony' and re-establishes 'province c', ensuring the environment remains stable. Attacking 'a' inflicts 'pain a', which is required to overcome and create new 'craves' relationships. Overcoming 'a' with 'c' establishes the 'craves a c' relationship and restores 'province a', maintaining desired state changes. Attacking 'b' inflicts 'pain b', preparing to establish the 'craves b a' relationship. Overcoming 'b' with 'a' finalizes the goal by creating 'craves b a' and restoring necessary provinces and harmony.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects 'c' and 'a' to create 'pain c', add 'province a', remove 'craves c a', remove 'province c', and remove 'harmony'.",
+      "Step 2: Perform 'succumb' on object 'c' to restore 'harmony', add 'planet c', and re-establish 'province c'.",
+      "Step 3: Perform 'attack' on object 'a' to inflict 'pain a', remove 'province a', remove 'planet a', and disrupt 'harmony'.",
+      "Step 4: Perform 'overcome' with objects 'a' and 'c' to create 'craves a c', restore 'harmony', re-add 'province a', and remove 'pain a' and 'province c'.",
+      "Step 5: Perform 'attack' on object 'b' to inflict 'pain b', remove 'province b', remove 'planet b', and disrupt 'harmony'.",
+      "Step 6: Perform 'overcome' with objects 'b' and 'a' to create 'craves b a', restore 'harmony', re-add 'province b', and remove 'pain b'."
+    ],
+    "rationale": [
+      "Feasting 'c' on 'a' creates 'pain c' and adds 'province a', setting up necessary conditions for subsequent actions.",
+      "Succumbing 'c' restores 'harmony' and re-establishes 'province c', ensuring the environment remains stable.",
+      "Attacking 'a' inflicts 'pain a', which is required to overcome and create new 'craves' relationships.",
+      "Overcoming 'a' with 'c' establishes the 'craves a c' relationship and restores 'province a', maintaining desired state changes.",
+      "Attacking 'b' inflicts 'pain b', preparing to establish the 'craves b a' relationship.",
+      "Overcoming 'b' with 'a' finalizes the goal by creating 'craves b a' and restoring necessary provinces and harmony."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 77.41437673568726
+}

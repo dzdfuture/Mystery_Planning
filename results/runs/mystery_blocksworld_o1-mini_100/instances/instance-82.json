@@ -1,0 +1,196 @@
+{
+  "problem_id": "instance-82",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758258621.240191,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00044918060302734375,
+  "language_planning_time": 13.703567504882812,
+  "natural_language_plan": "\u2022 Unstacking c from a makes a clear. \u2022 Putting down c ensures it is on the table and hand is empty. \u2022 Unstacking a from b makes b clear. \u2022 Putting down a on the table removes it from b. \u2022 Picking up b is now possible since b is clear. \u2022 Stacking b onto c achieves the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Unstack c from a.",
+      "Step 2: Put down c on the table.",
+      "Step 3: Unstack a from b.",
+      "Step 4: Put down a on the table.",
+      "Step 5: Pick up b from the table.",
+      "Step 6: Stack b onto c."
+    ],
+    "rationale": [
+      "\u2022 Unstacking c from a makes a clear.",
+      "\u2022 Putting down c ensures it is on the table and hand is empty.",
+      "\u2022 Unstacking a from b makes b clear.",
+      "\u2022 Putting down a on the table removes it from b.",
+      "\u2022 Picking up b is now possible since b is clear.",
+      "\u2022 Stacking b onto c achieves the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 6: preconditions not satisfied for 'stack': missing precondition: ('clear', ('c',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 26.925840854644775
+}

@@ -1,0 +1,252 @@
+{
+  "problem_id": "instance-143",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182918.7052279,
+  "success": true,
+  "concept_modeling_time": 7.152557373046875e-07,
+  "pddl_parsing_time": 0.00027060508728027344,
+  "language_planning_time": 17.41028618812561,
+  "natural_language_plan": "The plan achieves the goal predicates: (craves c a) and (craves d c). Each action's preconditions are satisfied before execution based on the current state. The sequence uses only allowed actions and objects, adhering to action arities. The plan is concise, using six steps to ensure goal attainment without unnecessary actions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects 'a' and 'c'. Preconditions (craves(a, c), province(a), harmony) are satisfied. Effects: pain(a) is added, province(c) is added, craves(a, c) is removed, province(a) is removed, and harmony is removed.",
+      "Step 2: Perform 'succumb' on object 'a'. Preconditions (pain(a)) are satisfied. Effects: province(a) is added, harmony is restored, planet(a) is added, and pain(a) is removed.",
+      "Step 3: Perform 'feast' on objects 'd' and 'b'. Preconditions (craves(d, b), province(d), harmony) are satisfied. Effects: pain(d) is added, province(b) is added, craves(d, b) is removed, province(d) is removed, and harmony is removed.",
+      "Step 4: Perform 'succumb' on object 'd'. Preconditions (pain(d)) are satisfied. Effects: province(d) is added, harmony is restored, planet(d) is added, and pain(d) is removed.",
+      "Step 5: Perform 'attack' on object 'd'. Preconditions (province(d), planet(d), harmony) are satisfied. Effects: pain(d) is added, province(d) is removed, planet(d) is removed, and harmony is removed.",
+      "Step 6: Perform 'overcome' on objects 'd' and 'c'. Preconditions (province(c), pain(d)) are satisfied. Effects: harmony is restored, province(d) is added, craves(d, c) is added, province(c) is removed, and pain(d) is removed."
+    ],
+    "rationale": [
+      "The plan achieves the goal predicates: (craves c a) and (craves d c).",
+      "Each action's preconditions are satisfied before execution based on the current state.",
+      "The sequence uses only allowed actions and objects, adhering to action arities.",
+      "The plan is concise, using six steps to ensure goal attainment without unnecessary actions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(a,c)",
+    "succumb(a)",
+    "attack(c)",
+    "overcome(c,a)",
+    "feast(d,b)",
+    "overcome(d,c)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmptu0jm_z6.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast a c)\n \n2:\n(succumb a)\n \n3:\n(attack c)\n \n4:\n(overcome c a)\n \n5:\n(feast d b)\n \n6:\n(overcome d c)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a c)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province c)\n\nChecking next happening (time 2)\nDeleting (pain a)\nAdding (province a)\nAdding (harmony)\nAdding (planet a)\n\nChecking next happening (time 3)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\n\nChecking next happening (time 5)\nDeleting (craves d b)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province b)\n\nChecking next happening (time 6)\nDeleting (province c)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d c)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmptu0jm_z6.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 75.64945363998413
+}

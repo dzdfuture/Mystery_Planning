@@ -1,0 +1,70 @@
+{
+  "problem_id": "instance-305",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184065.3262944,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002923011779785156,
+  "language_planning_time": 33.58825063705444,
+  "natural_language_plan": "The initial state does not provide the necessary conditions to perform actions that lead to the goal. Key prerequisites for actions required to achieve the goal are unmet, making it impossible to form a valid plan. No combination of the allowed actions and objects can transition the state to satisfy the goal predicates.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Analyze available actions from the initial state.",
+      "Step 2: Determine that no sequence of allowed actions can satisfy the goal predicates.",
+      "Step 3: Conclude that achieving the goal is not possible with the given actions and initial state."
+    ],
+    "rationale": [
+      "The initial state does not provide the necessary conditions to perform actions that lead to the goal.",
+      "Key prerequisites for actions required to achieve the goal are unmet, making it impossible to form a valid plan.",
+      "No combination of the allowed actions and objects can transition the state to satisfy the goal predicates."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 73.81887865066528
+}

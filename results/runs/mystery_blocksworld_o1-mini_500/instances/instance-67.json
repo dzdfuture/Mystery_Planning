@@ -1,0 +1,113 @@
+{
+  "problem_id": "instance-67",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182364.1898732,
+  "success": false,
+  "concept_modeling_time": 2.6226043701171875e-06,
+  "pddl_parsing_time": 0.00041294097900390625,
+  "language_planning_time": 28.769787073135376,
+  "natural_language_plan": "The sequence of allowed actions leads to the removal of 'province a', which is essential for achieving all goal predicates. There is no valid combination of the provided actions and objects that satisfies all the goal conditions simultaneously. Attempting to fulfill some of the goals interferes with the prerequisites needed for others, making the overall goal unattainable within the given constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempting to achieve 'craves b a' by using the 'attack' and 'overcome' actions.",
+      "Step 2: Performing 'attack b' removes 'province b' and 'harmony', creating 'pain b'.",
+      "Step 3: Using 'overcome b a' to establish 'craves b a' requires 'province a' and 'pain b'.",
+      "Step 4: 'Overcome b a' removes 'province a', making it impossible to perform actions like 'feast' that require 'province a'.",
+      "Step 5: Attempting to establish 'craves c d' and 'craves d b' is not feasible because actions that could create these predicates either require conditions that cannot be satisfied or would disrupt necessary preconditions."
+    ],
+    "rationale": [
+      "The sequence of allowed actions leads to the removal of 'province a', which is essential for achieving all goal predicates.",
+      "There is no valid combination of the provided actions and objects that satisfies all the goal conditions simultaneously.",
+      "Attempting to fulfill some of the goals interferes with the prerequisites needed for others, making the overall goal unattainable within the given constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'feast': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 53.645466327667236
+}

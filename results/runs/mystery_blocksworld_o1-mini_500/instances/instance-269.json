@@ -1,0 +1,112 @@
+{
+  "problem_id": "instance-269",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183796.4973063,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00042510032653808594,
+  "language_planning_time": 32.783857583999634,
+  "natural_language_plan": "Attacking 'c' introduces pain and removes harmony, creating opportunities for new actions. Overcoming 'c' and 'd' restores harmony and establishes a new 'craves' relationship between them. Feasting on 'c' and 'd' aims to further manipulate 'craves' relationships to approach the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempt to attack 'c' to create pain on 'c' and disrupt harmony.",
+      "Step 2: Use overcome on 'c' and 'd' to restore harmony and establish new craves relationships.",
+      "Step 3: Attempt to feast on 'c' and 'd' to further manipulate the craves relations."
+    ],
+    "rationale": [
+      "Attacking 'c' introduces pain and removes harmony, creating opportunities for new actions.",
+      "Overcoming 'c' and 'd' restores harmony and establishes a new 'craves' relationship between them.",
+      "Feasting on 'c' and 'd' aims to further manipulate 'craves' relationships to approach the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 87.5811858177185
+}

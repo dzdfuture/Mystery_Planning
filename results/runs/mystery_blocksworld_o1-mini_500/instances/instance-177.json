@@ -1,0 +1,112 @@
+{
+  "problem_id": "instance-177",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183159.1197066,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.0003287792205810547,
+  "language_planning_time": 36.931296586990356,
+  "natural_language_plan": "The goal requires establishing 'craves a c', 'craves b d', and 'craves d a'. Creating 'craves a c' necessitates the 'overcome a c' action, which requires 'pain a'. 'Pain a' cannot be generated because the 'attack a' action is infeasible without 'planet a', which is not present and cannot be created through other actions. Without the ability to create 'pain a', it's impossible to satisfy all goal predicates with the given actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial and goal states.",
+      "Explored possible action sequences using the allowed actions and objects.",
+      "Identified that necessary preconditions for achieving all goal predicates cannot be satisfied."
+    ],
+    "rationale": [
+      "The goal requires establishing 'craves a c', 'craves b d', and 'craves d a'.",
+      "Creating 'craves a c' necessitates the 'overcome a c' action, which requires 'pain a'.",
+      "'Pain a' cannot be generated because the 'attack a' action is infeasible without 'planet a', which is not present and cannot be created through other actions.",
+      "Without the ability to create 'pain a', it's impossible to satisfy all goal predicates with the given actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'overcome': missing precondition: ('province', ('d',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 56.73972821235657
+}

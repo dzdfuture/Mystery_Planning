@@ -1,0 +1,70 @@
+{
+  "problem_id": "instance-328",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184203.775454,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00043511390686035156,
+  "language_planning_time": 40.75706100463867,
+  "natural_language_plan": "The required goal predicates 'craves a d' and 'craves b a' cannot be achieved with the given actions and objects. Actions necessary to establish the desired 'craves' relationships are either not feasible due to unmet preconditions or lead to cyclic states without progress towards the goal. No sequence of 3\u20136 allowed actions can satisfy all the goal conditions simultaneously.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "1. Attempted to use 'attack' on object 'c' to create 'pain c'.",
+      "2. Used 'overcome' with parameters 'c' and 'a' to add 'craves c a' and restore 'harmony'.",
+      "3. Tried to perform additional 'overcome' or 'feast' actions, but prerequisites for achieving 'craves a d' and 'craves b a' could not be satisfied with the available actions and objects."
+    ],
+    "rationale": [
+      "The required goal predicates 'craves a d' and 'craves b a' cannot be achieved with the given actions and objects.",
+      "Actions necessary to establish the desired 'craves' relationships are either not feasible due to unmet preconditions or lead to cyclic states without progress towards the goal.",
+      "No sequence of 3\u20136 allowed actions can satisfy all the goal conditions simultaneously."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 70.0313811302185
+}

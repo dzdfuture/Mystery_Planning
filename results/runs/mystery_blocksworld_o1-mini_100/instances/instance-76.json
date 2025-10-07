@@ -1,0 +1,224 @@
+{
+  "problem_id": "instance-76",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758258612.57222,
+  "success": true,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0006568431854248047,
+  "language_planning_time": 14.950532674789429,
+  "natural_language_plan": "- Unstacking 'b' from 'a' frees 'a' and allows 'b' to be moved. - Putting down 'b' ensures it is available to be stacked on 'c' later. - Unstacking 'a' from 'c' clears 'c' for 'b' to be placed on it. - Putting down 'a' maintains a reachable state for further actions. - Stacking 'b' on 'c' achieves the goal state where 'b' is on 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Unstack block 'b' from block 'a'. Preconditions (on b a, clear b, handempty) are satisfied.",
+      "Step 2: Put down block 'b' on the table. Preconditions (holding b) are satisfied.",
+      "Step 3: Unstack block 'a' from block 'c'. Preconditions (on a c, clear a, handempty) are satisfied.",
+      "Step 4: Put down block 'a' on the table. Preconditions (holding a) are satisfied.",
+      "Step 5: Stack block 'b' on block 'c'. Preconditions (clear c, holding b) are satisfied."
+    ],
+    "rationale": [
+      "- Unstacking 'b' from 'a' frees 'a' and allows 'b' to be moved.",
+      "- Putting down 'b' ensures it is available to be stacked on 'c' later.",
+      "- Unstacking 'a' from 'c' clears 'c' for 'b' to be placed on it.",
+      "- Putting down 'a' maintains a reachable state for further actions.",
+      "- Stacking 'b' on 'c' achieves the goal state where 'b' is on 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'stack': missing precondition: ('clear', ('c',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'stack': missing precondition: ('holding', ('b',))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "unstack(b,a)",
+    "put-down(b)",
+    "unstack(a,c)",
+    "put-down(a)",
+    "pick-up(b)",
+    "stack(b,c)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpnv_feldy.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(unstack b a)\n \n2:\n(put-down b)\n \n3:\n(unstack a c)\n \n4:\n(put-down a)\n \n5:\n(pick-up b)\n \n6:\n(stack b c)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (on b a)\nDeleting (clear b)\nDeleting (handempty)\nAdding (holding b)\nAdding (clear a)\n\nChecking next happening (time 2)\nDeleting (holding b)\nAdding (clear b)\nAdding (handempty)\nAdding (ontable b)\n\nChecking next happening (time 3)\nDeleting (on a c)\nDeleting (clear a)\nDeleting (handempty)\nAdding (holding a)\nAdding (clear c)\n\nChecking next happening (time 4)\nDeleting (holding a)\nAdding (clear a)\nAdding (handempty)\nAdding (ontable a)\n\nChecking next happening (time 5)\nDeleting (clear b)\nDeleting (ontable b)\nDeleting (handempty)\nAdding (holding b)\n\nChecking next happening (time 6)\nDeleting (clear c)\nDeleting (holding b)\nAdding (handempty)\nAdding (clear b)\nAdding (on b c)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpnv_feldy.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 25.685203790664673
+}

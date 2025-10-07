@@ -1,0 +1,148 @@
+{
+  "problem_id": "instance-7",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090761.6487782,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0003864765167236328,
+  "language_planning_time": 20.967870712280273,
+  "natural_language_plan": "The 'feast' action causes 'a' to stop craving 'd' and puts 'a' in pain while making 'd' a province. The 'succumb' action removes the pain from 'a' and makes 'a' a province and a planet. The 'feast' action causes 'd' to stop craving 'b' and puts 'd' in pain while making 'b' a province. The 'overcome' action removes the pain from 'a', makes 'a' crave 'd' and removes the province status from 'd'. This achieves the goal of making 'a' crave 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The action 'feast' is chosen with 'a' and 'd' as parameters. The preconditions for this action are satisfied as 'a' craves 'd', 'a' is a province and there is harmony.",
+      "Step 2: The action 'succumb' is chosen with 'a' as the parameter. The precondition for this action is satisfied as 'a' is in pain.",
+      "Step 3: The action 'feast' is chosen with 'd' and 'b' as parameters. The preconditions for this action are satisfied as 'd' craves 'b', 'd' is a province and there is harmony.",
+      "Step 4: The action 'overcome' is chosen with 'a' and 'd' as parameters. The preconditions for this action are satisfied as 'd' is a province and 'a' is in pain."
+    ],
+    "rationale": [
+      "The 'feast' action causes 'a' to stop craving 'd' and puts 'a' in pain while making 'd' a province.",
+      "The 'succumb' action removes the pain from 'a' and makes 'a' a province and a planet.",
+      "The 'feast' action causes 'd' to stop craving 'b' and puts 'd' in pain while making 'b' a province.",
+      "The 'overcome' action removes the pain from 'a', makes 'a' crave 'd' and removes the province status from 'd'. This achieves the goal of making 'a' crave 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'overcome': missing precondition: ('province', ('d',)); missing precondition: ('pain', ('a',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 32.69448804855347
+}

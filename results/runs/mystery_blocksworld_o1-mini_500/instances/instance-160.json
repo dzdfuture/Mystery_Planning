@@ -1,0 +1,69 @@
+{
+  "problem_id": "instance-160",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183035.2203083,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00023245811462402344,
+  "language_planning_time": 25.808393001556396,
+  "natural_language_plan": "No valid action sequence within 3-6 steps can achieve the goal predicates given the initial state and available actions. The necessary preconditions to create 'craves c a' are unattainable with the provided actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempted to use 'feast(a, b)' to alter the state.",
+      "Step 2: Performed 'succumb(a)' to restore harmony and gain additional predicates.",
+      "Step 3: Tried 'attack(a)' to generate 'pain a', but could not establish the required conditions for 'craves c a'."
+    ],
+    "rationale": [
+      "No valid action sequence within 3-6 steps can achieve the goal predicates given the initial state and available actions.",
+      "The necessary preconditions to create 'craves c a' are unattainable with the provided actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 51.28194808959961
+}

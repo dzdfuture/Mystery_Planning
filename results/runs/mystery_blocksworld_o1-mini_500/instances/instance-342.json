@@ -1,0 +1,112 @@
+{
+  "problem_id": "instance-342",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184308.753334,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0003848075866699219,
+  "language_planning_time": 51.749735593795776,
+  "natural_language_plan": "- 'feast d a' satisfies initial cravings and sets up necessary predicates. - 'succumb d' restores harmony, allowing further actions. - 'overcome d b' establishes the desired craving relationships to achieve the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects 'd' and 'a' to generate pain for 'd' and establish province 'a'.",
+      "Step 2: Perform 'succumb' on object 'd' to restore harmony and province for 'd'.",
+      "Step 3: Perform 'overcome' with objects 'd' and 'b' to create the required craving relationships."
+    ],
+    "rationale": [
+      "- 'feast d a' satisfies initial cravings and sets up necessary predicates.",
+      "- 'succumb d' restores harmony, allowing further actions.",
+      "- 'overcome d b' establishes the desired craving relationships to achieve the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',)); missing precondition: ('pain', ('d',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 74.85466456413269
+}

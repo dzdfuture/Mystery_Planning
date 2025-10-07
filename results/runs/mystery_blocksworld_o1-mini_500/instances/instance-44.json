@@ -1,0 +1,70 @@
+{
+  "problem_id": "instance-44",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182228.5963485,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002658367156982422,
+  "language_planning_time": 35.47775626182556,
+  "natural_language_plan": "The goal requires both (craves a d) and (craves b a). While (craves a d) can be achieved through a sequence of actions, there is no valid action sequence to achieve (craves b a) given the allowed actions and objects. Thus, no valid plan exists that satisfies the goal within the given constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial state and goal requirements.",
+      "Identified necessary actions to achieve 'craves a d'.",
+      "Attempted to achieve 'craves b a' but found no feasible action sequence within constraints."
+    ],
+    "rationale": [
+      "The goal requires both (craves a d) and (craves b a).",
+      "While (craves a d) can be achieved through a sequence of actions, there is no valid action sequence to achieve (craves b a) given the allowed actions and objects.",
+      "Thus, no valid plan exists that satisfies the goal within the given constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 84.67497992515564
+}

@@ -1,0 +1,210 @@
+{
+  "problem_id": "instance-214",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758089993.9037147,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00029969215393066406,
+  "language_planning_time": 31.0037362575531,
+  "natural_language_plan": "The plan works by causing pain to an object, then using another object to overcome the pain, which creates a craving in the overcoming object for the object in pain. This is repeated for all objects in a sequence that satisfies the goal. The 'attack' action is used to cause pain to an object and remove its province and planet status. The 'overcome' action is used to remove the pain from an object, make it a province, create a craving in another object for the object in pain, and remove the province status of the other object. The sequence of actions creates a chain of cravings that satisfies the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'b'. Preconditions are satisfied as 'b' is a province and a planet and there is harmony. This will cause pain to 'b' and remove the province and planet status of 'b' and the harmony.",
+      "Step 2: Overcome 'b' with 'c'. Preconditions are satisfied as 'b' is in pain and 'c' is a province. This will remove the pain from 'b', make 'b' a province, make 'c' crave 'b' and remove the province status of 'c'.",
+      "Step 3: Attack 'c'. Preconditions are satisfied as 'c' is a province and a planet and there is harmony. This will cause pain to 'c' and remove the province and planet status of 'c' and the harmony.",
+      "Step 4: Overcome 'c' with 'd'. Preconditions are satisfied as 'c' is in pain and 'd' is a province. This will remove the pain from 'c', make 'c' a province, make 'd' crave 'c' and remove the province status of 'd'.",
+      "Step 5: Attack 'd'. Preconditions are satisfied as 'd' is a province and a planet and there is harmony. This will cause pain to 'd' and remove the province and planet status of 'd' and the harmony.",
+      "Step 6: Overcome 'd' with 'a'. Preconditions are satisfied as 'd' is in pain and 'a' is a province. This will remove the pain from 'd', make 'd' a province, make 'a' crave 'd' and remove the province status of 'a'."
+    ],
+    "rationale": [
+      "The plan works by causing pain to an object, then using another object to overcome the pain, which creates a craving in the overcoming object for the object in pain. This is repeated for all objects in a sequence that satisfies the goal.",
+      "The 'attack' action is used to cause pain to an object and remove its province and planet status.",
+      "The 'overcome' action is used to remove the pain from an object, make it a province, create a craving in another object for the object in pain, and remove the province status of the other object.",
+      "The sequence of actions creates a chain of cravings that satisfies the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 8
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'attack': missing precondition: ('province', ('c',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 50.6585648059845
+}

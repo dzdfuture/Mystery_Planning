@@ -1,0 +1,123 @@
+{
+  "problem_id": "instance-83",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758173882.789724,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00043010711669921875,
+  "language_planning_time": 9.518175601959229,
+  "natural_language_plan": "The 'pick-up' action is used to pick up block 'b' which is initially clear and on the table. The 'stack' action is used to stack block 'b' on block 'a' which is clear. This achieves the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has block 'a' on block 'c', and block 'b' is on the table. The goal is to have block 'b' on block 'a' while keeping block 'a' on block 'c'. The hand is initially empty. We can start by picking up block 'b' which is clear and on the table.",
+      "Step 2: Now that we are holding block 'b', we can stack it on block 'a' which is clear.",
+      "Step 3: After stacking block 'b' on block 'a', we have achieved the goal state where block 'b' is on block 'a' and block 'a' is on block 'c'."
+    ],
+    "rationale": [
+      "The 'pick-up' action is used to pick up block 'b' which is initially clear and on the table.",
+      "The 'stack' action is used to stack block 'b' on block 'a' which is clear. This achieves the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'pick-up': missing precondition: ('clear', ('a',)); missing precondition: ('ontable', ('a',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 28.140705347061157
+}

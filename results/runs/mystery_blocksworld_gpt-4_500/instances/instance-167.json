@@ -1,0 +1,198 @@
+{
+  "problem_id": "instance-167",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758088851.6291244,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0005877017974853516,
+  "language_planning_time": 21.60529065132141,
+  "natural_language_plan": "The 'attack' action is used to cause pain to 'b' and disrupt harmony. The 'succumb' action is used to restore 'b' as a province and a planet, and restore harmony. The 'feast' action is used to satisfy the craving of 'a' for 'b', causing pain to 'a' and making 'b' a province. The 'overcome' action is used to make 'a' a province and make 'a' crave 'b', while removing the pain of 'a'. The 'feast' action is used to satisfy the craving of 'b' for 'c', causing pain to 'b' and making 'c' a province. The 'overcome' action is used to make 'b' a province and make 'b' crave 'c', while removing the pain of 'b'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Execute 'attack' on 'b'. Preconditions are satisfied as 'b' is a province and a planet, and harmony exists. This action will cause pain to 'b', remove its province and planet status, and disrupt harmony.",
+      "Step 2: Execute 'succumb' on 'b'. Preconditions are satisfied as 'b' is in pain. This action will restore 'b' as a province and a planet, and restore harmony, while removing its pain.",
+      "Step 3: Execute 'feast' on 'a' and 'b'. Preconditions are satisfied as 'a' craves 'b', 'a' is a province, and harmony exists. This action will cause pain to 'a', make 'b' a province, remove the craving of 'a' for 'b', remove the province status of 'a', and disrupt harmony.",
+      "Step 4: Execute 'overcome' on 'a' and 'b'. Preconditions are satisfied as 'a' is in pain and 'b' is a province. This action will restore harmony, make 'a' a province, make 'a' crave 'b', remove the province status of 'b', and remove the pain of 'a'.",
+      "Step 5: Execute 'feast' on 'b' and 'c'. Preconditions are satisfied as 'b' craves 'c', 'b' is a province, and harmony exists. This action will cause pain to 'b', make 'c' a province, remove the craving of 'b' for 'c', remove the province status of 'b', and disrupt harmony.",
+      "Step 6: Execute 'overcome' on 'b' and 'c'. Preconditions are satisfied as 'b' is in pain and 'c' is a province. This action will restore harmony, make 'b' a province, make 'b' crave 'c', remove the province status of 'c', and remove the pain of 'b'."
+    ],
+    "rationale": [
+      "The 'attack' action is used to cause pain to 'b' and disrupt harmony.",
+      "The 'succumb' action is used to restore 'b' as a province and a planet, and restore harmony.",
+      "The 'feast' action is used to satisfy the craving of 'a' for 'b', causing pain to 'a' and making 'b' a province.",
+      "The 'overcome' action is used to make 'a' a province and make 'a' crave 'b', while removing the pain of 'a'.",
+      "The 'feast' action is used to satisfy the craving of 'b' for 'c', causing pain to 'b' and making 'c' a province.",
+      "The 'overcome' action is used to make 'b' a province and make 'b' crave 'c', while removing the pain of 'b'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('craves', ('a', 'b'))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 46.472692251205444
+}

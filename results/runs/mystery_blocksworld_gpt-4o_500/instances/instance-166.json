@@ -1,0 +1,212 @@
+{
+  "problem_id": "instance-166",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178983.428585,
+  "success": true,
+  "concept_modeling_time": 2.1457672119140625e-06,
+  "pddl_parsing_time": 0.00040078163146972656,
+  "language_planning_time": 7.457947492599487,
+  "natural_language_plan": "The plan uses 'feast' to create a 'pain' state in 'c', allowing 'overcome' to establish 'craves c a'. The 'attack' action is used to create a 'pain' state in 'a', allowing 'overcome' to establish 'craves a d'. Each action's preconditions are satisfied by the previous state, ensuring a valid sequence. The final state satisfies the goal conditions: 'craves a d' and 'craves c a'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony and all planets and provinces are set. To create a 'pain' state for 'c', we use the 'feast' action.",
+      "Step 2: Use 'feast' with 'c' and 'd' to create pain in 'c' and remove harmony, setting up for 'overcome'.",
+      "Step 3: Use 'overcome' with 'c' and 'a' to establish 'craves c a' and restore harmony.",
+      "Step 4: Use 'attack' on 'a' to create pain in 'a' and remove harmony, setting up for 'overcome'.",
+      "Step 5: Use 'overcome' with 'a' and 'd' to establish 'craves a d' and restore harmony."
+    ],
+    "rationale": [
+      "The plan uses 'feast' to create a 'pain' state in 'c', allowing 'overcome' to establish 'craves c a'.",
+      "The 'attack' action is used to create a 'pain' state in 'a', allowing 'overcome' to establish 'craves a d'.",
+      "Each action's preconditions are satisfied by the previous state, ensuring a valid sequence.",
+      "The final state satisfies the goal conditions: 'craves a d' and 'craves c a'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',)); missing precondition: ('pain', ('c',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(c,d)",
+    "succumb(c)",
+    "attack(a)",
+    "overcome(a,d)",
+    "attack(c)",
+    "overcome(c,a)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpl7p5rl1o.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast c d)\n \n2:\n(succumb c)\n \n3:\n(attack a)\n \n4:\n(overcome a d)\n \n5:\n(attack c)\n \n6:\n(overcome c a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves c d)\nDeleting (province c)\nDeleting (harmony)\nAdding (pain c)\nAdding (province d)\n\nChecking next happening (time 2)\nDeleting (pain c)\nAdding (province c)\nAdding (harmony)\nAdding (planet c)\n\nChecking next happening (time 3)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 4)\nDeleting (province d)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a d)\n\nChecking next happening (time 5)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 6)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpl7p5rl1o.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 19.464019775390625
+}

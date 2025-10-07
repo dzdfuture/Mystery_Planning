@@ -1,0 +1,197 @@
+{
+  "problem_id": "instance-29",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758089129.5517082,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002288818359375,
+  "language_planning_time": 17.48767924308777,
+  "natural_language_plan": "The goal is to have 'b' crave 'a', 'c' crave 'b' and 'd' crave 'c'. The 'attack' action is used to put 'a' in pain. The 'succumb' action is used to restore 'a' to a province and bring back harmony. The 'feast' action is used to make 'b' crave 'a' and 'c' crave 'b'. The 'overcome' action is used to make 'd' crave 'c'. The sequence of these actions leads to the desired goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a'. This action is possible because 'a' is a province and there is harmony. The effect of this action will be that 'a' will be in pain and there will be no harmony.",
+      "Step 2: Succumb 'a'. This action is possible because 'a' is in pain. The effect of this action will be that 'a' will be a province again and there will be harmony.",
+      "Step 3: Feast on 'a' by 'b'. This action is possible because 'b' craves 'a', 'a' is a province and there is harmony. The effect of this action will be that 'a' will be in pain, 'b' will become a province and there will be no harmony.",
+      "Step 4: Succumb 'a'. This action is possible because 'a' is in pain. The effect of this action will be that 'a' will be a province again and there will be harmony.",
+      "Step 5: Feast on 'b' by 'c'. This action is possible because 'c' craves 'b', 'b' is a province and there is harmony. The effect of this action will be that 'b' will be in pain, 'c' will become a province and there will be no harmony.",
+      "Step 6: Overcome 'b' by 'd'. This action is possible because 'b' is in pain and 'd' is a province. The effect of this action will be that 'b' will be a province again, 'd' will crave 'b' and there will be harmony."
+    ],
+    "rationale": [
+      "The goal is to have 'b' crave 'a', 'c' crave 'b' and 'd' crave 'c'.",
+      "The 'attack' action is used to put 'a' in pain.",
+      "The 'succumb' action is used to restore 'a' to a province and bring back harmony.",
+      "The 'feast' action is used to make 'b' crave 'a' and 'c' crave 'b'.",
+      "The 'overcome' action is used to make 'd' crave 'c'.",
+      "The sequence of these actions leads to the desired goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('d',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 44.38279104232788
+}

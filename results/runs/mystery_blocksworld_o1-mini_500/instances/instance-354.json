@@ -1,0 +1,153 @@
+{
+  "problem_id": "instance-354",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184413.4847085,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00024628639221191406,
+  "language_planning_time": 31.743579864501953,
+  "natural_language_plan": "Feasting a d creates pain a and province d while removing craves a d and harmony. Succumbing a restores harmony, province a, and planet a by removing pain a. Attacking a reintroduces pain a and removes province a, planet a, and harmony. Attempting to overcome a b fails because province b cannot be obtained without already having it, creating a deadlock.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects 'a' and 'd'. Preconditions are met: craves a d, province a, and harmony.",
+      "Step 2: Perform 'succumb' on object 'a'. Preconditions are met: pain a.",
+      "Step 3: Perform 'attack' on object 'a'. Preconditions are met: province a, planet a, and harmony.",
+      "Step 4: Attempt to perform 'overcome' on objects 'a' and 'b'. Preconditions not met: province b is missing."
+    ],
+    "rationale": [
+      "Feasting a d creates pain a and province d while removing craves a d and harmony.",
+      "Succumbing a restores harmony, province a, and planet a by removing pain a.",
+      "Attacking a reintroduces pain a and removes province a, planet a, and harmony.",
+      "Attempting to overcome a b fails because province b cannot be obtained without already having it, creating a deadlock."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 4: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 71.77258968353271
+}

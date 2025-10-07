@@ -1,0 +1,190 @@
+{
+  "problem_id": "instance-31",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758173722.748613,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.00032591819763183594,
+  "language_planning_time": 18.53031277656555,
+  "natural_language_plan": "The plan works by first picking up block 'b' and stacking it on block 'a'. This makes block 'b' clear and ready to have another block stacked on it. Next, the plan picks up block 'c' and stacks it on block 'b'. This achieves the goal of having block 'c' on block 'b'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Pick up block 'b'. Preconditions are satisfied as the hand is empty and block 'b' is clear and on the table. The effects are that the hand is now holding block 'b', block 'b' is no longer clear and no longer on the table, and the hand is no longer empty.",
+      "Step 2: Stack block 'b' on block 'a'. Preconditions are satisfied as block 'a' is clear and the hand is holding block 'b'. The effects are that the hand is now empty, block 'b' is clear, block 'b' is on block 'a', block 'a' is no longer clear, and block 'b' is no longer being held.",
+      "Step 3: Pick up block 'c'. Preconditions are satisfied as the hand is empty and block 'c' is clear and on the table. The effects are that the hand is now holding block 'c', block 'c' is no longer clear and no longer on the table, and the hand is no longer empty.",
+      "Step 4: Stack block 'c' on block 'b'. Preconditions are satisfied as block 'b' is clear and the hand is holding block 'c'. The effects are that the hand is now empty, block 'c' is clear, block 'c' is on block 'b', block 'b' is no longer clear, and block 'c' is no longer being held."
+    ],
+    "rationale": [
+      "The plan works by first picking up block 'b' and stacking it on block 'a'. This makes block 'b' clear and ready to have another block stacked on it.",
+      "Next, the plan picks up block 'c' and stacks it on block 'b'. This achieves the goal of having block 'c' on block 'b'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'pick-up': missing precondition: ('ontable', ('b',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'pick-up': missing precondition: ('ontable', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "unstack(b,c)",
+    "put-down(b)",
+    "pick-up(c)",
+    "stack(c,b)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp_1ib81l6.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(unstack b c)\n \n2:\n(put-down b)\n \n3:\n(pick-up c)\n \n4:\n(stack c b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (on b c)\nDeleting (clear b)\nDeleting (handempty)\nAdding (holding b)\nAdding (clear c)\n\nChecking next happening (time 2)\nDeleting (holding b)\nAdding (clear b)\nAdding (handempty)\nAdding (ontable b)\n\nChecking next happening (time 3)\nDeleting (clear c)\nDeleting (ontable c)\nDeleting (handempty)\nAdding (holding c)\n\nChecking next happening (time 4)\nDeleting (clear b)\nDeleting (holding c)\nAdding (handempty)\nAdding (clear c)\nAdding (on c b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp_1ib81l6.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 32.129610538482666
+}

@@ -1,0 +1,71 @@
+{
+  "problem_id": "instance-484",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185312.152928,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0002608299255371094,
+  "language_planning_time": 14.945231437683105,
+  "natural_language_plan": "No actions meet the necessary preconditions to modify the initial state towards the goal. Without the ability to perform 'attack', 'succumb', 'overcome', or 'feast', the goal state is unattainable.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Analyze initial state and available actions.",
+      "Step 2: Determine that 'attack' cannot be performed as no object has both 'province' and 'planet' predicates.",
+      "Step 3: Realize that 'succumb', 'overcome', and 'feast' actions cannot be initiated without existing 'pain' predicates.",
+      "Step 4: Conclude that no valid action sequence can achieve the goal from the given initial state."
+    ],
+    "rationale": [
+      "No actions meet the necessary preconditions to modify the initial state towards the goal.",
+      "Without the ability to perform 'attack', 'succumb', 'overcome', or 'feast', the goal state is unattainable."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 57.446534395217896
+}

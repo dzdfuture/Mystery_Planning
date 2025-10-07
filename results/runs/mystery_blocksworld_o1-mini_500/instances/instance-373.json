@@ -1,0 +1,142 @@
+{
+  "problem_id": "instance-373",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184528.589626,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.000217437744140625,
+  "language_planning_time": 26.11355471611023,
+  "natural_language_plan": "- 'Feast' action on 'b' and 'a' leverages existing cravings to create pain and modify provinces. - 'Succumb' restores harmony and the province status of 'b', preparing for further actions. - 'Attack' introduces pain to 'b' again, enabling the 'overcome' action. - 'Overcome' re-establishes harmony and updates the craving relations to move towards the goal. - Final 'feast' action ensures that 'craves a b' and 'craves b d' are satisfied, achieving the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on 'b' and 'a' to create pain for 'b' and alter craving relations.",
+      "Step 2: Perform 'succumb' on 'b' to restore harmony and province status.",
+      "Step 3: Perform 'attack' on 'b' to create pain and remove its province and planet status.",
+      "Step 4: Perform 'overcome' with 'b' and 'a' to re-establish harmony and update craving relations.",
+      "Step 5: Perform 'feast' on 'b' and 'd' to achieve the desired craving relations in the goal."
+    ],
+    "rationale": [
+      "- 'Feast' action on 'b' and 'a' leverages existing cravings to create pain and modify provinces.",
+      "- 'Succumb' restores harmony and the province status of 'b', preparing for further actions.",
+      "- 'Attack' introduces pain to 'b' again, enabling the 'overcome' action.",
+      "- 'Overcome' re-establishes harmony and updates the craving relations to move towards the goal.",
+      "- Final 'feast' action ensures that 'craves a b' and 'craves b d' are satisfied, achieving the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'feast': missing precondition: ('craves', ('b', 'd'))",
+        "length": 5
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 56.91998267173767
+}

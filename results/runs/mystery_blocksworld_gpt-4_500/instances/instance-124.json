@@ -1,0 +1,178 @@
+{
+  "problem_id": "instance-124",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758089731.6682909,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0006721019744873047,
+  "language_planning_time": 20.338948249816895,
+  "natural_language_plan": "The attack action is used to put 'b' and 'c' in a state of pain and disrupt harmony. The overcome action is then used to make 'a' crave 'b' and 'c' crave 'a', restoring harmony each time. This sequence of actions satisfies the goal of making 'c' crave 'a'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack action can be performed on 'b' as it is both a province and a planet and harmony exists. This will result in 'b' being in pain and no longer being a province or a planet, and harmony will be disrupted.",
+      "Step 2: Overcome action can be performed with 'a' and 'b'. 'a' is in pain and 'b' is a province. This will result in 'a' craving 'b', 'a' becoming a province, harmony being restored, and 'b' no longer being a province.",
+      "Step 3: Attack action can be performed on 'c' as it is both a province and a planet and harmony exists. This will result in 'c' being in pain and no longer being a province or a planet, and harmony will be disrupted.",
+      "Step 4: Overcome action can be performed with 'c' and 'a'. 'c' is in pain and 'a' is a province. This will result in 'c' craving 'a', 'c' becoming a province, harmony being restored, and 'a' no longer being a province. This satisfies the goal condition of 'c' craving 'a'."
+    ],
+    "rationale": [
+      "The attack action is used to put 'b' and 'c' in a state of pain and disrupt harmony.",
+      "The overcome action is then used to make 'a' crave 'b' and 'c' crave 'a', restoring harmony each time.",
+      "This sequence of actions satisfies the goal of making 'c' crave 'a'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "attack(c)",
+    "overcome(c,a)",
+    "attack(d)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp1aw_ggsf.plan\nPlan to validate:\n\nPlan size: 3\n1:\n(attack c)\n \n2:\n(overcome c a)\n \n3:\n(attack d)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 2)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 3 \n\nSuccessful plans:\nValue: 3\n /tmp/tmp1aw_ggsf.plan 3 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 30.689306259155273
+}

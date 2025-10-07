@@ -1,0 +1,64 @@
+{
+  "problem_id": "instance-244",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183614.4481595,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002334117889404297,
+  "language_planning_time": 32.360026121139526,
+  "natural_language_plan": "After analyzing the initial state and available actions, it's determined that there is no valid sequence of actions within the given constraints that achieves the desired goal.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "After analyzing the initial state and available actions, it's determined that there is no valid sequence of actions within the given constraints that achieves the desired goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 75.6448175907135
+}

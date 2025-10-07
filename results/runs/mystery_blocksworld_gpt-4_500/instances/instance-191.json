@@ -1,0 +1,146 @@
+{
+  "problem_id": "instance-191",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090566.0246043,
+  "success": true,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002357959747314453,
+  "language_planning_time": 9.775312662124634,
+  "natural_language_plan": "The 'attack' action is used to cause pain to an object and disrupt harmony. The 'overcome' action is used to create a craving between two objects and restore harmony. The goal is to create a craving of 'a' for 'b' and a craving of 'd' for 'a'. This is achieved by first attacking 'a' and 'd' and then overcoming them with 'b' and 'a' respectively.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a' to cause pain to 'a' and disrupt the harmony.",
+      "Step 2: Overcome 'a' with 'b' to create a craving of 'a' for 'b' and restore harmony.",
+      "Step 3: Attack 'd' to cause pain to 'd' and disrupt the harmony.",
+      "Step 4: Overcome 'd' with 'a' to create a craving of 'd' for 'a' and restore harmony."
+    ],
+    "rationale": [
+      "The 'attack' action is used to cause pain to an object and disrupt harmony.",
+      "The 'overcome' action is used to create a craving between two objects and restore harmony.",
+      "The goal is to create a craving of 'a' for 'b' and a craving of 'd' for 'a'.",
+      "This is achieved by first attacking 'a' and 'd' and then overcoming them with 'b' and 'a' respectively."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "pddl_translation_time": 2.2411346435546875e-05,
+  "pddl_plan": [
+    "attack(a)",
+    "overcome(a,b)",
+    "attack(d)",
+    "overcome(d,a)"
+  ],
+  "validation_time": 0.005667924880981445,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpwj2v9w52.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack a)\n \n2:\n(overcome a b)\n \n3:\n(attack d)\n \n4:\n(overcome d a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 2)\nDeleting (province b)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a b)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpwj2v9w52.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 4
+      },
+      "pddl_plan": [
+        "attack(a)",
+        "overcome(a,b)",
+        "attack(d)",
+        "overcome(d,a)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmpwj2v9w52.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack a)\n \n2:\n(overcome a b)\n \n3:\n(attack d)\n \n4:\n(overcome d a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 2)\nDeleting (province b)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a b)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province a)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpwj2v9w52.plan 4 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 9.781697034835815
+}

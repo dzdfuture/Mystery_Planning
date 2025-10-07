@@ -1,0 +1,158 @@
+{
+  "problem_id": "instance-51",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182257.789961,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0003998279571533203,
+  "language_planning_time": 19.236958503723145,
+  "natural_language_plan": "Initial 'feast' action alters craving relationships and changes the state to allow 'overcome'. Second 'overcome' action establishes new craves relationships and restores harmony. Attacking 'b' introduces pain, enabling further actions to modify craves. Succumbing 'b' restores harmony and province, setting up for additional 'overcome' actions. Overcoming 'b' and 'c' establishes the required craves relationship between them. Final 'overcome' between 'c' and 'd' completes the goal by establishing craves c d.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on 'd' and 'b'. Preconditions met: craves d b, province d, harmony. Effects: pain d, province b, removes craves d b and province d, removes harmony.",
+      "Step 2: Perform 'overcome' with 'd' and 'c'. Preconditions met: province c, pain d. Effects: harmony restored, province d, craves d c, removes province c and pain d.",
+      "Step 3: Perform 'attack' on 'b'. Preconditions met: province b, planet b, harmony. Effects: pain b, removes province b, planet b, and harmony.",
+      "Step 4: Perform 'succumb' on 'b'. Preconditions met: pain b. Effects: province b, harmony restored, planet b, removes pain b.",
+      "Step 5: Perform 'overcome' with 'b' and 'c'. Preconditions met: province c (after overcoming d c), pain b. Effects: harmony, province b, craves b c, removes province c and pain b.",
+      "Step 6: Perform 'overcome' with 'c' and 'd'. Preconditions met: province d, pain c. Effects: harmony, province c, craves c d, removes province d and pain c."
+    ],
+    "rationale": [
+      "Initial 'feast' action alters craving relationships and changes the state to allow 'overcome'.",
+      "Second 'overcome' action establishes new craves relationships and restores harmony.",
+      "Attacking 'b' introduces pain, enabling further actions to modify craves.",
+      "Succumbing 'b' restores harmony and province, setting up for additional 'overcome' actions.",
+      "Overcoming 'b' and 'c' establishes the required craves relationship between them.",
+      "Final 'overcome' between 'c' and 'd' completes the goal by establishing craves c d."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('c',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 84.35064911842346
+}

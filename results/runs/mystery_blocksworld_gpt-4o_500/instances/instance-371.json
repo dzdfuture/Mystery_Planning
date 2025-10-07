@@ -1,0 +1,134 @@
+{
+  "problem_id": "instance-371",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179383.76135,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.0006768703460693359,
+  "language_planning_time": 5.4088122844696045,
+  "natural_language_plan": "The plan starts by using 'feast' to change the state such that 'a' is in pain and 'b' becomes a province. Then, 'succumb' is used to restore 'a' to a province and planet, and bring back harmony. Finally, 'overcome' is used to make 'c' a province and establish the goal condition 'craves(c, a)'. The plan achieves the goal state by ensuring both 'craves(a, b)' and 'craves(c, a)' are true.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'feast' with 'a' and 'b'. Preconditions are satisfied: 'craves(a, b)', 'province(a)', and 'harmony' are true. This will cause 'a' to be in pain, 'b' to become a province, and remove 'craves(a, b)' and 'harmony'.",
+      "Step 2: Use 'succumb' with 'a'. Preconditions are satisfied: 'pain(a)' is true. This will restore 'a' to a province and planet, and bring back 'harmony'.",
+      "Step 3: Use 'overcome' with 'c' and 'a'. Preconditions are satisfied: 'province(a)' and 'pain(c)' are true. This will make 'c' a province, add 'craves(c, a)', and remove 'pain(c)'."
+    ],
+    "rationale": [
+      "The plan starts by using 'feast' to change the state such that 'a' is in pain and 'b' becomes a province.",
+      "Then, 'succumb' is used to restore 'a' to a province and planet, and bring back harmony.",
+      "Finally, 'overcome' is used to make 'c' a province and establish the goal condition 'craves(c, a)'.",
+      "The plan achieves the goal state by ensuring both 'craves(a, b)' and 'craves(c, a)' are true."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('c',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('c',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 10.122016906738281
+}

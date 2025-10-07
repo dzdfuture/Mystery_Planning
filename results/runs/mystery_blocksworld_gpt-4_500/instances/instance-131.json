@@ -1,0 +1,154 @@
+{
+  "problem_id": "instance-131",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758089476.5690477,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0003612041473388672,
+  "language_planning_time": 19.046387672424316,
+  "natural_language_plan": "The first action 'feast' is chosen to make 'c' a province and to make 'a' crave 'c'. The second action 'overcome' is chosen to remove the pain from 'a' and to make 'a' a province again. The final action 'feast' is chosen to make 'b' crave 'c' and to make 'c' a province again, thus achieving the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: We start with the action 'feast' with 'a' and 'c' as parameters. The preconditions for this action are satisfied as 'a' craves 'c', 'a' is a province and there is harmony. The effects of this action are that 'a' is in pain, 'c' becomes a province, 'a' no longer craves 'c', 'a' is no longer a province and there is no harmony.",
+      "Step 2: We then perform the action 'overcome' with 'a' and 'c' as parameters. The preconditions for this action are satisfied as 'c' is a province and 'a' is in pain. The effects of this action are that there is harmony, 'a' becomes a province, 'a' craves 'c', 'c' is no longer a province and 'a' is no longer in pain.",
+      "Step 3: Finally, we perform the action 'feast' with 'b' and 'c' as parameters. The preconditions for this action are satisfied as 'b' craves 'c', 'b' is a province and there is harmony. The effects of this action are that 'b' is in pain, 'c' becomes a province, 'b' no longer craves 'c', 'b' is no longer a province and there is no harmony."
+    ],
+    "rationale": [
+      "The first action 'feast' is chosen to make 'c' a province and to make 'a' crave 'c'.",
+      "The second action 'overcome' is chosen to remove the pain from 'a' and to make 'a' a province again.",
+      "The final action 'feast' is chosen to make 'b' crave 'c' and to make 'c' a province again, thus achieving the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('craves', ('b', 'c')); missing precondition: ('province', ('b',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 43.6046245098114
+}

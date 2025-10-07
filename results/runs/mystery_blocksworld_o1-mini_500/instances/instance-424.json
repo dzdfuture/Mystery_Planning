@@ -1,0 +1,66 @@
+{
+  "problem_id": "instance-424",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184908.6113708,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00022363662719726562,
+  "language_planning_time": 37.051624059677124,
+  "natural_language_plan": "After analyzing the available actions and initial state, it is impossible to satisfy all goal predicates. Specifically, establishing 'craves a c' requires 'province c' and 'pain a', which cannot be achieved with the given actions and objects. Therefore, no valid action sequence exists within the provided constraints to achieve the desired goal.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "After analyzing the available actions and initial state, it is impossible to satisfy all goal predicates.",
+      "Specifically, establishing 'craves a c' requires 'province c' and 'pain a', which cannot be achieved with the given actions and objects.",
+      "Therefore, no valid action sequence exists within the provided constraints to achieve the desired goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 60.78237867355347
+}

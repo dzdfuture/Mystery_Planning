@@ -1,0 +1,200 @@
+{
+  "problem_id": "instance-498",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185426.8264954,
+  "success": false,
+  "concept_modeling_time": 2.6226043701171875e-06,
+  "pddl_parsing_time": 0.0006999969482421875,
+  "language_planning_time": 21.733949661254883,
+  "natural_language_plan": "\u2022 'feast e b' removes the craving between 'e' and 'b' and establishes 'province b'. \u2022 'succumb e' restores harmony and re-establishes 'province e' with 'planet e'. \u2022 'feast c d' removes the existing craving between 'c' and 'd' and creates 'pain c'. \u2022 'overcome c b' satisfies the craving goal for 'c' craving 'b' by overcoming 'b'. \u2022 'attack a' induces 'pain a', allowing manipulation of 'a' in the next step. \u2022 'overcome a e' establishes the craving goal for 'a' craving 'e' by overcoming 'e'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects 'e' and 'b'.",
+      "Step 2: Perform 'succumb' on object 'e'.",
+      "Step 3: Perform 'feast' on objects 'c' and 'd'.",
+      "Step 4: Perform 'overcome' on objects 'c' and 'b'.",
+      "Step 5: Perform 'attack' on object 'a'.",
+      "Step 6: Perform 'overcome' on objects 'a' and 'e'."
+    ],
+    "rationale": [
+      "\u2022 'feast e b' removes the craving between 'e' and 'b' and establishes 'province b'.",
+      "\u2022 'succumb e' restores harmony and re-establishes 'province e' with 'planet e'.",
+      "\u2022 'feast c d' removes the existing craving between 'c' and 'd' and creates 'pain c'.",
+      "\u2022 'overcome c b' satisfies the craving goal for 'c' craving 'b' by overcoming 'b'.",
+      "\u2022 'attack a' induces 'pain a', allowing manipulation of 'a' in the next step.",
+      "\u2022 'overcome a e' establishes the craving goal for 'a' craving 'e' by overcoming 'e'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "e",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "e"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "e"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "e"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "e",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "e"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "e"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 51.17183232307434
+}

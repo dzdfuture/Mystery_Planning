@@ -1,0 +1,69 @@
+{
+  "problem_id": "instance-148",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182927.5916796,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.00046133995056152344,
+  "language_planning_time": 30.213112592697144,
+  "natural_language_plan": "The goal 'craves c b' cannot be achieved with the given initial state and available actions. Required preconditions for setting 'craves c b' are not attainable, making the goal unachievable.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial predicates and identified the goal requirements.",
+      "Evaluated available actions and their preconditions to determine feasible transitions.",
+      "Attempted to create a sequence of actions to establish 'craves c b' but found preconditions unachievable."
+    ],
+    "rationale": [
+      "The goal 'craves c b' cannot be achieved with the given initial state and available actions.",
+      "Required preconditions for setting 'craves c b' are not attainable, making the goal unachievable."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 57.90383219718933
+}

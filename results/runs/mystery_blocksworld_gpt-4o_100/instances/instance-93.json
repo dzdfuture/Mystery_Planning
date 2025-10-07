@@ -1,0 +1,144 @@
+{
+  "problem_id": "instance-93",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178302.6794283,
+  "success": true,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0005536079406738281,
+  "language_planning_time": 3.8474245071411133,
+  "natural_language_plan": "The plan starts by picking up block 'c' from the table, which is possible because 'c' is clear and the hand is empty. Next, block 'c' is stacked on block 'a', which is possible because 'a' is clear and 'c' is being held. The goal of having block 'c' on block 'a' is achieved in two steps.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Start with the initial state where all blocks are on the table and clear.",
+      "Step 2: Pick up block 'c' from the table, satisfying the preconditions of 'pick-up'.",
+      "Step 3: Stack block 'c' on block 'a', satisfying the preconditions of 'stack'."
+    ],
+    "rationale": [
+      "The plan starts by picking up block 'c' from the table, which is possible because 'c' is clear and the hand is empty.",
+      "Next, block 'c' is stacked on block 'a', which is possible because 'a' is clear and 'c' is being held.",
+      "The goal of having block 'c' on block 'a' is achieved in two steps."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "pick-up",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "pick-up",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "pick-up(c)",
+    "stack(c,a)",
+    "pick-up(b)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpkwljrnk6.plan\nPlan to validate:\n\nPlan size: 3\n1:\n(pick-up c)\n \n2:\n(stack c a)\n \n3:\n(pick-up b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (clear c)\nDeleting (ontable c)\nDeleting (handempty)\nAdding (holding c)\n\nChecking next happening (time 2)\nDeleting (clear a)\nDeleting (holding c)\nAdding (handempty)\nAdding (clear c)\nAdding (on c a)\n\nChecking next happening (time 3)\nDeleting (clear b)\nDeleting (ontable b)\nDeleting (handempty)\nAdding (holding b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 3 \n\nSuccessful plans:\nValue: 3\n /tmp/tmpkwljrnk6.plan 3 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 8.176559209823608
+}

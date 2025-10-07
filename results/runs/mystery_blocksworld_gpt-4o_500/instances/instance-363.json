@@ -1,0 +1,133 @@
+{
+  "problem_id": "instance-363",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179371.7704103,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0003592967987060547,
+  "language_planning_time": 6.338951587677002,
+  "natural_language_plan": "The plan ensures 'b' craves 'c' by first putting 'b' in pain and then restoring its status. The 'attack' action on 'b' is possible because 'b' is a planet and harmony exists initially. The 'succumb' action restores 'b' to a province and planet, allowing 'overcome' to be used. The 'overcome' action establishes the 'craves' relationship needed for the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Check initial state. Harmony is present, and 'a' craves 'd', 'd' craves 'b'. 'a' and 'c' are provinces, 'b' and 'c' are planets.",
+      "Step 2: To create the condition for 'b' to crave 'c', we need 'b' to be in pain. Use 'attack' on 'b' since it is a planet and harmony exists.",
+      "Step 3: Use 'succumb' on 'b' to restore harmony and make 'b' a province and planet again.",
+      "Step 4: Use 'overcome' with 'b' and 'c' to establish 'b' craves 'c', completing the goal conditions."
+    ],
+    "rationale": [
+      "The plan ensures 'b' craves 'c' by first putting 'b' in pain and then restoring its status.",
+      "The 'attack' action on 'b' is possible because 'b' is a planet and harmony exists initially.",
+      "The 'succumb' action restores 'b' to a province and planet, allowing 'overcome' to be used.",
+      "The 'overcome' action establishes the 'craves' relationship needed for the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'feast': missing precondition: ('craves', ('c', 'b'))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('b',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 11.994140148162842
+}

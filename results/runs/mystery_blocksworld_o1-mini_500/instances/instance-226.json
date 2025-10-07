@@ -1,0 +1,126 @@
+{
+  "problem_id": "instance-226",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183497.38343,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.0004405975341796875,
+  "language_planning_time": 39.49859666824341,
+  "natural_language_plan": "\u2022 'Feast d a' initiates conflict, creating pain d and setting province a. \u2022 'Succumb d' restores harmony and reverses the effects on d. \u2022 'Feast a c' targets the craving between a and c, creating pain a and setting province c. \u2022 'Succumb a' restores harmony and reverses the effects on a, preparing the state for further actions to achieve the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects d and a. Preconditions (craves d a, province d, harmony) are satisfied. Effects include pain d, province a, removal of craves d a, removal of province d, and removal of harmony.",
+      "Step 2: Perform 'succumb' on object d. Preconditions (pain d) are satisfied. Effects include restoring province d, harmony, planet d, and removing pain d.",
+      "Step 3: Perform 'feast' on objects a and c. Preconditions (craves a c, province a, harmony) are satisfied. Effects include pain a, province c, removal of craves a c, removal of province a, and removal of harmony.",
+      "Step 4: Perform 'succumb' on object a. Preconditions (pain a) are satisfied. Effects include restoring province a, harmony, planet a, and removing pain a."
+    ],
+    "rationale": [
+      "\u2022 'Feast d a' initiates conflict, creating pain d and setting province a.",
+      "\u2022 'Succumb d' restores harmony and reverses the effects on d.",
+      "\u2022 'Feast a c' targets the craving between a and c, creating pain a and setting province c.",
+      "\u2022 'Succumb a' restores harmony and reverses the effects on a, preparing the state for further actions to achieve the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 72.24745273590088
+}

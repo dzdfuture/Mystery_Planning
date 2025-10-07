@@ -1,0 +1,215 @@
+{
+  "problem_id": "instance-108",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090794.3634837,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00044226646423339844,
+  "language_planning_time": 18.080399751663208,
+  "natural_language_plan": "The plan works because it satisfies all the goal conditions: 'a' craves 'd', 'b' craves 'a', and 'd' craves 'c'. Each action's preconditions are satisfied before it is executed, and its effects update the state for the next action. The plan is minimal and uses only the allowed actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'c' because it is a province and a planet and there is harmony. This will cause 'c' to be in pain and lose its province and planet status and harmony will be lost.",
+      "Step 2: Overcome 'c' with 'a' because 'c' is in pain and 'a' is a province. This will cause 'a' to crave 'c', 'a' to become a province, 'c' to lose its province status, 'c' to lose its pain, and harmony to be restored.",
+      "Step 3: Feast 'a' on 'b' because 'a' craves 'b', 'a' is a province, and there is harmony. This will cause 'a' to be in pain, 'b' to become a province, 'a' to lose its craving for 'b', 'a' to lose its province status, and harmony to be lost.",
+      "Step 4: Overcome 'a' with 'd' because 'a' is in pain and 'd' is a province. This will cause 'a' to crave 'd', 'a' to become a province, 'd' to lose its province status, 'a' to lose its pain, and harmony to be restored.",
+      "Step 5: Feast 'b' on 'a' because 'b' craves 'a', 'b' is a province, and there is harmony. This will cause 'b' to be in pain, 'a' to become a province, 'b' to lose its craving for 'a', 'b' to lose its province status, and harmony to be lost.",
+      "Step 6: Overcome 'b' with 'd' because 'b' is in pain and 'd' is a planet. This will cause 'b' to crave 'd', 'b' to become a province, 'd' to lose its planet status, 'b' to lose its pain, and harmony to be restored."
+    ],
+    "rationale": [
+      "The plan works because it satisfies all the goal conditions: 'a' craves 'd', 'b' craves 'a', and 'd' craves 'c'.",
+      "Each action's preconditions are satisfied before it is executed, and its effects update the state for the next action.",
+      "The plan is minimal and uses only the allowed actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 9
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 31.7235324382782
+}

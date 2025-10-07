@@ -1,0 +1,183 @@
+{
+  "problem_id": "instance-234",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179125.5683706,
+  "success": true,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00032806396484375,
+  "language_planning_time": 6.674620151519775,
+  "natural_language_plan": "The plan uses 'feast' to manipulate the 'craves' relationships and 'province' status. The 'succumb' action is used to restore 'province' and 'harmony' after 'feast' introduces 'pain'. The final 'feast' action achieves the goal by creating 'craves a b'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has 'harmony', 'province a', and 'craves a d'. We can use the 'feast' action with 'a' and 'd' to introduce 'pain a' and remove 'province a'.",
+      "Step 2: With 'pain a' in the state, we can use the 'succumb' action on 'a' to restore 'province a' and 'harmony'.",
+      "Step 3: Now, 'a' is a province again and 'harmony' is restored. We can use the 'feast' action with 'a' and 'b' to introduce 'pain a' and remove 'province a'. This also satisfies the goal condition 'craves a b'."
+    ],
+    "rationale": [
+      "The plan uses 'feast' to manipulate the 'craves' relationships and 'province' status.",
+      "The 'succumb' action is used to restore 'province' and 'harmony' after 'feast' introduces 'pain'.",
+      "The final 'feast' action achieves the goal by creating 'craves a b'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',)); missing precondition: ('pain', ('b',))",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('craves', ('a', 'b'))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(a,d)",
+    "succumb(a)",
+    "feast(d,b)",
+    "succumb(d)",
+    "attack(a)",
+    "overcome(a,b)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp9chb4ank.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast a d)\n \n2:\n(succumb a)\n \n3:\n(feast d b)\n \n4:\n(succumb d)\n \n5:\n(attack a)\n \n6:\n(overcome a b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a d)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province d)\n\nChecking next happening (time 2)\nDeleting (pain a)\nAdding (province a)\nAdding (harmony)\nAdding (planet a)\n\nChecking next happening (time 3)\nDeleting (craves d b)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province b)\n\nChecking next happening (time 4)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 5)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 6)\nDeleting (province b)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmp9chb4ank.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 14.22594141960144
+}

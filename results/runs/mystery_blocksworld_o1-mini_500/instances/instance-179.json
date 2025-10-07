@@ -1,0 +1,126 @@
+{
+  "problem_id": "instance-179",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183165.6962469,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00022292137145996094,
+  "language_planning_time": 23.65555429458618,
+  "natural_language_plan": "The 'feast' action creates 'pain b' and reassigns province from 'b' to 'c'. The 'succumb' action restores 'province b', 'planet b', and 'harmony' by removing 'pain b'. The 'attack' action generates 'pain b' again, removing 'province b' and 'planet b', and disrupting 'harmony'. The 'overcome' action restores 'harmony', re-establishes 'province b', and creates 'craves b c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on 'b' and 'c' to generate 'pain b', transfer province from 'b' to 'c', remove 'craves b c', and disrupt 'harmony'.",
+      "Step 2: Perform 'succumb' on 'b' to restore 'province b', 'planet b', and 'harmony', while removing 'pain b'.",
+      "Step 3: Perform 'attack' on 'b' to generate 'pain b', remove 'province b' and 'planet b', and disrupt 'harmony'.",
+      "Step 4: Perform 'overcome' with 'b' and 'c' to restore 'harmony', re-establish 'province b', create 'craves b c', and remove 'province c' and 'pain b'."
+    ],
+    "rationale": [
+      "The 'feast' action creates 'pain b' and reassigns province from 'b' to 'c'.",
+      "The 'succumb' action restores 'province b', 'planet b', and 'harmony' by removing 'pain b'.",
+      "The 'attack' action generates 'pain b' again, removing 'province b' and 'planet b', and disrupting 'harmony'.",
+      "The 'overcome' action restores 'harmony', re-establishes 'province b', and creates 'craves b c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 55.881463289260864
+}

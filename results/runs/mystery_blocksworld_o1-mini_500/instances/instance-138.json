@@ -1,0 +1,196 @@
+{
+  "problem_id": "instance-138",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182876.9932077,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00030159950256347656,
+  "language_planning_time": 13.109274864196777,
+  "natural_language_plan": "Attacking 'a' initiates the process by creating pain and removing its province and planet status. Overcoming 'a' with 'd' establishes the desired craves relationship 'a d' and restores harmony. Attacking 'c' sets up the conditions to create the craves relationship 'c b'. Overcoming 'c' with 'b' establishes the craves relationship 'c b' and maintains harmony. Attacking 'd' prepares for establishing the final craves relationship 'd c'. Overcoming 'd' with 'c' completes the goal by establishing 'd c' and restoring harmony.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a' to cause pain, remove province and planet status of 'a', and disrupt harmony.",
+      "Step 2: Overcome 'a' with 'd' to restore harmony, reinstate province 'a', establish craves 'a d', and remove province 'd'.",
+      "Step 3: Attack 'c' to cause pain, remove province and planet status of 'c', and disrupt harmony.",
+      "Step 4: Overcome 'c' with 'b' to restore harmony, reinstate province 'c', establish craves 'c b', and remove province 'b'.",
+      "Step 5: Attack 'd' to cause pain, remove province and planet status of 'd', and disrupt harmony.",
+      "Step 6: Overcome 'd' with 'c' to restore harmony, reinstate province 'd', establish craves 'd c', and remove province 'c'."
+    ],
+    "rationale": [
+      "Attacking 'a' initiates the process by creating pain and removing its province and planet status.",
+      "Overcoming 'a' with 'd' establishes the desired craves relationship 'a d' and restores harmony.",
+      "Attacking 'c' sets up the conditions to create the craves relationship 'c b'.",
+      "Overcoming 'c' with 'b' establishes the craves relationship 'c b' and maintains harmony.",
+      "Attacking 'd' prepares for establishing the final craves relationship 'd c'.",
+      "Overcoming 'd' with 'c' completes the goal by establishing 'd c' and restoring harmony."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'attack': missing precondition: ('province', ('c',)); missing precondition: ('planet', ('c',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 42.21705603599548
+}

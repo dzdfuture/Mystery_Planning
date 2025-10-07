@@ -1,0 +1,198 @@
+{
+  "problem_id": "instance-99",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178310.8724387,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0005548000335693359,
+  "language_planning_time": 7.886455535888672,
+  "natural_language_plan": "The plan rearranges the blocks to achieve the goal state. Unstacking and putting down c allows a to be moved. Unstacking a from b clears b and allows a to be placed on c. Stacking a on c achieves part of the goal. Picking up c from the table allows it to be stacked on b. Stacking c on b completes the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Unstack c from a. Preconditions: c is on a, c is clear, hand is empty. Effects: holding c, a becomes clear, hand is not empty.",
+      "Step 2: Put c down on the table. Preconditions: holding c. Effects: c is clear, hand is empty, c is on the table.",
+      "Step 3: Unstack a from b. Preconditions: a is on b, a is clear, hand is empty. Effects: holding a, b becomes clear, hand is not empty.",
+      "Step 4: Stack a on c. Preconditions: c is clear, holding a. Effects: hand is empty, a is on c, c is not clear.",
+      "Step 5: Pick up c from the table. Preconditions: c is clear, c is on the table, hand is empty. Effects: holding c, c is not on the table, hand is not empty.",
+      "Step 6: Stack c on b. Preconditions: b is clear, holding c. Effects: hand is empty, c is on b, b is not clear."
+    ],
+    "rationale": [
+      "The plan rearranges the blocks to achieve the goal state.",
+      "Unstacking and putting down c allows a to be moved.",
+      "Unstacking a from b clears b and allows a to be placed on c.",
+      "Stacking a on c achieves part of the goal.",
+      "Picking up c from the table allows it to be stacked on b.",
+      "Stacking c on b completes the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "c",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'pick-up': missing precondition: ('clear', ('c',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "c",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'pick-up': missing precondition: ('clear', ('c',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 15.347012042999268
+}

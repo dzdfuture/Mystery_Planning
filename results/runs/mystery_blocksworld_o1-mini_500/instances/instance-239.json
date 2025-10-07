@@ -1,0 +1,66 @@
+{
+  "problem_id": "instance-239",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183577.2828586,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.000331878662109375,
+  "language_planning_time": 21.218284368515015,
+  "natural_language_plan": "No valid plan exists that achieves all the desired goals given the initial state and available actions. Specifically, obtaining 'craves a b' is infeasible because it requires 'a' to be a province, which cannot be established with the available actions. As a result, the goal cannot be fully satisfied within the specified constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "No valid plan exists that achieves all the desired goals given the initial state and available actions.",
+      "Specifically, obtaining 'craves a b' is infeasible because it requires 'a' to be a province, which cannot be established with the available actions.",
+      "As a result, the goal cannot be fully satisfied within the specified constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 43.813897132873535
+}

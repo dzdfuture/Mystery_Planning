@@ -1,0 +1,64 @@
+{
+  "problem_id": "instance-75",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182424.2949705,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00041794776916503906,
+  "language_planning_time": 27.64519166946411,
+  "natural_language_plan": "After analyzing the initial state and available actions, it's determined that the required preconditions to achieve the goal cannot be satisfied. Specifically, necessary actions to alter the 'craves' predicates require conditions that cannot be met with the given objects and action constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "After analyzing the initial state and available actions, it's determined that the required preconditions to achieve the goal cannot be satisfied. Specifically, necessary actions to alter the 'craves' predicates require conditions that cannot be met with the given objects and action constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 66.43583369255066
+}

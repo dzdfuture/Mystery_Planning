@@ -1,0 +1,198 @@
+{
+  "problem_id": "instance-465",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185169.9816554,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0002722740173339844,
+  "language_planning_time": 42.90177893638611,
+  "natural_language_plan": "Step 1: Attacks c to create pain c and remove harmony, preparing to set new craves. Step 2: Overcomes c and e to establish craves c e while restoring harmony. Step 3: Attacks a to create pain a and remove harmony, enabling the establishment of craves a c. Step 4: Overcomes a and c to set craves a c and restore harmony. Step 5: Attacks d to create pain d and remove harmony, paving the way to set craves d b. Step 6: Overcomes d and b to establish craves d b and finalize the goal with all required craves set.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: attack c - Preconditions met: province c, planet c, harmony. Effects: adds pain c, removes province c and planet c, removes harmony.",
+      "Step 2: overcome c e - Preconditions met: pain c, province e. Effects: adds harmony, adds province c, adds craves c e, removes province e, removes pain c.",
+      "Step 3: attack a - Preconditions met: province a, planet a, harmony. Effects: adds pain a, removes province a and planet a, removes harmony.",
+      "Step 4: overcome a c - Preconditions met: pain a, province c. Effects: adds harmony, adds province a, adds craves a c, removes province c, removes pain a.",
+      "Step 5: attack d - Preconditions met: province d, planet d, harmony. Effects: adds pain d, removes province d and planet d, removes harmony.",
+      "Step 6: overcome d b - Preconditions met: pain d, province b. Effects: adds harmony, adds province d, adds craves d b, removes province b, removes pain d."
+    ],
+    "rationale": [
+      "Step 1: Attacks c to create pain c and remove harmony, preparing to set new craves.",
+      "Step 2: Overcomes c and e to establish craves c e while restoring harmony.",
+      "Step 3: Attacks a to create pain a and remove harmony, enabling the establishment of craves a c.",
+      "Step 4: Overcomes a and c to set craves a c and restore harmony.",
+      "Step 5: Attacks d to create pain d and remove harmony, paving the way to set craves d b.",
+      "Step 6: Overcomes d and b to establish craves d b and finalize the goal with all required craves set."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "e"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'attack': missing precondition: ('province', ('d',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "e"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 80.69287848472595
+}

@@ -1,0 +1,69 @@
+{
+  "problem_id": "instance-333",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184239.8236375,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00035262107849121094,
+  "language_planning_time": 85.91341590881348,
+  "natural_language_plan": "The required 'craves b c' predicate cannot be achieved because 'attack b' is not possible without 'province b', which cannot be obtained through any available actions. All possible action sequences either fail to meet the goal predicates or violate action preconditions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "After analyzing the available actions and objects, it's determined that achieving all goal predicates is impossible within the given constraints.",
+      "Specifically, setting 'craves b c' requires actions that cannot be performed due to missing prerequisites.",
+      "Therefore, no valid action sequence exists that satisfies the goal with 3\u20136 steps."
+    ],
+    "rationale": [
+      "The required 'craves b c' predicate cannot be achieved because 'attack b' is not possible without 'province b', which cannot be obtained through any available actions.",
+      "All possible action sequences either fail to meet the goal predicates or violate action preconditions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 129.4185061454773
+}

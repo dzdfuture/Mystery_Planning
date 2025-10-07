@@ -1,0 +1,145 @@
+{
+  "problem_id": "instance-87",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178834.737646,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002605915069580078,
+  "language_planning_time": 4.510087728500366,
+  "natural_language_plan": "The plan uses 'attack' and 'succumb' to cycle 'b' through 'pain' and back to 'harmony', allowing 'overcome' to be used. The 'overcome' action is used to make 'd' crave 'b', which is part of the goal. The sequence ensures all preconditions are met at each step, and the final state satisfies the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Check initial state against goal. The goal is not satisfied initially.",
+      "Step 2: Use 'attack' on 'b' to create 'pain' on 'b', removing 'province', 'planet', and 'harmony'.",
+      "Step 3: Use 'succumb' on 'b' to restore 'province', 'planet', and 'harmony' on 'b', removing 'pain'.",
+      "Step 4: Use 'overcome' with 'd' and 'b' to make 'd' crave 'b', achieving part of the goal."
+    ],
+    "rationale": [
+      "The plan uses 'attack' and 'succumb' to cycle 'b' through 'pain' and back to 'harmony', allowing 'overcome' to be used.",
+      "The 'overcome' action is used to make 'd' crave 'b', which is part of the goal.",
+      "The sequence ensures all preconditions are met at each step, and the final state satisfies the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('province', ('c',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 11.878341436386108
+}

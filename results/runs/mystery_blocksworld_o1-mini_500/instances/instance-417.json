@@ -1,0 +1,70 @@
+{
+  "problem_id": "instance-417",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184855.1824672,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0003204345703125,
+  "language_planning_time": 29.18319344520569,
+  "natural_language_plan": "The goal 'craves d c' cannot be achieved because 'overcome d c' requires 'pain d'. 'pain d' cannot be generated as 'attack d' is not possible without 'province d', which is not present and cannot be obtained through any available action.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "1. Evaluate the initial state and available actions.",
+      "2. Identify that 'craves d c' requires 'overcome' action with 'd' and 'c'.",
+      "3. Determine that 'overcome d c' requires 'pain d', which cannot be achieved because 'attack d' is not feasible without 'province d'.",
+      "4. Conclude that the goal 'craves d c' is unattainable with the given actions and objects."
+    ],
+    "rationale": [
+      "The goal 'craves d c' cannot be achieved because 'overcome d c' requires 'pain d'.",
+      "'pain d' cannot be generated as 'attack d' is not possible without 'province d', which is not present and cannot be obtained through any available action."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 63.438334465026855
+}

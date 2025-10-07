@@ -1,0 +1,194 @@
+{
+  "problem_id": "instance-490",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185352.10429,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0003209114074707031,
+  "language_planning_time": 23.54947304725647,
+  "natural_language_plan": "Attack actions create pain, allowing overcome actions to establish craves relationships. Each overcome action restores harmony and preserves provinces required for subsequent actions. The plan systematically builds the required craves predicates to meet the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: attack d. Preconditions (province d, planet d, harmony) are satisfied. Effects: add pain d, remove province d and planet d, remove harmony.",
+      "Step 2: overcome d c. Preconditions (province c, pain d) are satisfied. Effects: add harmony, add province d, add craves d c, remove province c and pain d.",
+      "Step 3: attack a. Preconditions (province a, planet a, harmony) are satisfied. Effects: add pain a, remove province a and planet a, remove harmony.",
+      "Step 4: overcome a d. Preconditions (province d, pain a) are satisfied. Effects: add harmony, add province a, add craves a d, remove province d and pain a.",
+      "Step 5: attack b. Preconditions (province b, planet b, harmony) are satisfied. Effects: add pain b, remove province b and planet b, remove harmony.",
+      "Step 6: overcome b a. Preconditions (province a, pain b) are satisfied. Effects: add harmony, add province b, add craves b a, remove province a and pain b."
+    ],
+    "rationale": [
+      "Attack actions create pain, allowing overcome actions to establish craves relationships.",
+      "Each overcome action restores harmony and preserves provinces required for subsequent actions.",
+      "The plan systematically builds the required craves predicates to meet the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'attack': missing precondition: ('province', ('d',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('c',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 57.07616829872131
+}

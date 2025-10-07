@@ -1,0 +1,166 @@
+{
+  "problem_id": "instance-3",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090268.3593242,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002808570861816406,
+  "language_planning_time": 20.662413120269775,
+  "natural_language_plan": "The 'attack' action is used to cause 'a' to feel pain and disrupt the harmony. The 'overcome' action is used twice to make 'a' crave 'b' and then 'c', restoring harmony each time. The 'feast' action is used to make 'b' a province and disrupt the harmony, preparing for the next 'overcome' action.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The action 'attack' is applied to 'a' because 'a' is a planet and there is harmony. This action will cause 'a' to feel pain and disrupt the harmony.",
+      "Step 2: The action 'overcome' is applied to 'a' and 'b' because 'a' is in pain and 'b' is a province. This action will make 'a' crave 'b', restore harmony, and make 'a' a province.",
+      "Step 3: The action 'feast' is applied to 'a' and 'b' because 'a' craves 'b', 'a' is a province, and there is harmony. This action will cause 'a' to feel pain, make 'b' a province, and disrupt the harmony.",
+      "Step 4: The action 'overcome' is applied to 'a' and 'c' because 'a' is in pain and 'c' is a province. This action will make 'a' crave 'c', restore harmony, and make 'a' a province."
+    ],
+    "rationale": [
+      "The 'attack' action is used to cause 'a' to feel pain and disrupt the harmony.",
+      "The 'overcome' action is used twice to make 'a' crave 'b' and then 'c', restoring harmony each time.",
+      "The 'feast' action is used to make 'b' a province and disrupt the harmony, preparing for the next 'overcome' action."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 34.13084435462952
+}

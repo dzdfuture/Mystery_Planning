@@ -1,0 +1,164 @@
+{
+  "problem_id": "instance-267",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179191.898339,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00037860870361328125,
+  "language_planning_time": 5.230825185775757,
+  "natural_language_plan": "The 'feast' action is used to create pain in d, allowing a to become a province. The 'succumb' action restores harmony and makes d a province and a planet. The 'overcome' action with b and a makes b crave a and become a province. The 'overcome' action with a and d makes a crave d and become a province. The final state satisfies the goal conditions: a craves d, b craves a, and d craves c.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Start with the initial state where harmony exists, and d is a province.",
+      "Step 2: Use the 'feast' action with d and a to create pain in d, making a a province and removing harmony.",
+      "Step 3: Use the 'succumb' action on d to restore harmony and make d a province and a planet.",
+      "Step 4: Use the 'overcome' action with b and a to make b crave a, and make b a province.",
+      "Step 5: Use the 'overcome' action with a and d to make a crave d, and make a a province."
+    ],
+    "rationale": [
+      "The 'feast' action is used to create pain in d, allowing a to become a province.",
+      "The 'succumb' action restores harmony and makes d a province and a planet.",
+      "The 'overcome' action with b and a makes b crave a and become a province.",
+      "The 'overcome' action with a and d makes a crave d and become a province.",
+      "The final state satisfies the goal conditions: a craves d, b craves a, and d craves c."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 11.891473531723022
+}

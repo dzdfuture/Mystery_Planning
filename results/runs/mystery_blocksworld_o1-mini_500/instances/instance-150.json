@@ -1,0 +1,69 @@
+{
+  "problem_id": "instance-150",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182948.6372437,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0003528594970703125,
+  "language_planning_time": 37.63469672203064,
+  "natural_language_plan": "No valid action sequence within 3-6 steps can achieve the goal of having (craves c a) while maintaining all preconditions. Attempted all possible combinations of allowed actions and objects without success.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed all possible action sequences within the constraints.",
+      "Attempted actions like 'feast', 'overcome', and 'attack' with available objects.",
+      "Found that no sequence of 3-6 steps satisfies the goal predicates without violating preconditions."
+    ],
+    "rationale": [
+      "No valid action sequence within 3-6 steps can achieve the goal of having (craves c a) while maintaining all preconditions.",
+      "Attempted all possible combinations of allowed actions and objects without success."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 60.75454115867615
+}

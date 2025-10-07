@@ -1,0 +1,152 @@
+{
+  "problem_id": "instance-443",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758089529.482076,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00025200843811035156,
+  "language_planning_time": 11.592595100402832,
+  "natural_language_plan": "The goal is to make 'a' crave 'd' and 'c' crave 'b'. To achieve this, we first attack 'a' and 'c' to create pain in them. Then, we overcome 'a' with 'b' and 'c' with 'd' to make 'a' and 'c' provinces and make them crave 'b' and 'd' respectively.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a' to create pain in 'a' and remove harmony.",
+      "Step 2: Overcome 'a' with 'b' to create harmony, make 'a' a province, and make 'a' crave 'b'.",
+      "Step 3: Attack 'c' to create pain in 'c' and remove harmony.",
+      "Step 4: Overcome 'c' with 'd' to create harmony, make 'c' a province, and make 'c' crave 'd'."
+    ],
+    "rationale": [
+      "The goal is to make 'a' crave 'd' and 'c' crave 'b'.",
+      "To achieve this, we first attack 'a' and 'c' to create pain in them.",
+      "Then, we overcome 'a' with 'b' and 'c' with 'd' to make 'a' and 'c' provinces and make them crave 'b' and 'd' respectively."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 19.7874596118927
+}

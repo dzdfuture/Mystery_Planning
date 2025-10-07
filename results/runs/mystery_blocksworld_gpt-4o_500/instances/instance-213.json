@@ -1,0 +1,187 @@
+{
+  "problem_id": "instance-213",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179079.131076,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00040030479431152344,
+  "language_planning_time": 7.659684658050537,
+  "natural_language_plan": "The plan uses 'feast' to change the province status and cravings, followed by 'succumb' to restore harmony and make the object a planet and province again. Each 'feast' action is followed by a 'succumb' to ensure harmony is restored and the object can be used in subsequent actions. The sequence of actions ensures that the goal state is achieved by manipulating the cravings and province status of the objects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony, and 'd' is a province. We can use 'feast' with 'd' and 'b' to change the state.",
+      "Step 2: After 'feast', 'd' is in pain and 'b' becomes a province. We can now use 'succumb' on 'd' to restore harmony and make 'd' a planet and province again.",
+      "Step 3: With 'd' as a province and harmony restored, we can use 'feast' with 'b' and 'c' to change the state.",
+      "Step 4: After 'feast', 'b' is in pain and 'c' becomes a province. We can now use 'succumb' on 'b' to restore harmony and make 'b' a planet and province again.",
+      "Step 5: With 'b' as a province and harmony restored, we can use 'feast' with 'c' and 'a' to change the state.",
+      "Step 6: After 'feast', 'c' is in pain and 'a' becomes a province. We can now use 'succumb' on 'c' to restore harmony and make 'c' a planet and province again."
+    ],
+    "rationale": [
+      "The plan uses 'feast' to change the province status and cravings, followed by 'succumb' to restore harmony and make the object a planet and province again.",
+      "Each 'feast' action is followed by a 'succumb' to ensure harmony is restored and the object can be used in subsequent actions.",
+      "The sequence of actions ensures that the goal state is achieved by manipulating the cravings and province status of the objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('d',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 15.785290241241455
+}

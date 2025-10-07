@@ -1,0 +1,70 @@
+{
+  "problem_id": "instance-412",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184801.591166,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0003132820129394531,
+  "language_planning_time": 23.551878929138184,
+  "natural_language_plan": "No valid sequence of actions within 3-6 steps achieves the goal predicates. Preconditions for required actions cannot be satisfied simultaneously. The interactions between actions lead to cyclic states without reaching the desired goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempt to perform 'feast a b' to create pain on 'a' and gain control over 'b'.",
+      "Step 2: Use 'overcome a b' to restore harmony and re-establish relationships between 'a' and 'b'.",
+      "Step 3: Try to perform 'feast b d' to manipulate cravings, but preconditions are not met due to the current state."
+    ],
+    "rationale": [
+      "No valid sequence of actions within 3-6 steps achieves the goal predicates.",
+      "Preconditions for required actions cannot be satisfied simultaneously.",
+      "The interactions between actions lead to cyclic states without reaching the desired goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 57.636738538742065
+}

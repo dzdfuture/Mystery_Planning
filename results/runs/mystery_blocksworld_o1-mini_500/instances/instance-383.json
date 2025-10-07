@@ -1,0 +1,64 @@
+{
+  "problem_id": "instance-383",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184613.1727216,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.00035262107849121094,
+  "language_planning_time": 40.13894033432007,
+  "natural_language_plan": "After evaluating all possible action sequences within the given constraints, no valid plan of 3\u20136 steps can achieve the desired goal. The necessary preconditions to establish 'craves a c' and 'craves c b' cannot be satisfied with the available actions and objects.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "After evaluating all possible action sequences within the given constraints, no valid plan of 3\u20136 steps can achieve the desired goal. The necessary preconditions to establish 'craves a c' and 'craves c b' cannot be satisfied with the available actions and objects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 64.3022153377533
+}

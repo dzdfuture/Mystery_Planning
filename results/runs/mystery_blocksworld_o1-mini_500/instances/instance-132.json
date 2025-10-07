@@ -1,0 +1,106 @@
+{
+  "problem_id": "instance-132",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182830.025169,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002353191375732422,
+  "language_planning_time": 22.343210458755493,
+  "natural_language_plan": "The goal predicates require establishing new 'craves' relationships that are not achievable with the available actions and initial state. Specifically, creating 'craves a d', 'craves b c', and 'craves d b' requires actions that depend on predicates which cannot be satisfied given the current objects and action preconditions. For example, establishing 'craves d b' would require creating a province for 'd' and inducing pain, which is not possible without already having the necessary conditions met.",
+  "planning_metadata": {
+    "reasoning_steps": [],
+    "rationale": [
+      "The goal predicates require establishing new 'craves' relationships that are not achievable with the available actions and initial state.",
+      "Specifically, creating 'craves a d', 'craves b c', and 'craves d b' requires actions that depend on predicates which cannot be satisfied given the current objects and action preconditions.",
+      "For example, establishing 'craves d b' would require creating a province for 'd' and inducing pain, which is not possible without already having the necessary conditions met."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 59.893285036087036
+}

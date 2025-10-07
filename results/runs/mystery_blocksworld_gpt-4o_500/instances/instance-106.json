@@ -1,0 +1,139 @@
+{
+  "problem_id": "instance-106",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178866.307589,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00031304359436035156,
+  "language_planning_time": 13.916509866714478,
+  "natural_language_plan": "The plan achieves the goal condition 'craves b d' by manipulating the 'craves' relationships through the use of 'feast' and 'overcome' actions. Each action is chosen based on the current state and the preconditions that are satisfied. The sequence of actions ensures that the final state satisfies the goal condition while respecting all constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Check initial state and identify applicable actions. 'feast' is applicable with (c, a) since 'c' is a province, 'c' craves 'a', and harmony is present.",
+      "Step 2: Apply 'feast' with (c, a). This results in 'c' being in pain, 'a' becoming a province, and harmony being lost.",
+      "Step 3: Check new state and identify applicable actions. 'overcome' is applicable with (d, c) since 'd' craves 'b', 'c' is a province, and 'd' is in pain.",
+      "Step 4: Apply 'overcome' with (d, c). This results in 'd' becoming a province, 'c' losing its province status, and harmony being restored.",
+      "Step 5: Check new state and identify applicable actions. 'feast' is applicable with (d, b) since 'd' is a province, 'd' craves 'b', and harmony is present.",
+      "Step 6: Apply 'feast' with (d, b). This results in 'd' being in pain, 'b' becoming a province, and harmony being lost. The goal condition 'craves b d' is now satisfied."
+    ],
+    "rationale": [
+      "The plan achieves the goal condition 'craves b d' by manipulating the 'craves' relationships through the use of 'feast' and 'overcome' actions.",
+      "Each action is chosen based on the current state and the preconditions that are satisfied.",
+      "The sequence of actions ensures that the final state satisfies the goal condition while respecting all constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('c',)); missing precondition: ('pain', ('d',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('c',)); missing precondition: ('pain', ('d',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 22.12544345855713
+}

@@ -1,0 +1,162 @@
+{
+  "problem_id": "instance-129",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178917.384812,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00030159950256347656,
+  "language_planning_time": 9.829978704452515,
+  "natural_language_plan": "The plan uses 'feast' to create a chain of provinces and pain states that can be resolved with 'succumb' and 'overcome'. Each action is chosen to satisfy preconditions and move towards the goal state. The final state satisfies the goal condition of a craving d.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony, and d is a province. We can use 'feast' with d and c since d craves c, d is a province, and harmony is present.",
+      "Step 2: After 'feast', d is in pain, c becomes a province, and harmony is lost. Now, we can use 'succumb' on d to restore harmony and make d a province and planet again.",
+      "Step 3: With d as a province and harmony restored, we can use 'overcome' with b and c since b craves c and c is a province.",
+      "Step 4: After 'overcome', b becomes a province and craves c. Now, we can use 'overcome' with a and b since a craves b and b is a province.",
+      "Step 5: After the final 'overcome', a craves d, achieving the goal state."
+    ],
+    "rationale": [
+      "The plan uses 'feast' to create a chain of provinces and pain states that can be resolved with 'succumb' and 'overcome'.",
+      "Each action is chosen to satisfy preconditions and move towards the goal state.",
+      "The final state satisfies the goal condition of a craving d."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('d',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 18.21258544921875
+}

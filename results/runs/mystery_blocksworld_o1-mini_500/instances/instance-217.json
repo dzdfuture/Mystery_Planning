@@ -1,0 +1,93 @@
+{
+  "problem_id": "instance-217",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183422.9972346,
+  "success": false,
+  "concept_modeling_time": 2.1457672119140625e-06,
+  "pddl_parsing_time": 0.0004324913024902344,
+  "language_planning_time": 27.753329038619995,
+  "natural_language_plan": "The action 'attack d' cannot be executed due to the missing precondition 'province d'. Without 'pain d', the action 'overcome d b' cannot be performed to achieve the goal. No sequence of allowed actions can satisfy all goal predicates without violating action preconditions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempt to perform 'attack d'.",
+      "Step 1 Preconditions: Requires 'province d', 'planet d', and 'harmony'.",
+      "Step 1 Evaluation: 'province d' is not present in the initial state. Cannot perform 'attack d'.",
+      "Step 2: No alternative actions can create 'pain d' required for 'overcome d b'.",
+      "Step 3: Without 'pain d', the goal cannot be achieved."
+    ],
+    "rationale": [
+      "The action 'attack d' cannot be executed due to the missing precondition 'province d'.",
+      "Without 'pain d', the action 'overcome d b' cannot be performed to achieve the goal.",
+      "No sequence of allowed actions can satisfy all goal predicates without violating action preconditions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('d',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 52.870378255844116
+}

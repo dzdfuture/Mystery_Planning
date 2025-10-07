@@ -1,0 +1,68 @@
+{
+  "problem_id": "instance-88",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182512.0451376,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.000377655029296875,
+  "language_planning_time": 27.848016500473022,
+  "natural_language_plan": "No valid sequence of allowed actions can satisfy all goal predicates given the current domain and problem constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "1. Attempted to modify the initial state to achieve (craves a b) and (craves d c) using available actions.",
+      "2. Realized that adding (craves a b) requires actions that depend on conditions which cannot be satisfied with the current objects and predicates.",
+      "3. Found that achieving (craves d c) is not feasible due to the absence of required preconditions and necessary objects."
+    ],
+    "rationale": [
+      "No valid sequence of allowed actions can satisfy all goal predicates given the current domain and problem constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 66.44879221916199
+}

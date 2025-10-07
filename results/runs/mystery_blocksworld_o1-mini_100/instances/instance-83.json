@@ -1,0 +1,123 @@
+{
+  "problem_id": "instance-83",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758258626.1890533,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0004220008850097656,
+  "language_planning_time": 25.28793978691101,
+  "natural_language_plan": "- Picking up block b allows it to be moved. - Stacking block b on block a achieves the goal of (on b a). - Putting down block b ensures the hand is empty, satisfying all required conditions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Pick up block b using the 'pick-up' action.",
+      "Step 2: Stack block b on block a using the 'stack' action.",
+      "Step 3: The goal state is achieved with block b on a and block a on c."
+    ],
+    "rationale": [
+      "- Picking up block b allows it to be moved.",
+      "- Stacking block b on block a achieves the goal of (on b a).",
+      "- Putting down block b ensures the hand is empty, satisfying all required conditions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'put-down': missing precondition: ('holding', ('b',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 43.191428899765015
+}

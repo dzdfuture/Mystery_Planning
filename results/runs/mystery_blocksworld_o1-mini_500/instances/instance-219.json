@@ -1,0 +1,198 @@
+{
+  "problem_id": "instance-219",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183458.255881,
+  "success": true,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00022268295288085938,
+  "language_planning_time": 17.363083600997925,
+  "natural_language_plan": "- 'attack a' creates pain in 'a' and removes harmony, setting up necessary conditions. - 'succumb a' restores harmony and the state of 'a', allowing further actions. - Repeating 'attack a' reintroduces pain, enabling the 'overcome' action. - 'overcome a c' establishes the desired craves relationship between 'a' and 'c'. - 'feast b a' removes the existing craves relationship and introduces pain in 'b'. - 'overcome b d' establishes the desired craves relationship between 'b' and 'd'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'attack a'. Preconditions met: province a, planet a, harmony. Effects: pain a added; province a, planet a, and harmony removed.",
+      "Step 2: Perform 'succumb a'. Preconditions met: pain a. Effects: province a, planet a, and harmony added; pain a removed.",
+      "Step 3: Perform 'attack a' again. Preconditions met: province a, planet a, harmony. Effects: pain a added; province a, planet a, and harmony removed.",
+      "Step 4: Perform 'overcome a c'. Preconditions met: province c, pain a. Effects: harmony and province a added; craves a c added; province c and pain a removed.",
+      "Step 5: Perform 'feast b a'. Preconditions met: craves b a, province b, harmony. Effects: pain b added; province a and harmony removed; craves b a removed.",
+      "Step 6: Perform 'overcome b d'. Preconditions met: province d, pain b. Effects: harmony and province b added; craves b d added; province d and pain b removed."
+    ],
+    "rationale": [
+      "- 'attack a' creates pain in 'a' and removes harmony, setting up necessary conditions.",
+      "- 'succumb a' restores harmony and the state of 'a', allowing further actions.",
+      "- Repeating 'attack a' reintroduces pain, enabling the 'overcome' action.",
+      "- 'overcome a c' establishes the desired craves relationship between 'a' and 'c'.",
+      "- 'feast b a' removes the existing craves relationship and introduces pain in 'b'.",
+      "- 'overcome b d' establishes the desired craves relationship between 'b' and 'd'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(b,a)",
+    "overcome(b,d)",
+    "attack(a)",
+    "overcome(a,c)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpyq51plyo.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast b a)\n \n2:\n(overcome b d)\n \n3:\n(attack a)\n \n4:\n(overcome a c)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves b a)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province a)\n\nChecking next happening (time 2)\nDeleting (province d)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b d)\n\nChecking next happening (time 3)\nDeleting (province a)\nDeleting (planet a)\nDeleting (harmony)\nAdding (pain a)\n\nChecking next happening (time 4)\nDeleting (province c)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a c)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpyq51plyo.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 52.03544592857361
+}

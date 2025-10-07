@@ -1,0 +1,258 @@
+{
+  "problem_id": "instance-125",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182784.8375347,
+  "success": true,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002951622009277344,
+  "language_planning_time": 38.38593292236328,
+  "natural_language_plan": "Feasting a and b removes their current craves and creates pain, allowing new actions. Overcoming a and d establishes the first goal predicate craves(a, d). Feasting b and c removes their craves and creates pain, setting up for further actions. Overcoming b and a re-establishes harmony and sets up additional craves. Attacking c creates pain on c, enabling the final overcome action. Overcoming c and a achieves the second goal predicate craves(c, a), fulfilling the overall goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects a and b. Preconditions met: craves(a, b), province(a), harmony. Effects: pain(a), province(b), removes craves(a, b), removes province(a), removes harmony.",
+      "Step 2: Perform 'overcome' with objects a and d. Preconditions met: province(d), pain(a). Effects: harmony, province(a), craves(a, d), removes province(d), removes pain(a).",
+      "Step 3: Perform 'feast' on objects b and c. Preconditions met: craves(b, c), province(b), harmony. Effects: pain(b), province(c), removes craves(b, c), removes province(b), removes harmony.",
+      "Step 4: Perform 'overcome' with objects b and a. Preconditions met: province(a), pain(b). Effects: harmony, province(b), craves(b, a), removes province(a), removes pain(b).",
+      "Step 5: Perform 'attack' on object c. Preconditions met: province(c), planet(c), harmony. Effects: pain(c), removes province(c), removes planet(c), removes harmony.",
+      "Step 6: Perform 'overcome' with objects c and a. Preconditions met: province(a), pain(c). Effects: harmony, province(c), craves(c, a), removes province(a), removes pain(c)."
+    ],
+    "rationale": [
+      "Feasting a and b removes their current craves and creates pain, allowing new actions.",
+      "Overcoming a and d establishes the first goal predicate craves(a, d).",
+      "Feasting b and c removes their craves and creates pain, setting up for further actions.",
+      "Overcoming b and a re-establishes harmony and sets up additional craves.",
+      "Attacking c creates pain on c, enabling the final overcome action.",
+      "Overcoming c and a achieves the second goal predicate craves(c, a), fulfilling the overall goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('d',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 6: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(a,b)",
+    "overcome(a,d)",
+    "feast(b,c)",
+    "succumb(b)",
+    "attack(c)",
+    "overcome(c,a)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpq1r1m3st.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast a b)\n \n2:\n(overcome a d)\n \n3:\n(feast b c)\n \n4:\n(succumb b)\n \n5:\n(attack c)\n \n6:\n(overcome c a)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves a b)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province b)\n\nChecking next happening (time 2)\nDeleting (province d)\nDeleting (pain a)\nAdding (harmony)\nAdding (province a)\nAdding (craves a d)\n\nChecking next happening (time 3)\nDeleting (craves b c)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province c)\n\nChecking next happening (time 4)\nDeleting (pain b)\nAdding (province b)\nAdding (harmony)\nAdding (planet b)\n\nChecking next happening (time 5)\nDeleting (province c)\nDeleting (planet c)\nDeleting (harmony)\nAdding (pain c)\n\nChecking next happening (time 6)\nDeleting (province a)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c a)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpq1r1m3st.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 71.15650987625122
+}

@@ -1,0 +1,117 @@
+{
+  "problem_id": "instance-455",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185112.4926474,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0002269744873046875,
+  "language_planning_time": 22.992369651794434,
+  "natural_language_plan": "- 'feast c e' modifies the state to allow subsequent actions. - 'succumb c' restores harmony and necessary predicates. - 'attack c' creates pain(c) which is required for further state changes.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempt to perform 'feast c e'.",
+      " - Preconditions met: craves(c, e), province(c), harmony.",
+      " - Effects: Adds pain(c), adds province(e), removes craves(c, e), removes province(c), removes harmony.",
+      "Step 2: Attempt to perform 'succumb c'.",
+      " - Preconditions met: pain(c).",
+      " - Effects: Adds province(c), adds harmony, adds planet(c), removes pain(c).",
+      "Step 3: Attempt to perform 'attack c'.",
+      " - Preconditions met: province(c), planet(c), harmony.",
+      " - Effects: Adds pain(c), removes province(c), removes planet(c), removes harmony."
+    ],
+    "rationale": [
+      "- 'feast c e' modifies the state to allow subsequent actions.",
+      "- 'succumb c' restores harmony and necessary predicates.",
+      "- 'attack c' creates pain(c) which is required for further state changes."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "e"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "e"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 57.47592544555664
+}

@@ -1,0 +1,156 @@
+{
+  "problem_id": "instance-29",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182126.717052,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.00023484230041503906,
+  "language_planning_time": 38.757782220840454,
+  "natural_language_plan": "Initiate by performing 'feast a d' to generate pain and reassign craves. Restore harmony and remove pain from 'a' with 'succumb a'. Attack 'a' again to reintroduce pain, enabling the 'overcome' action. Use 'overcome a d' to establish a new craving from 'a' to 'd'. Attack 'd' to generate pain necessary for the next 'overcome' action. Finally, perform 'overcome d c' to achieve the goal craving from 'd' to 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast a d' to create pain for 'a' and reassign craving from 'd'.",
+      "Step 2: Perform 'succumb a' to restore harmony and remove pain from 'a'.",
+      "Step 3: Perform 'attack a' to inflict pain on 'a' again, setting up for overcoming.",
+      "Step 4: Perform 'overcome a d' to establish a new craving from 'a' to 'd'.",
+      "Step 5: Perform 'attack d' to inflict pain on 'd', preparing to overcome it.",
+      "Step 6: Perform 'overcome d c' to create the desired craving from 'd' to 'c'."
+    ],
+    "rationale": [
+      "Initiate by performing 'feast a d' to generate pain and reassign craves.",
+      "Restore harmony and remove pain from 'a' with 'succumb a'.",
+      "Attack 'a' again to reintroduce pain, enabling the 'overcome' action.",
+      "Use 'overcome a d' to establish a new craving from 'a' to 'd'.",
+      "Attack 'd' to generate pain necessary for the next 'overcome' action.",
+      "Finally, perform 'overcome d c' to achieve the goal craving from 'd' to 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'attack': missing precondition: ('province', ('d',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 58.9860565662384
+}

@@ -1,0 +1,68 @@
+{
+  "problem_id": "instance-337",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184277.50016,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00037097930908203125,
+  "language_planning_time": 27.193333864212036,
+  "natural_language_plan": "The sequence of available actions and objects does not allow achieving all required 'craves' predicates without violating action preconditions or reverting to the initial state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempted to attack 'b' to create pain and modify the state.",
+      "Step 2: Overcame 'b' with 'c' to establish a new craves relationship.",
+      "Step 3: Tried to manipulate further actions, but prerequisites for desired goals could not be met."
+    ],
+    "rationale": [
+      "The sequence of available actions and objects does not allow achieving all required 'craves' predicates without violating action preconditions or reverting to the initial state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 52.60303044319153
+}

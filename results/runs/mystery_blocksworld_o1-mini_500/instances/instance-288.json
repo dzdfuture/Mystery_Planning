@@ -1,0 +1,154 @@
+{
+  "problem_id": "instance-288",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183938.6582146,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0003116130828857422,
+  "language_planning_time": 8.908298015594482,
+  "natural_language_plan": "Each 'attack' action creates the necessary 'pain' predicate for the corresponding object. 'Overcome' actions utilize the 'pain' and existing provinces to establish the required 'craves' relationships. After each 'overcome', harmony is restored, allowing the next 'attack' to proceed. The sequence ensures all goal predicates (craves b a, craves c d, craves d b) are achieved within six steps.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'attack' on 'c'. Preconditions: province c, planet c, harmony. Effects: pain c added; province c, planet c, and harmony removed.",
+      "Step 2: Perform 'overcome' with 'c' and 'd'. Preconditions: province d, pain c. Effects: craves c d added; province c added; province d and pain c removed; harmony restored.",
+      "Step 3: Perform 'attack' on 'b'. Preconditions: province b, planet b, harmony. Effects: pain b added; province b, planet b, and harmony removed.",
+      "Step 4: Perform 'overcome' with 'b' and 'a'. Preconditions: province a, pain b. Effects: craves b a added; province b added; pain b removed; harmony restored.",
+      "Step 5: Perform 'attack' on 'd'. Preconditions: province d, planet d, harmony. Effects: pain d added; province d, planet d, and harmony removed.",
+      "Step 6: Perform 'overcome' with 'd' and 'b'. Preconditions: province b, pain d. Effects: craves d b added; province d added; pain d removed; harmony restored."
+    ],
+    "rationale": [
+      "Each 'attack' action creates the necessary 'pain' predicate for the corresponding object.",
+      "'Overcome' actions utilize the 'pain' and existing provinces to establish the required 'craves' relationships.",
+      "After each 'overcome', harmony is restored, allowing the next 'attack' to proceed.",
+      "The sequence ensures all goal predicates (craves b a, craves c d, craves d b) are achieved within six steps."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('c',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 28.915078163146973
+}

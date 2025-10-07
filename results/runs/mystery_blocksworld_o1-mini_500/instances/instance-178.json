@@ -1,0 +1,126 @@
+{
+  "problem_id": "instance-178",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183161.809619,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00041866302490234375,
+  "language_planning_time": 31.114277601242065,
+  "natural_language_plan": "Attacking 'a' creates pain and removes harmony, setting up conditions for overcoming. Overcoming 'a' with 'c' establishes the desired craves relationship between 'a' and 'c'. Attacking 'd' generates pain necessary for the next overcoming step. Overcoming 'd' with 'a' completes the craves relationship between 'd' and 'a', achieving part of the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'attack a'. Preconditions met: province a, planet a, harmony. Effects: Adds pain a, removes province a, planet a, and harmony.",
+      "Step 2: Perform 'overcome a c'. Preconditions met: province c, pain a. Effects: Adds craves a c, restores harmony and province a, removes pain a and province c.",
+      "Step 3: Perform 'attack d'. Preconditions met: province d, planet d, harmony. Effects: Adds pain d, removes province d, planet d, and harmony.",
+      "Step 4: Perform 'overcome d a'. Preconditions met: province a, pain d. Effects: Adds craves d a, restores harmony and province d, removes pain d and province a."
+    ],
+    "rationale": [
+      "Attacking 'a' creates pain and removes harmony, setting up conditions for overcoming.",
+      "Overcoming 'a' with 'c' establishes the desired craves relationship between 'a' and 'c'.",
+      "Attacking 'd' generates pain necessary for the next overcoming step.",
+      "Overcoming 'd' with 'a' completes the craves relationship between 'd' and 'a', achieving part of the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 62.83225202560425
+}

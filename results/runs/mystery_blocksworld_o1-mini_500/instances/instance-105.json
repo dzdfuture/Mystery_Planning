@@ -1,0 +1,67 @@
+{
+  "problem_id": "instance-105",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182642.7167997,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002944469451904297,
+  "language_planning_time": 26.266597747802734,
+  "natural_language_plan": "The required predicates for the goal cannot be satisfied with the given actions and objects within the step limit. Attempts to manipulate predicates result in cyclic or incomplete states that do not meet the goal conditions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "After analyzing the initial state and available actions, it's determined that no valid sequence of 3-6 actions can achieve the goal of having both (craves b d) and (craves c a) simultaneously."
+    ],
+    "rationale": [
+      "The required predicates for the goal cannot be satisfied with the given actions and objects within the step limit.",
+      "Attempts to manipulate predicates result in cyclic or incomplete states that do not meet the goal conditions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 68.69746899604797
+}

@@ -1,0 +1,196 @@
+{
+  "problem_id": "instance-145",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090669.3489714,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00038552284240722656,
+  "language_planning_time": 32.354548931121826,
+  "natural_language_plan": "The 'attack' action is used to cause pain to 'b' and 'c', which allows them to be overcome by 'a' and 'b' respectively. The 'overcome' action is used to make 'a' crave 'b' and 'b' crave 'c', which are part of the goal state. The 'feast' action is used to make 'a' stop craving 'd', which is necessary because the goal state requires 'a' to crave 'c' instead. The final 'overcome' action is used to make 'c' crave 'a', completing the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'b'. Preconditions: 'b' is a province and a planet, and harmony exists. Effects: 'b' is in pain, 'b' is no longer a province or a planet, and harmony no longer exists.",
+      "Step 2: Overcome 'b' with 'a'. Preconditions: 'b' is in pain and 'a' is a province. Effects: Harmony is restored, 'b' becomes a province, 'a' craves 'b', 'a' is no longer a province, and 'b' is no longer in pain.",
+      "Step 3: Attack 'c'. Preconditions: 'c' is a province and a planet, and harmony exists. Effects: 'c' is in pain, 'c' is no longer a province or a planet, and harmony no longer exists.",
+      "Step 4: Overcome 'c' with 'b'. Preconditions: 'c' is in pain and 'b' is a province. Effects: Harmony is restored, 'c' becomes a province, 'b' craves 'c', 'b' is no longer a province, and 'c' is no longer in pain.",
+      "Step 5: Feast 'a' on 'd'. Preconditions: 'a' craves 'd', 'a' is a province, and harmony exists. Effects: 'a' is in pain, 'd' becomes a province, 'a' no longer craves 'd', 'a' is no longer a province, and harmony no longer exists.",
+      "Step 6: Overcome 'a' with 'c'. Preconditions: 'a' is in pain and 'c' is a province. Effects: Harmony is restored, 'a' becomes a province, 'c' craves 'a', 'c' is no longer a province, and 'a' is no longer in pain."
+    ],
+    "rationale": [
+      "The 'attack' action is used to cause pain to 'b' and 'c', which allows them to be overcome by 'a' and 'b' respectively.",
+      "The 'overcome' action is used to make 'a' crave 'b' and 'b' crave 'c', which are part of the goal state.",
+      "The 'feast' action is used to make 'a' stop craving 'd', which is necessary because the goal state requires 'a' to crave 'c' instead.",
+      "The final 'overcome' action is used to make 'c' crave 'a', completing the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 54.962586879730225
+}

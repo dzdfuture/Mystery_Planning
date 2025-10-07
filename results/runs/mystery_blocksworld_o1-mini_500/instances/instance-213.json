@@ -1,0 +1,164 @@
+{
+  "problem_id": "instance-213",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183397.1052468,
+  "success": false,
+  "concept_modeling_time": 2.86102294921875e-06,
+  "pddl_parsing_time": 0.0005228519439697266,
+  "language_planning_time": 41.681626319885254,
+  "natural_language_plan": "The sequence of actions enters a loop without making progress towards the goal. Each action reverses the effects of the previous one, preventing the achievement of the desired craves. No available actions can create 'province a', which is necessary to establish 'craves b a'. Thus, it is impossible to achieve the goal within the given constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempting to perform 'feast d b'.",
+      " - Preconditions satisfied: 'craves d b', 'province d', 'harmony'.",
+      " - Effects: Adds 'pain d' and 'province b'; removes 'craves d b', 'province d', and 'harmony'.",
+      "Step 2: Performing 'succumb d' to restore 'harmony'.",
+      " - Preconditions satisfied: 'pain d'.",
+      " - Effects: Adds 'province d', 'harmony', and 'planet d'; removes 'pain d'.",
+      "Step 3: Attempting to perform 'feast b c'.",
+      " - Preconditions satisfied: 'craves b c', 'province b', 'harmony'.",
+      " - Effects: Adds 'pain b' and 'province c'; removes 'craves b c', 'province b', and 'harmony'.",
+      "Step 4: Performing 'succumb b' to restore 'harmony'.",
+      " - Preconditions satisfied: 'pain b'.",
+      " - Effects: Adds 'province b', 'harmony', and 'planet b'; removes 'pain b'.",
+      "Step 5: Attempting to perform 'attack d'.",
+      " - Preconditions satisfied: 'province d', 'planet d', 'harmony'.",
+      " - Effects: Adds 'pain d'; removes 'province d', 'planet d', and 'harmony'.",
+      "Step 6: Performing 'succumb d' to restore 'harmony'.",
+      " - Preconditions satisfied: 'pain d'.",
+      " - Effects: Adds 'province d', 'harmony', and 'planet d'; removes 'pain d'."
+    ],
+    "rationale": [
+      "The sequence of actions enters a loop without making progress towards the goal.",
+      "Each action reverses the effects of the previous one, preventing the achievement of the desired craves.",
+      "No available actions can create 'province a', which is necessary to establish 'craves b a'.",
+      "Thus, it is impossible to achieve the goal within the given constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 61.14058327674866
+}

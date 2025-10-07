@@ -1,0 +1,166 @@
+{
+  "problem_id": "instance-496",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758091003.8820956,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00033545494079589844,
+  "language_planning_time": 17.714731693267822,
+  "natural_language_plan": "The 'attack' action is used to create a 'pain' state in an object, which can then be 'overcome' by another object to create a 'craves' relationship. The 'overcome' action also removes the 'pain' state and makes the object a 'province' again. By carefully choosing the objects for these actions, we can create the desired 'craves' relationships to satisfy the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a' to create a 'pain' state and remove 'province' and 'planet' states from 'a'.",
+      "Step 2: Overcome 'a' with 'b' to remove 'pain' from 'a', make 'a' a 'province' again, and create a 'craves' relationship between 'b' and 'c'.",
+      "Step 3: Attack 'c' to create a 'pain' state and remove 'province' and 'planet' states from 'c'.",
+      "Step 4: Overcome 'c' with 'e' to remove 'pain' from 'c', make 'c' a 'province' again, and create a 'craves' relationship between 'c' and 'e'."
+    ],
+    "rationale": [
+      "The 'attack' action is used to create a 'pain' state in an object, which can then be 'overcome' by another object to create a 'craves' relationship.",
+      "The 'overcome' action also removes the 'pain' state and makes the object a 'province' again.",
+      "By carefully choosing the objects for these actions, we can create the desired 'craves' relationships to satisfy the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "e"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "e"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "e"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 32.87684178352356
+}

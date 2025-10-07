@@ -1,0 +1,202 @@
+{
+  "problem_id": "instance-493",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185398.4814014,
+  "success": false,
+  "concept_modeling_time": 7.152557373046875e-07,
+  "pddl_parsing_time": 0.0002269744873046875,
+  "language_planning_time": 23.44585657119751,
+  "natural_language_plan": "Feasting on 'b' and 'd' removes their existing craving and introduces pain to 'b'. Overcoming 'a' with 'b' changes 'b's craving from 'd' to 'a'. Feasting on 'e' and 'c' removes their existing craving and inflicts pain on 'e'. Succumbing of 'e' restores harmony and reestablishes 'e's province and planet. Overcoming 'd' with 'c' establishes the craving (craves c d). Finally, overcoming 'e' with 'd' sets up the craving (craves d e), achieving all goal predicates.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects 'b' and 'd' to remove the existing craving (craves b d) and introduce pain to 'b'.",
+      "Step 2: Execute 'overcome' with objects 'b' and 'a' to establish a new craving (craves b a) by overcoming 'a'.",
+      "Step 3: Conduct 'feast' on objects 'e' and 'c' to eliminate the craving (craves e c) and inflict pain on 'e'.",
+      "Step 4: Apply 'succumb' to object 'e' to restore harmony and re-establish the province and planet for 'e'.",
+      "Step 5: Perform 'overcome' with objects 'c' and 'd' to create the required craving (craves c d).",
+      "Step 6: Execute 'overcome' with objects 'd' and 'e' to establish the final craving (craves d e) needed for the goal."
+    ],
+    "rationale": [
+      "Feasting on 'b' and 'd' removes their existing craving and introduces pain to 'b'.",
+      "Overcoming 'a' with 'b' changes 'b's craving from 'd' to 'a'.",
+      "Feasting on 'e' and 'c' removes their existing craving and inflicts pain on 'e'.",
+      "Succumbing of 'e' restores harmony and reestablishes 'e's province and planet.",
+      "Overcoming 'd' with 'c' establishes the craving (craves c d).",
+      "Finally, overcoming 'e' with 'd' sets up the craving (craves d e), achieving all goal predicates."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "e",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "e"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "e"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "e",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "e",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "e",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "e"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "e"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('c',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 58.18303608894348
+}

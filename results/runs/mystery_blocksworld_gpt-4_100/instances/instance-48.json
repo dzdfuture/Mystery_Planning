@@ -1,0 +1,182 @@
+{
+  "problem_id": "instance-48",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758173776.7059476,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.0005664825439453125,
+  "language_planning_time": 23.097177028656006,
+  "natural_language_plan": "The goal is to stack block 'a' on block 'b' and block 'b' on block 'c'. Initially, block 'b' is on block 'c', so we first unstack block 'b' from block 'c'. Then, we put down block 'b' on the table. Next, we pick up block 'a' and stack it on block 'b'. After that, we pick up the stack of block 'a' and 'b' and stack it on block 'c'. Finally, we achieve the goal state where block 'a' is on block 'b' and block 'b' is on block 'c'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Unstack block 'b' from block 'c'. Preconditions: Block 'b' is on block 'c', block 'b' is clear and hand is empty. Effects: Block 'b' is now being held, block 'c' is clear, block 'b' is no longer on block 'c', block 'b' is no longer clear and hand is no longer empty.",
+      "Step 2: Put down block 'b'. Preconditions: Block 'b' is being held. Effects: Block 'b' is now clear, hand is empty, block 'b' is on the table and block 'b' is no longer being held.",
+      "Step 3: Pick up block 'a'. Preconditions: Block 'a' is clear, block 'a' is on the table and hand is empty. Effects: Block 'a' is now being held, block 'a' is no longer clear, block 'a' is no longer on the table and hand is no longer empty.",
+      "Step 4: Stack block 'a' on block 'b'. Preconditions: Block 'b' is clear and block 'a' is being held. Effects: Hand is now empty, block 'a' is clear, block 'a' is on block 'b', block 'b' is no longer clear and block 'a' is no longer being held.",
+      "Step 5: Pick up block 'b'. Preconditions: Block 'b' is clear, block 'b' is on the table and hand is empty. Effects: Block 'b' is now being held, block 'b' is no longer clear, block 'b' is no longer on the table and hand is no longer empty.",
+      "Step 6: Stack block 'b' on block 'c'. Preconditions: Block 'c' is clear and block 'b' is being held. Effects: Hand is now empty, block 'b' is clear, block 'b' is on block 'c', block 'c' is no longer clear and block 'b' is no longer being held."
+    ],
+    "rationale": [
+      "The goal is to stack block 'a' on block 'b' and block 'b' on block 'c'.",
+      "Initially, block 'b' is on block 'c', so we first unstack block 'b' from block 'c'.",
+      "Then, we put down block 'b' on the table.",
+      "Next, we pick up block 'a' and stack it on block 'b'.",
+      "After that, we pick up the stack of block 'a' and 'b' and stack it on block 'c'.",
+      "Finally, we achieve the goal state where block 'a' is on block 'b' and block 'b' is on block 'c'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "put-down",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "pick-up",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'pick-up': missing precondition: ('ontable', ('b',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'pick-up': missing precondition: ('clear', ('b',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 35.46887135505676
+}

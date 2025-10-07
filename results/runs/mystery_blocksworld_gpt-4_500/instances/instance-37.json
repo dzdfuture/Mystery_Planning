@@ -1,0 +1,164 @@
+{
+  "problem_id": "instance-37",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758089997.5866659,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00022172927856445312,
+  "language_planning_time": 15.817418575286865,
+  "natural_language_plan": "The 'attack' action is used to cause pain to the objects 'a' and 'c' which are planets. The 'overcome' action is used to make 'b' crave 'a' and 'd' crave 'c' which are the goal conditions. The 'overcome' action also removes the pain from 'a' and 'c' caused by the 'attack' action.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: 'attack' action is used on object 'a' as it is a planet and there is harmony. This will result in 'a' being in pain and harmony will be lost.",
+      "Step 2: 'overcome' action is used on objects 'b' and 'a'. 'b' is a province and 'a' is in pain. This will result in 'b' craving 'a' and 'a' will no longer be in pain.",
+      "Step 3: 'attack' action is used on object 'c' as it is a planet and there is harmony. This will result in 'c' being in pain and harmony will be lost.",
+      "Step 4: 'overcome' action is used on objects 'd' and 'c'. 'd' is a province and 'c' is in pain. This will result in 'd' craving 'c' and 'c' will no longer be in pain."
+    ],
+    "rationale": [
+      "The 'attack' action is used to cause pain to the objects 'a' and 'c' which are planets.",
+      "The 'overcome' action is used to make 'b' crave 'a' and 'd' crave 'c' which are the goal conditions.",
+      "The 'overcome' action also removes the pain from 'a' and 'c' caused by the 'attack' action."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 38.18424391746521
+}

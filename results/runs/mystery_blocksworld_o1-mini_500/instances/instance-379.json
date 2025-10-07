@@ -1,0 +1,69 @@
+{
+  "problem_id": "instance-379",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184585.5246565,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.00029587745666503906,
+  "language_planning_time": 36.55611753463745,
+  "natural_language_plan": "The required predicate 'craves a d' cannot be established because 'province a' and 'pain a' are not present and cannot be generated with the available actions. No sequence of allowed actions can satisfy all goal predicates simultaneously.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial state and goal predicates.",
+      "Attempted various action sequences using allowed actions and objects.",
+      "Determined that achieving the goal predicates is not possible with the given actions and initial state."
+    ],
+    "rationale": [
+      "The required predicate 'craves a d' cannot be established because 'province a' and 'pain a' are not present and cannot be generated with the available actions.",
+      "No sequence of allowed actions can satisfy all goal predicates simultaneously."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 75.36425876617432
+}

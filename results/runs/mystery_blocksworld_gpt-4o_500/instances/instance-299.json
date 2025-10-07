@@ -1,0 +1,146 @@
+{
+  "problem_id": "instance-299",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179254.6932855,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00034308433532714844,
+  "language_planning_time": 5.121122121810913,
+  "natural_language_plan": "The plan achieves the goal by manipulating the 'craves' relationships. The 'feast' action changes 'a' from craving 'c' to being in pain, allowing 'succumb' to restore 'a' as a province. The 'overcome' action sets up the final 'craves' relationships needed for the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use the 'feast' action with 'a' and 'c'. Preconditions are satisfied because 'a' craves 'c', 'a' is a province, and harmony exists.",
+      "Step 2: Use the 'succumb' action with 'a'. Preconditions are satisfied because 'a' is in pain.",
+      "Step 3: Use the 'overcome' action with 'b' and 'd'. Preconditions are satisfied because 'd' is a province and 'b' is in pain."
+    ],
+    "rationale": [
+      "The plan achieves the goal by manipulating the 'craves' relationships.",
+      "The 'feast' action changes 'a' from craving 'c' to being in pain, allowing 'succumb' to restore 'a' as a province.",
+      "The 'overcome' action sets up the final 'craves' relationships needed for the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('b',))",
+        "length": 5
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('province', ('d',)); missing precondition: ('pain', ('b',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 11.254770994186401
+}

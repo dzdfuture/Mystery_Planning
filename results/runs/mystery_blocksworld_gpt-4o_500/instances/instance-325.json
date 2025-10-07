@@ -1,0 +1,200 @@
+{
+  "problem_id": "instance-325",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758179302.1398883,
+  "success": false,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.0004000663757324219,
+  "language_planning_time": 8.705657005310059,
+  "natural_language_plan": "The plan uses 'feast' to create pain and change province status, allowing 'overcome' to establish new cravings. Each step respects the preconditions and effects of the actions. The final state satisfies the goal conditions: a craves b, c craves d, and d craves a.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony, and b is a province. We can use the 'feast' action with b and c to create pain in b and make c a province.",
+      "Step 2: Now, b is in pain, and c is a province. We can use the 'overcome' action with b and c to make b a province again and establish that b craves c.",
+      "Step 3: With b as a province and in harmony, we can use the 'feast' action with c and a to create pain in c and make a a province.",
+      "Step 4: Now, c is in pain, and a is a province. We can use the 'overcome' action with c and a to make c a province again and establish that c craves a.",
+      "Step 5: With c as a province and in harmony, we can use the 'feast' action with a and d to create pain in a and make d a province.",
+      "Step 6: Now, a is in pain, and d is a province. We can use the 'overcome' action with a and d to make a a province again and establish that a craves d."
+    ],
+    "rationale": [
+      "The plan uses 'feast' to create pain and change province status, allowing 'overcome' to establish new cravings.",
+      "Each step respects the preconditions and effects of the actions.",
+      "The final state satisfies the goal conditions: a craves b, c craves d, and d craves a."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'overcome': missing precondition: ('pain', ('c',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('province', ('c',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 15.933662176132202
+}

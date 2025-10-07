@@ -1,0 +1,153 @@
+{
+  "problem_id": "instance-88",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758089824.4263713,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0003619194030761719,
+  "language_planning_time": 14.638386011123657,
+  "natural_language_plan": "The goal is to make 'a' crave 'b' and 'd' crave 'c'. The 'attack' action causes pain and removes the province and planet status of the object, and also removes harmony. The 'overcome' action can be used to make an object crave another object, restore province status to the object, and restore harmony. It also removes the province status of the second object. By attacking 'a' and 'd', and then overcoming 'a' with 'b' and 'd' with 'c', the goal is achieved.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'a' to cause pain and remove the province and planet status of 'a'. This also removes the harmony.",
+      "Step 2: Overcome 'a' with 'b' to make 'a' crave 'b', restore province status to 'a', and restore harmony. This also removes the province status of 'b'.",
+      "Step 3: Attack 'd' to cause pain and remove the province and planet status of 'd'. This also removes the harmony.",
+      "Step 4: Overcome 'd' with 'c' to make 'd' crave 'c', restore province status to 'd', and restore harmony. This also removes the province status of 'c'."
+    ],
+    "rationale": [
+      "The goal is to make 'a' crave 'b' and 'd' crave 'c'.",
+      "The 'attack' action causes pain and removes the province and planet status of the object, and also removes harmony.",
+      "The 'overcome' action can be used to make an object crave another object, restore province status to the object, and restore harmony. It also removes the province status of the second object.",
+      "By attacking 'a' and 'd', and then overcoming 'a' with 'b' and 'd' with 'c', the goal is achieved."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 38.898072481155396
+}

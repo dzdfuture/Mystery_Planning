@@ -1,0 +1,213 @@
+{
+  "problem_id": "instance-35",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182177.3047156,
+  "success": true,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.00042724609375,
+  "language_planning_time": 32.18891263008118,
+  "natural_language_plan": "Initial 'feast' creates a state where object 'c' experiences pain. 'Succumb' restores harmony and regains province control for 'c'. 'Attack' on 'c' reintroduces pain, allowing further state manipulation. 'Overcome' establishes new craves relationships, setting up for desired goal. Repeating 'feast' and 'succumb' cycles aims to adjust the craves to achieve the goal. Final 'succumb' ensures the goal predicate (craves d c) is satisfied.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on objects 'c' and 'a'.",
+      "Step 2: Perform 'succumb' on object 'c'.",
+      "Step 3: Perform 'attack' on object 'c'.",
+      "Step 4: Perform 'overcome' with objects 'c' and 'a'.",
+      "Step 5: Perform 'feast' on objects 'c' and 'a'.",
+      "Step 6: Perform 'succumb' on object 'c'."
+    ],
+    "rationale": [
+      "Initial 'feast' creates a state where object 'c' experiences pain.",
+      "'Succumb' restores harmony and regains province control for 'c'.",
+      "'Attack' on 'c' reintroduces pain, allowing further state manipulation.",
+      "'Overcome' establishes new craves relationships, setting up for desired goal.",
+      "Repeating 'feast' and 'succumb' cycles aims to adjust the craves to achieve the goal.",
+      "Final 'succumb' ensures the goal predicate (craves d c) is satisfied."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "c"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(c,a)",
+    "succumb(c)",
+    "feast(a,d)",
+    "succumb(a)",
+    "feast(d,b)",
+    "overcome(d,c)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmph7mn4qzl.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast c a)\n \n2:\n(succumb c)\n \n3:\n(feast a d)\n \n4:\n(succumb a)\n \n5:\n(feast d b)\n \n6:\n(overcome d c)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves c a)\nDeleting (province c)\nDeleting (harmony)\nAdding (pain c)\nAdding (province a)\n\nChecking next happening (time 2)\nDeleting (pain c)\nAdding (province c)\nAdding (harmony)\nAdding (planet c)\n\nChecking next happening (time 3)\nDeleting (craves a d)\nDeleting (province a)\nDeleting (harmony)\nAdding (pain a)\nAdding (province d)\n\nChecking next happening (time 4)\nDeleting (pain a)\nAdding (province a)\nAdding (harmony)\nAdding (planet a)\n\nChecking next happening (time 5)\nDeleting (craves d b)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province b)\n\nChecking next happening (time 6)\nDeleting (province c)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d c)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmph7mn4qzl.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 51.28281092643738
+}

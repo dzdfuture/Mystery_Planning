@@ -1,0 +1,66 @@
+{
+  "problem_id": "instance-104",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182612.902359,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00026535987854003906,
+  "language_planning_time": 27.439392566680908,
+  "natural_language_plan": "The available actions and objects do not allow for the necessary state changes to satisfy all goal predicates.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "No valid plan can achieve the desired goal with the given actions and objects."
+    ],
+    "rationale": [
+      "The available actions and objects do not allow for the necessary state changes to satisfy all goal predicates."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 52.521668434143066
+}

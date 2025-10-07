@@ -1,0 +1,151 @@
+{
+  "problem_id": "instance-444",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758185024.8306406,
+  "success": true,
+  "concept_modeling_time": 1.9073486328125e-06,
+  "pddl_parsing_time": 0.0003407001495361328,
+  "language_planning_time": 18.53447914123535,
+  "natural_language_plan": "1. 'attack b' generates 'pain b' and removes 'harmony', setting up the conditions needed for the next action. 2. 'overcome b d' satisfies the goal by adding 'craves b d' while restoring 'harmony'. 3. 'attack a' ensures all actions follow the constraints and maintains consistency in the state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'attack' on object 'b'. Preconditions (province b, planet b, harmony) are satisfied. Effects: adds (pain b), removes (province b), removes (planet b), removes (harmony).",
+      "Step 2: Perform 'overcome' with objects 'b' and 'd'. Preconditions (province d, pain b) are satisfied. Effects: adds (harmony), adds (province b), adds (craves b d), removes (province d), removes (pain b).",
+      "Step 3: Perform 'attack' on object 'a'. Preconditions (province a, planet a, harmony) are satisfied. Effects: adds (pain a), removes (province a), removes (planet a), removes (harmony)."
+    ],
+    "rationale": [
+      "1. 'attack b' generates 'pain b' and removes 'harmony', setting up the conditions needed for the next action.",
+      "2. 'overcome b d' satisfies the goal by adding 'craves b d' while restoring 'harmony'.",
+      "3. 'attack a' ensures all actions follow the constraints and maintains consistency in the state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('d',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(c,d)",
+    "succumb(c)",
+    "attack(b)",
+    "overcome(b,d)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpgkmseigu.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(feast c d)\n \n2:\n(succumb c)\n \n3:\n(attack b)\n \n4:\n(overcome b d)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves c d)\nDeleting (province c)\nDeleting (harmony)\nAdding (pain c)\nAdding (province d)\n\nChecking next happening (time 2)\nDeleting (pain c)\nAdding (province c)\nAdding (harmony)\nAdding (planet c)\n\nChecking next happening (time 3)\nDeleting (province b)\nDeleting (planet b)\nDeleting (harmony)\nAdding (pain b)\n\nChecking next happening (time 4)\nDeleting (province d)\nDeleting (pain b)\nAdding (harmony)\nAdding (province b)\nAdding (craves b d)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmpgkmseigu.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 31.97023606300354
+}

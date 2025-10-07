@@ -1,0 +1,140 @@
+{
+  "problem_id": "instance-122",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178902.566864,
+  "success": false,
+  "concept_modeling_time": 1.430511474609375e-06,
+  "pddl_parsing_time": 0.00025725364685058594,
+  "language_planning_time": 7.7356109619140625,
+  "natural_language_plan": "The plan starts by using 'feast' to make 'd' a province, which is necessary for the goal. Using 'succumb' on 'b' restores harmony and makes 'b' a province again, allowing further actions. The final 'feast' action on 'c' and 'a' sets up the conditions to achieve the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony, and 'b' is a province. We can use 'feast' with 'b' and 'd' because 'b' craves 'd', and 'b' is a province.",
+      "Step 2: After the 'feast' action, 'b' is in pain and 'd' becomes a province. We can now use 'succumb' on 'b' to restore harmony and make 'b' a province again.",
+      "Step 3: With 'b' as a province and harmony restored, we can use 'feast' with 'c' and 'a' because 'c' craves 'a' and 'c' is a province."
+    ],
+    "rationale": [
+      "The plan starts by using 'feast' to make 'd' a province, which is necessary for the goal.",
+      "Using 'succumb' on 'b' restores harmony and makes 'b' a province again, allowing further actions.",
+      "The final 'feast' action on 'c' and 'a' sets up the conditions to achieve the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('province', ('c',))",
+        "length": 4
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('province', ('c',))",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 11.479711055755615
+}

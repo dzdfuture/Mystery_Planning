@@ -1,0 +1,126 @@
+{
+  "problem_id": "instance-294",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183977.874133,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.00022721290588378906,
+  "language_planning_time": 29.186492204666138,
+  "natural_language_plan": "Feasting alters the relationships by creating pain and changing provinces. Succumbing restores harmony and the province for 'c', setting the stage for further actions. Attacking 'c' induces pain and removes harmony, which is necessary for the 'overcome' action. Overcoming 'c' and 'd' establishes new craves relationships required to approach the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'feast' on 'c' and 'd' to create pain in 'c' and transfer province to 'd'.",
+      "Step 2: Apply 'succumb' on 'c' to restore harmony and province to 'c'.",
+      "Step 3: Perform 'attack' on 'c' to induce pain and remove harmony, enabling further actions.",
+      "Step 4: Execute 'overcome' with 'c' and 'd' to establish a new craves relationship between them."
+    ],
+    "rationale": [
+      "Feasting alters the relationships by creating pain and changing provinces.",
+      "Succumbing restores harmony and the province for 'c', setting the stage for further actions.",
+      "Attacking 'c' induces pain and removes harmony, which is necessary for the 'overcome' action.",
+      "Overcoming 'c' and 'd' establishes new craves relationships required to approach the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 57.425352811813354
+}

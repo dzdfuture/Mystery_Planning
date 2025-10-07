@@ -1,0 +1,199 @@
+{
+  "problem_id": "instance-377",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758089414.3149285,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00029087066650390625,
+  "language_planning_time": 14.481374740600586,
+  "natural_language_plan": "The 'attack' action causes 'a' to be in pain and disrupts harmony. The 'succumb' action restores harmony and makes 'a' a province again. The 'feast' action causes 'a' to be in pain again and makes 'c' a province. The 'overcome' action makes 'c' a province and creates a craving from 'c' to 'a'. The second 'feast' action causes 'c' to be in pain again and makes 'b' a province. The second 'overcome' action makes 'b' a province and creates a craving from 'b' to 'c', achieving the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: 'a' is a province and 'd' is a planet, and there is harmony. So, 'a' can attack.",
+      "Step 2: After the attack, 'a' is in pain. So, 'a' can succumb.",
+      "Step 3: After succumbing, 'a' is a province again, and there is harmony. Also, 'a' craves 'c'. So, 'a' can feast on 'c'.",
+      "Step 4: After the feast, 'a' is in pain and 'c' is a province. So, 'c' can overcome 'a'.",
+      "Step 5: After overcoming, 'c' is a province and there is harmony. Also, 'c' craves 'b'. So, 'c' can feast on 'b'.",
+      "Step 6: After the feast, 'c' is in pain and 'b' is a province. So, 'b' can overcome 'c'."
+    ],
+    "rationale": [
+      "The 'attack' action causes 'a' to be in pain and disrupts harmony.",
+      "The 'succumb' action restores harmony and makes 'a' a province again.",
+      "The 'feast' action causes 'a' to be in pain again and makes 'c' a province.",
+      "The 'overcome' action makes 'c' a province and creates a craving from 'c' to 'a'.",
+      "The second 'feast' action causes 'c' to be in pain again and makes 'b' a province.",
+      "The second 'overcome' action makes 'b' a province and creates a craving from 'b' to 'c', achieving the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "a"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 47.83887600898743
+}

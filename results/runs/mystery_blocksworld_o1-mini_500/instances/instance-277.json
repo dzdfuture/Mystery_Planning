@@ -1,0 +1,70 @@
+{
+  "problem_id": "instance-277",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183851.3375256,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00043582916259765625,
+  "language_planning_time": 33.80262327194214,
+  "natural_language_plan": "No valid sequence of actions within 3-6 steps can achieve the desired goal using the allowed actions and objects. The required 'craves' predicates cannot be established due to unmet preconditions and cyclic effects.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempted to use 'feast' to manipulate the 'craves' relationships.",
+      "Step 2: Tried to regain 'harmony' using 'succumb'.",
+      "Step 3: Attempted to use 'overcome' to create necessary 'craves' predicates.",
+      "Encountered cyclic dependencies preventing the achievement of the goal."
+    ],
+    "rationale": [
+      "No valid sequence of actions within 3-6 steps can achieve the desired goal using the allowed actions and objects.",
+      "The required 'craves' predicates cannot be established due to unmet preconditions and cyclic effects."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 45.72319197654724
+}

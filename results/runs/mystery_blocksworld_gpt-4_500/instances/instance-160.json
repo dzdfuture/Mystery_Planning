@@ -1,0 +1,215 @@
+{
+  "problem_id": "instance-160",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090300.3836935,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002932548522949219,
+  "language_planning_time": 18.735974550247192,
+  "natural_language_plan": "The 'feast' action is used to satisfy the 'craves' precondition and to put 'a' in a state of 'pain'. The 'overcome' action is used to remove the 'pain' state from 'a' and to make 'a' 'crave' 'b'. This process is repeated three times to satisfy the plan length requirement of 3-6 steps.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: 'feast' action is used to satisfy the precondition of 'craves' between 'a' and 'b'. This action also satisfies the 'harmony' and 'province' preconditions for 'a'. The effect of this action is that 'a' is in 'pain', 'b' becomes a 'province', and 'a' no longer 'craves' 'b'.",
+      "Step 2: 'overcome' action is used to satisfy the precondition of 'pain' for 'a' and 'province' for 'b'. The effect of this action is that 'a' becomes a 'province', 'a' now 'craves' 'b', 'b' is no longer a 'province', and 'a' is no longer in 'pain'.",
+      "Step 3: 'feast' action is used to satisfy the precondition of 'craves' between 'a' and 'b'. This action also satisfies the 'harmony' and 'province' preconditions for 'a'. The effect of this action is that 'a' is in 'pain', 'b' becomes a 'province', and 'a' no longer 'craves' 'b'.",
+      "Step 4: 'overcome' action is used to satisfy the precondition of 'pain' for 'a' and 'province' for 'b'. The effect of this action is that 'a' becomes a 'province', 'a' now 'craves' 'b', 'b' is no longer a 'province', and 'a' is no longer in 'pain'.",
+      "Step 5: 'feast' action is used to satisfy the precondition of 'craves' between 'a' and 'b'. This action also satisfies the 'harmony' and 'province' preconditions for 'a'. The effect of this action is that 'a' is in 'pain', 'b' becomes a 'province', and 'a' no longer 'craves' 'b'.",
+      "Step 6: 'overcome' action is used to satisfy the precondition of 'pain' for 'a' and 'province' for 'b'. The effect of this action is that 'a' becomes a 'province', 'a' now 'craves' 'b', 'b' is no longer a 'province', and 'a' is no longer in 'pain'."
+    ],
+    "rationale": [
+      "The 'feast' action is used to satisfy the 'craves' precondition and to put 'a' in a state of 'pain'.",
+      "The 'overcome' action is used to remove the 'pain' state from 'a' and to make 'a' 'crave' 'b'.",
+      "This process is repeated three times to satisfy the plan length requirement of 3-6 steps."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('a',))",
+        "length": 8
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 41.65706419944763
+}

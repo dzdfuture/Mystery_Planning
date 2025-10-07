@@ -1,0 +1,94 @@
+{
+  "problem_id": "instance-207",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183355.8278553,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00023508071899414062,
+  "language_planning_time": 35.441970109939575,
+  "natural_language_plan": "The required actions to achieve the goal predicates have unmet preconditions based on the initial state. There is a cyclic dependency preventing the establishment of the desired 'craves' relationships. No sequence of allowed actions can fully satisfy all the goal conditions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Analyzing the initial state, only 'province d' and 'planet a' are available.",
+      "Step 2: Attempting to perform 'feast d c' is possible, which modifies the state by removing 'craves d c' and introducing 'pain d' and 'province c'.",
+      "Step 3: Attempting to perform 'overcome d c' after step 2 restores 'craves d c' and 'province d', but does not progress towards the goal.",
+      "Step 4: Further actions lead to cyclic states without achieving the desired 'craves' relationships.",
+      "Conclusion: It is impossible to satisfy all goal predicates with the given actions and initial state."
+    ],
+    "rationale": [
+      "The required actions to achieve the goal predicates have unmet preconditions based on the initial state.",
+      "There is a cyclic dependency preventing the establishment of the desired 'craves' relationships.",
+      "No sequence of allowed actions can fully satisfy all the goal conditions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',)); missing precondition: ('pain', ('c',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 42.71368861198425
+}

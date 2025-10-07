@@ -1,0 +1,156 @@
+{
+  "problem_id": "instance-196",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183275.36325,
+  "success": false,
+  "concept_modeling_time": 2.384185791015625e-06,
+  "pddl_parsing_time": 0.0006735324859619141,
+  "language_planning_time": 36.30220556259155,
+  "natural_language_plan": "Feasting on 'b' and 'd' resolves initial cravings and introduces 'pain' on 'b'. Succumbing 'b' restores harmony and re-establishes control over 'b'. Attacking 'a' creates 'pain' and removes its province and planet, setting up for overcoming. Overcoming 'a' with 'd' establishes the required craves relationship from 'a' to 'd'. Attacking 'b' again introduces 'pain' and removes its province and planet, enabling further actions. Overcoming 'b' with 'a' establishes the required craves relationship from 'c' to 'a'.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Use 'feast' on objects 'b' and 'd' to address the initial craves and introduce 'pain' on 'b'.",
+      "Step 2: Use 'succumb' on object 'b' to restore harmony and regain control over 'b'.",
+      "Step 3: Use 'attack' on object 'a' to create 'pain' and remove its province and planet.",
+      "Step 4: Use 'overcome' with objects 'a' and 'd' to establish a new craves relationship from 'a' to 'd'.",
+      "Step 5: Use 'attack' on object 'b' to create 'pain' and disrupt its province and planet.",
+      "Step 6: Use 'overcome' with objects 'b' and 'a' to establish a new craves relationship from 'b' to 'a'."
+    ],
+    "rationale": [
+      "Feasting on 'b' and 'd' resolves initial cravings and introduces 'pain' on 'b'.",
+      "Succumbing 'b' restores harmony and re-establishes control over 'b'.",
+      "Attacking 'a' creates 'pain' and removes its province and planet, setting up for overcoming.",
+      "Overcoming 'a' with 'd' establishes the required craves relationship from 'a' to 'd'.",
+      "Attacking 'b' again introduces 'pain' and removes its province and planet, enabling further actions.",
+      "Overcoming 'b' with 'a' establishes the required craves relationship from 'c' to 'a'."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 66.60726594924927
+}

@@ -1,0 +1,68 @@
+{
+  "problem_id": "instance-113",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758182707.7994332,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002353191375732422,
+  "language_planning_time": 20.615087509155273,
+  "natural_language_plan": "The required goal predicate 'craves c b' cannot be achieved with the available actions and objects given the initial state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial state and identified the missing goal predicate (craves c b).",
+      "Explored possible actions to create 'craves c b' using the available actions and objects.",
+      "Determined that no valid sequence of allowed actions can satisfy the preconditions required to achieve 'craves c b'."
+    ],
+    "rationale": [
+      "The required goal predicate 'craves c b' cannot be achieved with the available actions and objects given the initial state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 69.16406273841858
+}

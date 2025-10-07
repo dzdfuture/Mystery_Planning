@@ -1,0 +1,69 @@
+{
+  "problem_id": "instance-243",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183605.3373544,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.0002357959747314453,
+  "language_planning_time": 34.00046443939209,
+  "natural_language_plan": "The actions needed to establish 'craves c b' and 'craves d a' require preconditions that are unattainable given the initial state. Attempts to create the necessary conditions result in cyclic states or unmet prerequisites, making the goal unachievable within the constraints.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Analyzed the initial state and identified the required goal predicates.",
+      "Evaluated the available actions and their preconditions to achieve the goal.",
+      "Determined that the necessary preconditions for adding 'craves c b' and 'craves d a' cannot be satisfied with the given actions and objects."
+    ],
+    "rationale": [
+      "The actions needed to establish 'craves c b' and 'craves d a' require preconditions that are unattainable given the initial state.",
+      "Attempts to create the necessary conditions result in cyclic states or unmet prerequisites, making the goal unachievable within the constraints."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 74.11760210990906
+}

@@ -1,0 +1,151 @@
+{
+  "problem_id": "instance-105",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758178864.7586973,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0003104209899902344,
+  "language_planning_time": 7.1984381675720215,
+  "natural_language_plan": "The plan starts by creating pain in c to enable the 'overcome' action. The 'overcome' action with c and b makes c crave b and restores harmony. The 'feast' action on b and a makes b crave d, disrupting harmony. The final 'overcome' action with b and d makes b crave d and restores harmony, achieving the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: The initial state has harmony and provinces b and c. We need to create pain in one of the provinces to enable further actions.",
+      "Step 2: Use the 'attack' action on province c, which is also a planet, to create pain in c and disrupt harmony.",
+      "Step 3: Now that c is in pain, use the 'overcome' action with c and b. This will make c crave b and restore harmony.",
+      "Step 4: With harmony restored and c craving b, use the 'feast' action on b and a, which will make b crave d and disrupt harmony again.",
+      "Step 5: Finally, use the 'overcome' action with b and d to make b crave d and restore harmony, achieving the goal state."
+    ],
+    "rationale": [
+      "The plan starts by creating pain in c to enable the 'overcome' action.",
+      "The 'overcome' action with c and b makes c crave b and restores harmony.",
+      "The 'feast' action on b and a makes b crave d, disrupting harmony.",
+      "The final 'overcome' action with b and d makes b crave d and restores harmony, achieving the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "d"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "c",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'overcome': missing precondition: ('province', ('b',)); missing precondition: ('pain', ('c',))",
+        "length": 3
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "d"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 3: preconditions not satisfied for 'feast': missing precondition: ('province', ('b',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 20.701525926589966
+}

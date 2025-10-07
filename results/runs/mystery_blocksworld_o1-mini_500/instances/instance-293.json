@@ -1,0 +1,128 @@
+{
+  "problem_id": "instance-293",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183967.58654,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.007539033889770508,
+  "language_planning_time": 31.552627325057983,
+  "natural_language_plan": "The goal predicates require modifying 'craves c a' to 'craves c d' and 'craves d c' to 'craves d b'. Available actions either cannot achieve the required changes or lead to cyclical states without progress. Necessary preconditions for actions that could modify 'craves' (such as having 'pain' or specific 'province' assignments) cannot be satisfied with the given objects and actions.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attempted to use 'feast' to manipulate craves, but preconditions were not fully met.",
+      "Step 2: Tried to restore harmony using 'succumb', but could not progress towards the goal.",
+      "Step 3: Found that necessary preconditions for modifying 'craves' could not be satisfied with available actions and objects."
+    ],
+    "rationale": [
+      "The goal predicates require modifying 'craves c a' to 'craves c d' and 'craves d c' to 'craves d b'.",
+      "Available actions either cannot achieve the required changes or lead to cyclical states without progress.",
+      "Necessary preconditions for actions that could modify 'craves' (such as having 'pain' or specific 'province' assignments) cannot be satisfied with the given objects and actions."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "c",
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "pddl_plan_search": [
+    "feast(b,d)",
+    "succumb(b)",
+    "feast(d,c)",
+    "overcome(d,b)",
+    "feast(c,a)",
+    "overcome(c,d)"
+  ],
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmpg8l2m9ff.plan\nPlan to validate:\n\nPlan size: 6\n1:\n(feast b d)\n \n2:\n(succumb b)\n \n3:\n(feast d c)\n \n4:\n(overcome d b)\n \n5:\n(feast c a)\n \n6:\n(overcome c d)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (craves b d)\nDeleting (province b)\nDeleting (harmony)\nAdding (pain b)\nAdding (province d)\n\nChecking next happening (time 2)\nDeleting (pain b)\nAdding (province b)\nAdding (harmony)\nAdding (planet b)\n\nChecking next happening (time 3)\nDeleting (craves d c)\nDeleting (province d)\nDeleting (harmony)\nAdding (pain d)\nAdding (province c)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\n\nChecking next happening (time 5)\nDeleting (craves c a)\nDeleting (province c)\nDeleting (harmony)\nAdding (pain c)\nAdding (province a)\n\nChecking next happening (time 6)\nDeleting (province d)\nDeleting (pain c)\nAdding (harmony)\nAdding (province c)\nAdding (craves c d)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 6 \n\nSuccessful plans:\nValue: 6\n /tmp/tmpg8l2m9ff.plan 6 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "total_execution_time": 64.55506491661072
+}

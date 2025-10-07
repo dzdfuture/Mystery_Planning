@@ -1,0 +1,112 @@
+{
+  "problem_id": "instance-359",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758184449.0362716,
+  "success": false,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.0002193450927734375,
+  "language_planning_time": 51.2006254196167,
+  "natural_language_plan": "- Attacking 'a' creates a state where 'a' is in pain and harmony is disrupted. - Overcoming 'a' with 'c' establishes that 'a' craves 'c' and restores harmony. - Feasting 'a' with 'c' transitions the state by removing the 'craves a c' relationship and managing the provinces accordingly.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack object 'a'. Preconditions met: 'a' is a province, 'a' is a planet, and 'harmony' is present. Effects: 'a' gains pain, 'a' is no longer a province or planet, and 'harmony' is removed.",
+      "Step 2: Overcome object 'a' with 'c'. Preconditions met: 'c' is a province and 'a' is in pain. Effects: 'harmony' is restored, 'a' becomes a province again, 'a' craves 'c', and 'c' is no longer a province.",
+      "Step 3: Feast object 'a' with 'c'. Preconditions met: 'a' craves 'c', 'a' is a province, and 'harmony' is present. Effects: 'a' gains pain, 'c' becomes a province, 'a' no longer craves 'c', 'a' is no longer a province, and 'harmony' is removed."
+    ],
+    "rationale": [
+      "- Attacking 'a' creates a state where 'a' is in pain and harmony is disrupted.",
+      "- Overcoming 'a' with 'c' establishes that 'a' craves 'c' and restores harmony.",
+      "- Feasting 'a' with 'c' transitions the state by removing the 'craves a c' relationship and managing the provinces accordingly."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "a",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 0
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 3
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 79.0366702079773
+}

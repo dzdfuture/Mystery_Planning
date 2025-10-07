@@ -1,0 +1,167 @@
+{
+  "problem_id": "instance-161",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183048.37898,
+  "success": true,
+  "concept_modeling_time": 1.6689300537109375e-06,
+  "pddl_parsing_time": 0.00030612945556640625,
+  "language_planning_time": 17.65655016899109,
+  "natural_language_plan": "Attacking 'd' initiates pain and removes its province and planet status while disrupting harmony. Succumbing 'd' restores its province and planet status and brings back harmony without pain. Reattacking 'd' again induces pain and removes its provincial and planetary status, setting up the conditions needed for the final action. Overcoming 'd' with 'b' fulfills the goal by adding the required 'craves d b' predicate while ensuring all preconditions are met.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'attack' on object 'd'. Preconditions: 'd' is a province and a planet, and 'harmony' holds. Effects: 'd' succumbs to pain, 'd' is no longer a province or a planet, and 'harmony' is lost.",
+      "Step 2: Perform 'succumb' on object 'd'. Preconditions: 'd' is in pain. Effects: 'd' regains its province and planet status, and 'harmony' is restored. 'd' is no longer in pain.",
+      "Step 3: Perform 'attack' on object 'd' again. Preconditions: 'd' is a province and a planet, and 'harmony' holds. Effects: 'd' succumbs to pain once more, 'd' is no longer a province or a planet, and 'harmony' is lost again.",
+      "Step 4: Perform 'overcome' with objects 'd' and 'b'. Preconditions: 'b' is a province and 'd' is in pain. Effects: 'harmony' is restored, 'd' retains its province status, 'd' now craves 'b', 'b' is no longer a province, and 'd' is no longer in pain."
+    ],
+    "rationale": [
+      "Attacking 'd' initiates pain and removes its province and planet status while disrupting harmony.",
+      "Succumbing 'd' restores its province and planet status and brings back harmony without pain.",
+      "Reattacking 'd' again induces pain and removes its provincial and planetary status, setting up the conditions needed for the final action.",
+      "Overcoming 'd' with 'b' fulfills the goal by adding the required 'craves d b' predicate while ensuring all preconditions are met."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "d"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "b"
+      ]
+    }
+  ],
+  "pddl_translation_time": 5.054473876953125e-05,
+  "pddl_plan": [
+    "attack(d)",
+    "succumb(d)",
+    "attack(d)",
+    "overcome(d,b)"
+  ],
+  "validation_time": 0.006212949752807617,
+  "val_results": {
+    "success": true,
+    "return_code": 0,
+    "stdout": "Checking plan: /tmp/tmp5zauctpj.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack d)\n \n2:\n(succumb d)\n \n3:\n(attack d)\n \n4:\n(overcome d b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp5zauctpj.plan 4 \n\n",
+    "stderr": "",
+    "execution_time": null,
+    "status": "Plan validated successfully"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 2
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": true,
+        "report": "goal satisfied after executing plan",
+        "length": 4
+      },
+      "pddl_plan": [
+        "attack(d)",
+        "succumb(d)",
+        "attack(d)",
+        "overcome(d,b)"
+      ],
+      "val_results": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "Checking plan: /tmp/tmp5zauctpj.plan\nPlan to validate:\n\nPlan size: 4\n1:\n(attack d)\n \n2:\n(succumb d)\n \n3:\n(attack d)\n \n4:\n(overcome d b)\n \n\nPlan Validation details\n-----------------------\n\nChecking next happening (time 1)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 2)\nDeleting (pain d)\nAdding (province d)\nAdding (harmony)\nAdding (planet d)\n\nChecking next happening (time 3)\nDeleting (province d)\nDeleting (planet d)\nDeleting (harmony)\nAdding (pain d)\n\nChecking next happening (time 4)\nDeleting (province b)\nDeleting (pain d)\nAdding (harmony)\nAdding (province d)\nAdding (craves d b)\nPlan executed successfully - checking goal\nPlan valid\nFinal value: 4 \n\nSuccessful plans:\nValue: 4\n /tmp/tmp5zauctpj.plan 4 \n\n",
+        "stderr": "",
+        "execution_time": null,
+        "status": "Plan validated successfully"
+      }
+    }
+  ],
+  "total_execution_time": 36.89138913154602
+}

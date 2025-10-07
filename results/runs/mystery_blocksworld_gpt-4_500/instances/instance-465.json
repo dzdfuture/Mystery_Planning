@@ -1,0 +1,194 @@
+{
+  "problem_id": "instance-465",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758090701.9371517,
+  "success": false,
+  "concept_modeling_time": 9.5367431640625e-07,
+  "pddl_parsing_time": 0.00043320655822753906,
+  "language_planning_time": 9.581433057785034,
+  "natural_language_plan": "The 'attack' action is used to create pain in an object and disrupt harmony, which are preconditions for the 'overcome' action. The 'overcome' action is used to create cravings between objects and restore harmony, which are necessary to achieve the goal state. The sequence of actions is designed to create the specific cravings specified in the goal state.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Attack 'b' to create pain in 'b' and disrupt harmony.",
+      "Step 2: Overcome 'b' with 'a' to create a craving in 'a' for 'c' and restore harmony.",
+      "Step 3: Attack 'c' to create pain in 'c' and disrupt harmony.",
+      "Step 4: Overcome 'c' with 'd' to create a craving in 'd' for 'b' and restore harmony.",
+      "Step 5: Attack 'e' to create pain in 'e' and disrupt harmony.",
+      "Step 6: Overcome 'e' with 'c' to create a craving in 'c' for 'e' and restore harmony."
+    ],
+    "rationale": [
+      "The 'attack' action is used to create pain in an object and disrupt harmony, which are preconditions for the 'overcome' action.",
+      "The 'overcome' action is used to create cravings between objects and restore harmony, which are necessary to achieve the goal state.",
+      "The sequence of actions is designed to create the specific cravings specified in the goal state."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "attack",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "e"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "e",
+        "c"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "e"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "b"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('province', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "attack",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "e"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "e",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 1: preconditions not satisfied for 'attack': missing precondition: ('planet', ('b',))",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 22.919708251953125
+}

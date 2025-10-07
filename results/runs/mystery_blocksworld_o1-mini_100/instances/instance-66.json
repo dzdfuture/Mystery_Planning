@@ -1,0 +1,170 @@
+{
+  "problem_id": "instance-66",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758258590.6526842,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.00026488304138183594,
+  "language_planning_time": 6.551940441131592,
+  "natural_language_plan": "Begin by unstacking 'a' from 'b' to free 'a' and make 'b' clear. Stack 'a' onto 'c' to achieve 'on(a, c)', one of the goal conditions. Unstack 'b' from 'c' to prepare placing 'b' onto 'a'. Finally, stack 'b' onto 'a' to satisfy 'on(b, a)', completing the goal.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: unstack a b\n- Preconditions: on(a, b), clear(a), handempty\n- Effects: holding(a), clear(b), not on(a, b), not clear(a), not handempty",
+      "Step 2: stack a c\n- Preconditions: clear(c), holding(a)\n- Effects: on(a, c), clear(a), not holding(a), not clear(c), handempty",
+      "Step 3: unstack b c\n- Preconditions: on(b, c), clear(b), handempty\n- Effects: holding(b), clear(c), not on(b, c), not clear(b), not handempty",
+      "Step 4: stack b a\n- Preconditions: clear(a), holding(b)\n- Effects: on(b, a), clear(b), not holding(b), not clear(a), handempty"
+    ],
+    "rationale": [
+      "Begin by unstacking 'a' from 'b' to free 'a' and make 'b' clear.",
+      "Stack 'a' onto 'c' to achieve 'on(a, c)', one of the goal conditions.",
+      "Unstack 'b' from 'c' to prepare placing 'b' onto 'a'.",
+      "Finally, stack 'b' onto 'a' to satisfy 'on(b, a)', completing the goal."
+    ],
+    "allowed_actions": [
+      {
+        "name": "pick-up",
+        "arity": 1
+      },
+      {
+        "name": "put-down",
+        "arity": 1
+      },
+      {
+        "name": "stack",
+        "arity": 2
+      },
+      {
+        "name": "unstack",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "unstack",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "name": "unstack",
+      "args": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "stack",
+      "args": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "put-down",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "pick-up",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 5: preconditions not satisfied for 'pick-up': missing precondition: ('clear', ('a',))",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "unstack",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "a",
+            "c"
+          ]
+        },
+        {
+          "name": "unstack",
+          "args": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "stack",
+          "args": [
+            "b",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "step 2: preconditions not satisfied for 'stack': missing precondition: ('clear', ('c',))",
+        "length": 4
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 42.78380250930786
+}

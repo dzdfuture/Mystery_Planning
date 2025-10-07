@@ -1,0 +1,199 @@
+{
+  "problem_id": "instance-190",
+  "domain": "blocksworld",
+  "experiment_type": "mystery",
+  "timestamp": 1758183236.4592102,
+  "success": false,
+  "concept_modeling_time": 1.1920928955078125e-06,
+  "pddl_parsing_time": 0.0002913475036621094,
+  "language_planning_time": 38.81201696395874,
+  "natural_language_plan": "Feasting on 'b' and 'a' induces pain on 'b' and alters the 'craves' relationship. 'b' succumbs to restore harmony, regaining its province and planet status. Attacking 'a' inflicts pain, setting the stage for establishing new 'craves' relationships. Overcoming 'a' over 'b' creates the desired 'craves a b' relationship and restores harmony. Feasting on 'd' and 'c' removes the existing 'craves d c' and induces pain on 'd'. Overcoming 'd' over 'a' establishes the desired 'craves d a' relationship and restores harmony.",
+  "planning_metadata": {
+    "reasoning_steps": [
+      "Step 1: Perform 'feast' on 'b' and 'a' to induce pain on 'b' and modify craves relationships.",
+      "Step 2: 'b' succumbs to restore harmony and regain province and planet status.",
+      "Step 3: Attack 'a' to inflict pain, enabling the creation of new craves relationships.",
+      "Step 4: Overcome 'a' over 'b' to establish 'craves a b' and restore harmony.",
+      "Step 5: Perform 'feast' on 'd' and 'c' to remove existing 'craves d c' and induce pain on 'd'.",
+      "Step 6: Overcome 'd' over 'a' to establish 'craves d a' and restore harmony."
+    ],
+    "rationale": [
+      "Feasting on 'b' and 'a' induces pain on 'b' and alters the 'craves' relationship.",
+      "'b' succumbs to restore harmony, regaining its province and planet status.",
+      "Attacking 'a' inflicts pain, setting the stage for establishing new 'craves' relationships.",
+      "Overcoming 'a' over 'b' creates the desired 'craves a b' relationship and restores harmony.",
+      "Feasting on 'd' and 'c' removes the existing 'craves d c' and induces pain on 'd'.",
+      "Overcoming 'd' over 'a' establishes the desired 'craves d a' relationship and restores harmony."
+    ],
+    "allowed_actions": [
+      {
+        "name": "attack",
+        "arity": 1
+      },
+      {
+        "name": "succumb",
+        "arity": 1
+      },
+      {
+        "name": "overcome",
+        "arity": 2
+      },
+      {
+        "name": "feast",
+        "arity": 2
+      }
+    ],
+    "allowed_objects": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "structured_plan": [
+    {
+      "name": "feast",
+      "args": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "succumb",
+      "args": [
+        "b"
+      ]
+    },
+    {
+      "name": "attack",
+      "args": [
+        "a"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "feast",
+      "args": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "name": "overcome",
+      "args": [
+        "d",
+        "a"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    },
+    {
+      "attempt": 2,
+      "structured_plan": [
+        {
+          "name": "feast",
+          "args": [
+            "b",
+            "a"
+          ]
+        },
+        {
+          "name": "succumb",
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "name": "attack",
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "feast",
+          "args": [
+            "d",
+            "c"
+          ]
+        },
+        {
+          "name": "overcome",
+          "args": [
+            "d",
+            "a"
+          ]
+        }
+      ],
+      "simulation": {
+        "ok": false,
+        "report": "plan finished but goal not satisfied",
+        "length": 6
+      }
+    }
+  ],
+  "search_plan": [],
+  "total_execution_time": 88.86696100234985
+}
