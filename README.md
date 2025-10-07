@@ -1,6 +1,6 @@
 # Mystery Planning
 
-An LLM-based abstract reasoning validation system for evaluating large language models on PDDL planning tasks. The system implements a complete planning pipeline including problem understanding, plan generation, validation, and analysis, specifically designed for mysterious blocksworld domains.
+A symbol-agnostic closed-loop planning pipeline for evaluating large language models' structural reasoning capabilities under lexical-prior-free conditions. The system implements a complete "generate→verify→repair" cycle for PDDL planning tasks in Mystery domains, where all predicates and action names are replaced with semantically irrelevant random symbols while preserving logical structures. This design eliminates vocabulary-based priors, enabling pure evaluation of models' structural reasoning abilities.
 
 ## Data Sources
 
@@ -14,20 +14,6 @@ Other folders contain our implementations:
 - `src/`: Core implementation code
 - `results/`: Experimental results and analyses
 - `agent_workspace/`: Agent workspace
-
-## Project Structure
-
-### Core Modules (`src/`)
-
-- **main.py**: Main entry point for running experiments, implementing single problem solving and batch experiments
-- **concept_modeler.py**: Concept modeling module that builds domain knowledge models from PDDL domain files
-- **language_planner.py**: Language planner that uses LLMs to generate natural language planning descriptions
-- **semantics_comprehender.py**: Semantics comprehension module for domain-specific understanding
-- **pddl_translator.py**: PDDL translator that converts structured plans to executable PDDL action sequences
-- **val_interface.py**: VAL validator interface for formal plan validation
-- **pddl_parser.py**: PDDL parser for parsing domain and problem files
-- **strips_search.py**: STRIPS search implementation providing search baseline
-- **strips_sim.py**: STRIPS simulator for symbolic-level state simulation
 
 ## Installation
 
