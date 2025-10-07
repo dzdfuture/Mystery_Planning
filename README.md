@@ -4,7 +4,7 @@ An LLM-based abstract reasoning validation system for evaluating large language 
 
 ## Data Sources
 
-The content in the `data/` folder is sourced from the [PlanBench paper](https://arxiv.org/abs/2210.07128), including:
+The content in the `data/` folder is sourced from the [PlanBench paper](https://neurips.cc/virtual/2023/poster/73553), including:
 - LLM planning analysis tools (`llm_planning_analysis`)
 - PDDL generators and executors
 - Instance data for multiple planning domains
@@ -95,10 +95,6 @@ python src/main.py --domain mystery_blocksworld --mode batch --workers 4
 - `--skip_edges`: Skip edge instances
 - `--resume_dir`: Resume previous experiments
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues and pull requests.
-
 ## License
 
-This project uses the appropriate license. Please refer to the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
