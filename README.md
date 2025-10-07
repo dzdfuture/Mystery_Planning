@@ -19,13 +19,6 @@ Other folders contain our implementations:
 
 ### System Dependencies
 
-This project requires the following system tools:
-
-- **g++ / GCC**: For compiling C++ code
-- **make**: Build tool
-- **flex**: Lexical analyzer generator
-- **bison**: Parser generator
-
 Install on Ubuntu/Debian:
 ```bash
 sudo apt-get update
