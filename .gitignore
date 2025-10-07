@@ -123,7 +123,6 @@ dmypy.json
 Thumbs.db
 
 # Project specific
-results/runs/
 results/tmp_*
 agent_workspace/*.json
 
